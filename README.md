@@ -2,11 +2,12 @@
 Student Materials for CS401
 
 ## html_css
-HTML and CSS examples
+* HTML and CSS examples
 
 ## php
-PHP and examples
+* PHP basics
+* PHP objects
 
 ## MySQL
-MySQL examples
-Accessing data with PHP examples
+* MySQL examples
+* Accessing data with PHP examples
