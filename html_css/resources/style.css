@@ -1,0 +1,56 @@
+body {
+	/* background-image: url("../images/wood.jpg"); */
+}
+
+h1, h2, h3, h4, h5 {
+	color: #984376;
+	text-align: right;
+}
+
+h2 {
+	color: initial;
+	font-style: italic;
+}
+
+/* This is a comment */
+p {
+	background-color: white;
+	color: #9999FF;
+	font-family: "Wingdings", "Arial", sans-serif;
+	font-size: 18px;
+	text-indent: 20px;
+	text-decoration: overline underline;
+}
+
+p:hover {
+	background-color: green;
+}
+
+strong {
+	color: green;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: green;
+}
+
+a:visited {
+	color: blue;
+}
+
+ol {
+	list-style-type: lower-greek;
+}
+
+table, td, th {
+	border: 2px solid black;
+}
+
+table {
+	border-collapse: collapse;
+}
+
