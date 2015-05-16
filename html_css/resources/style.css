@@ -1,25 +1,25 @@
 body {
   /* background-image: url("../images/wood.jpg"); */
+  background-color: #FFFFF5; /* almost white */
+  color: #003749; /* dark blue */
 }
 
 h1, h2, h3, h4, h5 {
-  color: #984376;
-  text-align: right;
+  color: #984376; /* maroon-ish */
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 h2 {
-  color: initial;
+  color: #A25684; /* slightly lighter maroon-ish */
+}
+
+h3 {
+  color: initial; /* resets to black */
   font-style: italic;
 }
 
-/* This is a comment */
 p {
-  background-color: white;
-  color: #9999FF;
-  font-family: "Wingdings", "Arial", sans-serif;
   font-size: 18px;
-  text-indent: 20px;
-  text-decoration: overline underline;
 }
 
 p:hover {
@@ -27,7 +27,12 @@ p:hover {
 }
 
 strong {
-  color: green;
+  color: #009933; /* green */
+  font-family: "Arial", sans-serif;
+}
+
+em {
+  color: #003399; /* bluish */
 }
 
 a {
@@ -46,11 +51,28 @@ ol {
   list-style-type: lower-greek;
 }
 
+ol > li > ul > li {
+	background-color: grey;
+}
+
 table, td, th {
   border: 2px solid black;
 }
 
 table {
   border-collapse: collapse;
+}
+
+
+.important {
+	color: red;
+}
+
+.loud {
+	text-transform: uppercase;
+}
+
+#header {
+	text-transform: uppercase;
 }
 

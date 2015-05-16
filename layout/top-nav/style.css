@@ -1,0 +1,93 @@
+body {
+	margin: 0;
+	background-color: black;
+}
+
+div {
+}
+
+#header {
+	background-color: red;
+	height: 100px;
+	/* display: none; */
+	/* visibility: hidden; */
+	overflow: hidden;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.logo {
+	float: left;
+}
+
+div.logo > img {
+	height: 100px;
+}
+
+.header-text {
+	font-size: 18pt;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+	/* float: right; */
+	padding-right: 100;
+	margin-left: -50px;
+}
+
+#nav-bar{
+	background-color: green;
+	height: 40px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+
+div#nav-bar > ul > li{
+	display: inline;
+	padding: 10px;
+	background-color: white;
+}
+
+.content {
+	background-color: white;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+
+.article {
+	background-color: grey;
+	width: 45%;
+	float: left;
+	padding: 5px;
+}
+
+.annoying-popup {
+	position: fixed;
+	top: 100px;
+	left: 20px;
+	background: pink;
+	width: 200px;
+	height: 200px;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+
+#footer {
+	background-color: black;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	text-align: center;
+}
+
+div.red > span {
+	background-color: white;
+	padding: 10px;
+	line-height: 100px;
+}

@@ -1,0 +1,101 @@
+body {
+	margin: 0;
+	background-color: black;
+}
+
+div {
+	overflow: hidden;
+}
+
+header {
+	background-color: white;
+	height: 100px;
+	width: 100%;
+	color: black;
+	position:fixed;
+}
+
+nav {
+	background-color: #FF00FF;
+	padding-right: 5%;
+	padding-left: 5%;
+	height: 50px;
+	width: 90%;
+	top: 100px;
+	position: fixed;
+}
+
+nav > ul {
+	float: right;
+}
+
+nav > ul > li {
+	display: inline;
+	padding: 10px;
+}
+
+.logo {
+	width: 100px;
+	float: left;
+}
+
+.name {
+	float: right;
+	padding-right: 10px;
+}
+
+.name > h1, .name > h2, .name > h3 {
+	text-align: right;
+	margin: 3px;
+}
+/* .side-nav { */
+/* 	width: 20%; */
+/* 	float: left; */
+/* 	background-color: green; */
+/* } */
+
+.content {
+	background-color: #00FF00;
+	width: 90%;
+	padding-top: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.item-1 {
+	background-color: red;
+}
+
+.item-2 {
+	background-color: orange;
+}
+
+.item-list li {
+	color: white;
+}
+
+.number-list li {
+	background-color: blue;
+}
+
+.number-list > li {
+	background-color: white;
+}
+
+article {
+	width: 60%;
+	float: left;
+	padding: 50px;
+}
+
+aside {
+	width: 20%;
+	float: left;
+	padding: 50px;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	text-align: center;
+}
