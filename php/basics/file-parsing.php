@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>HTML table example</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
   </head>
   <body>
   <?php $data = file("data.txt"); ?>
