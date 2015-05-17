@@ -1,3 +1,4 @@
+Name|Age|Flavor
 conrad|32|rocky road
 marissa|28|cookie dough
 robby|29|chocolate fudge
