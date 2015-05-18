@@ -1,20 +1,14 @@
 # Basic PHP Examples
 Look at the examples in the book as well.
 
-* info.php
-  - Displays php configuration info table.
+* <tt>info.php</tt>: Displays php configuration info table.
 
-* syntax.php
-  - Just some basics.
+* <tt>syntax.php</tt>: Just some basics.
 
-* arrays.php
-  - Some common array functions.
+* <tt>arrays.php</tt>: Some common array functions.
 
-* file-parsing.php (and data.txt)
-  - Basic file parsing technique.
+* <tt>file-parsing.php</tt> (and <tt>data.txt</tt>): Basic file parsing technique.
 
-* functions.php
-  - How to write basic functions.
+* <tt>functions.php</tt>: How to write basic functions.
 
-* movies.php, movie-table.php, movies.txt
-  - Brings concepts together and uses PHP include/require to modularize code.
+* <tt>movies.php</tt>, <tt>movie-table.php</tt>, <tt>movies.txt</tt>: Brings concepts together and uses PHP include/require to modularize code.
