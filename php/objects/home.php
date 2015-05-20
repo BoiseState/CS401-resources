@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL | E_STRICT); require_once('MovieFileDAO.php'); ?>
+<?php require_once('MovieFileDAO.php'); ?>
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">

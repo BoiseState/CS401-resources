@@ -15,6 +15,10 @@ class Movie {
       $this->releaseDate = $releaseDate;
     }
 
+    public function setTitle($title) {
+      $this->title = $title;
+    }
+
     # Returns the title of this movie.
     public function getTitle() {
       return $this->title;

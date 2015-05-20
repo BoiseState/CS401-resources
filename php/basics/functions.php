@@ -11,9 +11,14 @@
    * This function accepts two parameters. If only one parameter is passed in,
    * the major will be the default value.
    */
-  function student ($name, $major = "Computer Science") {
+  function student ($name = "Name", $major = "Computer Science") {
     echo "Name: $name, Major: $major";
+    // return 0;
   }
+
+
+  student('Bob', 'EE');
+  student('Mary');
 
   /*
    * This function uses the global variable, $user. You must let the function
@@ -40,7 +45,7 @@
 <!-- Call the functions and display output. -->
 <p><?= student($user); # uses default major ?></p>
 <p><?= student("Sally the Camel", "Electrical Engineering"); ?></p>
-<!-- <p><?= student() # doesn't work! ?></p> -->
+<p><?= student() # doesn't work! ?></p>
 <p><?= student(8, 10, 12); # Still works! ?>
 
 <p><?= sayHello(); ?></p>

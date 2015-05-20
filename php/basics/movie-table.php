@@ -17,7 +17,7 @@ function printTable()
 			continue;
 		}
 		list($title, $actor, $director) = explode(", ", $movie);
-		// THIS IS UGLY. BETTER TO OPEN/CLOSE PHP TAGS
+		# THIS IS UGLY. BETTER TO OPEN/CLOSE PHP TAGS
 		echo "<tr>";
 		echo "<td>$title</td>";
 		echo "<td>$actor</td>";

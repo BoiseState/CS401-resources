@@ -11,8 +11,7 @@
 ?>
 <h1>Favorite Movies</h1>
 <?php
-  # Call function defined in movie-table.php.
-  printTable();
+  printTable(); # Call function defined in movie-table.php.
 ?>
 
 </body>
