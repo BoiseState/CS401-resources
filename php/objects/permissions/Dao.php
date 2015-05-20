@@ -21,6 +21,11 @@ class Dao {
     throw new Exception("User not found");
   }
 
+  public function addUser ($user) {
+    // serialize User object
+    $writeme = serialize($user);
+    file_put_contents($this->usersFile, $writeme . "\n", FILE_APPEND);
+  }
 } // end Dao
 
 ?>

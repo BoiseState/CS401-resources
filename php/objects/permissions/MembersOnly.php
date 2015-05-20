@@ -5,11 +5,12 @@ require_once "Dao.php";
 $dao = new Dao();
 try {
   // get the user object from the data store
-  $user = $dao->getUser("theeye@mordor.net");
+  // $user = $dao->getUser("pebbles@gmail.com");
+  $user = $dao->getUser("barney@gmail.com");
   if ($user->hasPermission(User::MEMBER)) {
-    echo "User has the permission";
+    echo "User " . $user->getName() . " has the permission";
   } else {
-    echo "User does NOT have the permission";
+    echo "User " . $user->getName() . " does NOT have the permission";
   }
 
 } catch (Exception $e) {

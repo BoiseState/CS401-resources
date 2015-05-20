@@ -15,6 +15,10 @@ class User {
     $this->permissions = $permissions;
   }
 
+  public function getName() {
+    return $this->name;
+  }
+
   public function getEmail() {
     return $this->email;
   }

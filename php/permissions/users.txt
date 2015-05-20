@@ -1,3 +1,0 @@
-O:4:"User":4:{s:10:"^@User^@name";s:6:"Conrad";s:11:"^@User^@email";s:31:"conradkennington@boisestate.edu";s:17:"^@User^@permissions";a:2:{i:0;s:6:"MEMBER";i:1;s:5:"GUEST";}s:8:"^@User^@id";N;}
-O:4:"User":4:{s:10:"^@User^@name";s:7:"Gandalf";s:11:"^@User^@email";s:23:"thegray@middleearth.edu";s:17:"^@User^@permissions";a:3:{i:0;s:6:"MEMBER";i:1;s:5:"GUEST";i:2;s:5:"ADMIN";}s:8:"^@User^@id";N;}
-O:4:"User":4:{s:10:"^@User^@name";s:6:"Sauron";s:11:"^@User^@email";s:17:"theeye@mordor.net";s:17:"^@User^@permissions";a:1:{i:0;s:5:"GUEST";}s:8:"^@User^@id";N;}
