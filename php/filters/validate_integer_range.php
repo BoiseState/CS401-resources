@@ -18,9 +18,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	if(isset($_POST['max'])) { $max = $_POST['max']; }
 	$integer = $_POST['integer'];
 	$result = "The entered integer \"$integer\" ";
-	
+
 	/* Determine if the integer is within the specified range and store the result */
-	if(!filter_var($integer, FILTER_VALIDATE_INT, array("options" => 
+	if(!filter_var($integer, FILTER_VALIDATE_INT, array("options" =>
 		array("min_range"=>$min, "max_range"=>$max))) === false)
 	{
 		$result .= "is within the specified range [$min, $max]!<br>";
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 <!-- Show the form -->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
-	Given the range with minimum <input type="text" name="min" value="<?php echo $min; ?>"> 
+	Given the range with minimum <input type="text" name="min" value="<?php echo $min; ?>">
 	and maximum <input type="text" name="max" value="<?php echo $max; ?>">,
 	enter integer to validate: <input type="text" name="integer">
 	<input type="submit">

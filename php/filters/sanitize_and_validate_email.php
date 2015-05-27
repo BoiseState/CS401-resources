@@ -13,10 +13,12 @@ $result = "";
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
 	$data = $_POST['data'];
-	$result = "The entered data \"$data\"";
+  $result = "The entered data \"$data\"";
+
+	$data = filter_var($data, FILTER_SANITIZE_STRING);
 	$data = filter_var($data, FILTER_SANITIZE_EMAIL);
 	$result .= " has been sanitized to become \"$data\", which ";
-	
+
 	/* Determine if the variable data is an IP address and output the result */
 	if(!filter_var($data, FILTER_VALIDATE_EMAIL) === false)
 	{

@@ -19,8 +19,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	if(isset($_POST['regex_pattern'])) { $regex_pattern = $_POST['regex_pattern']; }
 	$data = $_POST['data'];
 	$result = "The entered string \"$data\" ";
-	
-	/* Determine if the variable data is a (Perl-compatible) regular 
+
+	/* Determine if the variable data is a (Perl-compatible) regular
 	expression and output the result */
 	if(!filter_var($data, FILTER_VALIDATE_REGEXP, array("options" => array("regexp"=>$regex_pattern))) === false)
 	{

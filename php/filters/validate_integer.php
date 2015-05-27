@@ -1,9 +1,6 @@
-
-
 <html>
 <head>
 <title>PHP Example: Filter: Integer Validation</title>
-
 </head>
 <body>
 
@@ -17,14 +14,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 	/* Determine if the variable data is an integer and output the result */
 	/* Note: We also have to handle the special case if the data = 0 */
-	if((filter_var($data, FILTER_VALIDATE_INT) === 0) || !filter_var($data, FILTER_VALIDATE_INT) === false)
-	{
-		$result = "The data \"$data\" is a valid integer!<br>";
-	}
-	else
+	// if((filter_var($data, FILTER_VALIDATE_INT) === 0) || !filter_var($data, FILTER_VALIDATE_INT) === false)
+	// {
+	// 	$result = "The data \"$data\" is a valid integer!<br>";
+	// }
+	// else
+	// {
+	// 	$result = "The data \"$data\" is NOT a valid integer!<br>";
+  // }
+
+	if(filter_var($data, FILTER_VALIDATE_INT) === false)
 	{
 		$result = "The data \"$data\" is NOT a valid integer!<br>";
 	}
+	else
+	{
+		$result = "The data \"$data\" is a valid integer!<br>";
+  }
+
 	//echo "filter_var output: " . filter_var($data, FILTER_VALIDATE_INT) . "<br>";
 }
 
@@ -40,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 /* Print the validation results */
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-	echo "<br><br>Validation Result: $result";
+	echo "<p>Validation Result: $result</p>";
 }
 ?>
 

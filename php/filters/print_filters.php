@@ -1,13 +1,8 @@
-
-
 <html>
 <head>
 <title>PHP Example: Print Filter Info</title>
-
 </head>
 <body>
-
-
 <table>
 <tr>
 	<td>Filter Name</td>
