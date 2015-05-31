@@ -1,8 +1,8 @@
 <html>
-<head><title>PHP Example: Form Get 1 (Submit + Receive)</title></head>
+<head><title>PHP Example: Form Get (Submit + Receive)</title></head>
 <body>
 
-<form method="get" action="<?= $_SERVER['PHP_SELF']; ?>" >
+<form method="get" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
   <div>
     <p>First Name: <input type="text" name="first_name"></p>
     <p>Last Name: <input type="text" name="last_name"></p>

@@ -2,7 +2,7 @@
 <head><title>PHP Example: URL Get (Send and Receive)</title> </head>
 <body>
 
-<a href="<?= $_SERVER['PHP_SELF']; ?>?first_name=Alan&last_name=Turing&favorite_os=Slackware">
+<a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>?first_name=Alan&last_name=Turing&favorite_os=Slackware">
   Click here to test $GET
 </a>
 
