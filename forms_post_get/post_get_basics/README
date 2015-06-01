@@ -1,0 +1,5 @@
+NOTE:
+
+These examples are incomplete. They do not use the POST/GET/REDIRECT pattern
+to avoid form re-submission. See the pdo and session examples for solutions
+to this issue.
