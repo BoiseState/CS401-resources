@@ -34,23 +34,6 @@ class Dao {
     $conn = $this->getConnection();
     return $conn->query("SELECT * FROM posts");
   }
-
-  public function deletePostById($id)
-  {
-    $conn = $this->getConnection();
-    $stmt = $conn->prepare("DELETE FROM posts WHERE id = :id");
-    $stmt->bindParam(":id", $id);
-    $stmt->execute();
-  }
-
-  public function updatePost($id, $message)
-  {
-    $conn = $this->getConnection();
-    $stmt = $conn->prepare("UPDATE posts SET message = :message WHERE id = :id");
-    $stmt->bindParam(":message", $message);
-    $stmt->bindParam(":id", $id);
-    $stmt->execute();
-  }
 }
 
 ?>
