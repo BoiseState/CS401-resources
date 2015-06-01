@@ -1,24 +1,21 @@
 <?php
-  // index.php
-  // This page has a comment form for posting, and a list of comments from MySQL
   require_once "Dao.php";
   $dao = new Dao();
 ?>
-
 <html>
   <head>
-    <title>List of Products</title>
-    <link rel="stylesheet" type="text/css" href="comment.css">
+    <title>List of Comments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <form name="commentForm" action="handler.php" method="POST">
       <div>
-        Leave a comment: <input type="text" name="comment">
+        <label for="comment">Leave a comment:</label>
+        <input type="text" id="comment" name="comment">
       </div>
       <div>
         <input type="submit" name="commentButton" value="Submit">
       </div>
-      <input type="hidden" name="form" value="comment">
     </form>
     <?php
     $comments = $dao->getComments();

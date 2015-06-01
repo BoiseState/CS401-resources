@@ -28,18 +28,31 @@ class Dao {
     return reset($q->fetchAll());
   }
 
+  /**
+   * Saves the product to the product table.
+   * Returns the number of rows affected by the update. Returns
+   * false if insert failed for any reason.
+   */
   public function saveProduct ($name, $description, $imagePath) {
-    $conn = $this->getConnection();
-    $saveQuery =
-        "INSERT INTO product
-        (name, description, image_path)
-        VALUES
-        (:name, :description, :imagePath)";
-    $q = $conn->prepare($saveQuery);
-    $q->bindParam(":name", $name);
-    $q->bindParam(":description", $description);
-    $q->bindParam(":imagePath", $imagePath);
-    $q->execute();
+    try
+    {
+      $conn = $this->getConnection();
+      $saveQuery =
+          "INSERT INTO product
+          (name, description, image_path)
+          VALUES
+          (:name, :description, :imagePath)";
+      $q = $conn->prepare($saveQuery);
+      $q->bindParam(":name", $name);
+      $q->bindParam(":description", $description);
+      $q->bindParam(":imagePath", $imagePath);
+      $q->execute();
+      return $q->rowCount();
+    }
+    catch(PDOException $e) {
+      #log the message.
+      return false;
+    }
   }
 
 } // end Dao
