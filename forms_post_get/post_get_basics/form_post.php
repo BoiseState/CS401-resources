@@ -6,7 +6,8 @@
   <div>
 	  <p>First Name: <input type="text" name="first_name"> </p>
     <p>Last Name: <input type="text" name="last_name"> </p>
-	  <p>Favorite Operating System: <input type="text" name="favorite_os"> </p>
+    <p>Favorite Operating System: <input type="text" name="favorite_os"> </p>
+    <input type="hidden" name="timestamp" value="<?= date("Y-m-d h:i:sa"); ?>">
     <p><input type="submit" name="submitButton"></p>
   </div>
 </form>
@@ -30,7 +31,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	$favorite_os = $_POST['favorite_os'];
 	if(empty($favorite_os)) {
 		$favorite_os = "null";
-	}
+  }
+
+  $timestamp = $_POST['timestamp'];
 ?>
 <!-- Print received values -->
 <div>
@@ -38,6 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   <p>First Name: "<?= $first_name; ?>"</p>
   <p>Last Name: "<?= $last_name; ?>"</p>
   <p>Favorite Operating System: "<?= $favorite_os; ?>"</p>
+  <p>Time: "<?= $timestamp; ?>"</p>
 </div>
 
 <!-- Print results summary -->
