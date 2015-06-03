@@ -6,10 +6,6 @@ class Dao {
   private $database = "marissa";
   private $password = "mysqlpass";
 
-  // public function __construct()
-  // {
-  // }
-
   private function getConnection()
   {
     $conn = new PDO("mysql:dbname={$this->dbname};host={$this->host};",
