@@ -1,0 +1,51 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+
+/* Styles used in form_validation.php */
+legend {
+  font-weight: 400;
+}
+label {
+  padding: 4px;
+}
+input, textarea {
+  border-radius: 3px;
+  border: 1px solid #B0B0B0;
+  padding: 4px;
+}
+input.error, textarea.error {
+  border: 2px solid #FF6666;
+  background-color: rgba(255, 102, 102, .2);
+}
+label.error {
+  font-weight: 400;
+  color: #FF6666;
+}
+.submit {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #E6F0F5;
+}
+.submit:hover {
+  font-weight: 400;
+  background-color:#80B2CC;
+}
+.success {
+  color: #009900;
+  margin-left: 10px;
+}
+
+
+/* Styles used in chained_traversal_quote_recoloring.html */
+.grandparent {
+  background-color: orange;
+}
+.parent {
+  border: 3px solid red;
+}
+.sibling {
+  border: 3px solid blue;
+}

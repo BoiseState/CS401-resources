@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: Hiding and Showing a Yoda Element</title>
+	
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
+	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<!-- Simple click handler that accesses the elements via the button IDs and the div ID. -->
+	<script>
+		$(document).ready(function()
+		{
+			$("#hide").click(function()
+			{
+				$("#yoda").hide();
+			});
+			$("#show").click(function()
+			{
+				$("#yoda").show();
+			});
+		});
+	</script>
+</head>
+<body>
+<h1>Hiding and Showing a Yoda Element</h1>
+<div id="yoda">
+	<img src="images/yoda.jpg" alt="Yoda">
+	<p>"Use the Force! If you click on the hide button, then I will disappear!"</p>
+</div>
+
+<button id="hide">Hide Jedi Yoda</button>
+<button id="show">Show Jedi Yoda</button>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>

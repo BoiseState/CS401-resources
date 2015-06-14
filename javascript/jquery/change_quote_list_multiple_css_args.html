@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: Change Quote List Style With Multiple CSS Args</title>
+  <!-- Custom web font -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='style.css' rel='stylesheet' type='text/css'>
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
+	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- Simple click handler that accesses the input elements via the element type
+	and changes multiple CSS arguments. Better to define the styles in CSS and toggle the
+  class (as shown in chained_traversal_quote_recoloring.html -->
+	<script>
+		$(document).ready(function() {
+			$('#cool-button').on('click', function() {
+          var selected = $('li');
+          if(selected.css('color') == 'rgb(255, 0, 0)') {
+					  selected.css({color: "blue", fontWeight: "regular", fontSize: "110%"});
+				  } else {
+					  selected.css({color: "red", fontWeight: "bold", fontSize: "150%"});
+				  }
+			});
+		});
+	</script>
+</head>
+<body>
+<h1>Change Quote List Style With Multiple CSS Args</h1>
+
+<p><button id="cool-button">Execute change!!</button>
+
+<ol>
+<li>"Only two things are infinite, the universe and human stupidity, and I'm not sure about the former."
+--A. Einstein</li>
+<li>"I believe alien life is quite common in the universe, although intelligent life is less so. Some
+say it has yet to appear on planet Earth." --S. Hawking</li>
+<li>"Be less curious about people and more curious about ideas." --M. Curie</li>
+<li>"Never trust a computer you can't throw out a window." --S. Wozniak</li>
+</ol>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>

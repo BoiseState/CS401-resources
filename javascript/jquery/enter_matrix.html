@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: Enter the Matrix!</title>
+  <style>
+    body {
+      font-family: 'consolas', monospace;
+    }
+    table, td {
+      border: 5px solid gray;
+      border-collapse: collapse;
+    }
+    table {
+      background-color: black;
+      color: green;
+      font-size: 50pt;
+    }
+  </style>
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
+	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Simple mouseenter handler that accesses the elements via table element IDs -->
+  <script>
+    $(document).ready(function()
+    {
+      $('td').on('mouseenter', function() {
+        alert("You entered the matrix at element " + $(this).text() + "!");
+      });
+    });
+  </script>
+</head>
+<body>
+<h1>Enter the Matrix!</h1>
+<table>
+<tr><td>00</td><td>01</td><td>02</td></tr>
+<tr><td>10</td><td>11</td><td>12</td></tr>
+<tr><td>20</td><td>21</td><td>22</td></tr>
+</table>
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>
