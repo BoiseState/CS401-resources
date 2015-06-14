@@ -12,6 +12,10 @@ legend {
   margin: 10px;
 }
 
+.pair small {
+  margin-left: 10px;
+}
+
 label {
   padding: 4px;
 }

@@ -22,6 +22,15 @@ $comments = $dao->getComments();
       <fieldset>
       <legend>Leave a comment</legend>
       <div class="pair">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name"
+        <?php if (isset($_SESSION["name"])) { ?>
+          value="<?php echo $_SESSION['name']; ?>"
+        <?php } ?>
+        name="name"/>
+        <span id="nameHint">Hints will appear here.</span>
+      </div>
+      <div class="pair">
         <label for="email">Enter your email:</label>
         <input type="text" id="email"
         <?php if (isset($_SESSION["email"])) { ?>
@@ -46,7 +55,6 @@ $comments = $dao->getComments();
         name="age"/>
       </div>
       <div class="pair">
-        <label for="age"></label>
         <input id="submit" type="submit"/><small>(You must be 18 to post)</small>
       </div>
       </fieldset>
@@ -54,14 +62,18 @@ $comments = $dao->getComments();
     </div>
 
     <table id="comments">
-    <?php
+      <thead>
+        <tr><th>Comment</th><th>Created</th></tr>
+      </thead>
+      <tbody>
+      <?php
       foreach ($comments as $comment) { ?>
       <tr>
         <td><?php echo $comment["comment"]; ?></td>
         <td><?php echo $comment["created"]; ?></td>
       </tr>
-    <?php }
-    ?>
+      <?php } ?>
+      </tbody>
     </table>
   </body>
 </html>
