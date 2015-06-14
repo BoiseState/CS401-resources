@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Example: Display Options</title>
+</head>
+<body>
+<!-- JavaScript does not have any built-in print or display functions, but it can "display" data
+in various ways. This simple example demonstrates four distinct methods of doing this. -->
+
+<!-- NOTE: This is for showing basics only. It does not demonstrate the best style. You typically
+don't want to embed script tags in your HTML document. You would include a separate .js file. -->
+<div>
+	<!-- Example Option #1: Use the alert box of window.alert() to display data -->
+	<script>
+		var x = 5;
+		var y = 10;
+		window.alert("Option 1: The sum of " + x + " and " + y + " is: " + (x + y));
+	</script>
+</div>
+<div>
+	<!-- Example Option #2: Use the document.getElementById(id) method to access an HTML element -->
+	<p id="example2"></p> <!-- Define HTML element with id attribute -->
+	<script>
+		/** The innerHTML property defines the corresponding HTML content */
+		document.getElementById("example2").innerHTML = "Option 2: The sum of " + x + " and " + y + " is: " + (x + y);
+	</script>
+</div>
+<div>
+	<!-- Example Option #3: Use document.write(), which is often convenient for testing and debugging purposes -->
+	<!-- Note: If you use document.write() after an HTML document is fully loaded, then it will delete all existing html
+	(i.e. see http://www.w3schools.com/js/js_output.asp for example). So it should only be used for debugging/testing
+	purposes. -->
+	<script>
+		document.write("Option 3: The sum of " + x + " and " + y + " is: " + (x + y));
+	</script>
+</div>
+<div>
+	<!-- Example Option #4: Use the console.log() method, where the data can be viewed in the browser console. -->
+	<!-- Note: In Windows/Linux Chrome, select the "Customize and control Google Chrome" > More Tools > JavaScript Console -->
+	<script>
+		var x = 5;
+		var y = 10;
+		console.log("Option 4: The sum of " + x + " and " + y + " is: " + (x + y));
+	</script>
+</div>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>
+
+
+
