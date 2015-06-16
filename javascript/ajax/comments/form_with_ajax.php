@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../../php/pdo/comments/Dao.php";
+require_once "../../../php/pdo/comments/Dao.php";
 
 $dao = new Dao();
 $comments = $dao->getComments();
@@ -11,25 +11,14 @@ $comments = $dao->getComments();
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
     <!-- JQuery validation plugin (http://plugins.jquery.com/validation/) included from Microsoft CDN -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
-    <!-- <script src="js/ajax.js" type="text/javascript"></script> -->
-    <script src="js/ajax_json.js" type="text/javascript"></script>
+    <script src="js/ajax.js" type="text/javascript"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <img src="unikitty.jpg" />
-    <form id="form" method="POST"> <!-- notice that the form has no action -->
+    <form id="form" method="POST" action="handler_ajax.php"> <!-- notice that the form has no action -->
       <fieldset>
       <legend>Leave a comment</legend>
-      <div class="pair">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name"
-        <?php if (isset($_SESSION["name"])) { ?>
-          value="<?php echo $_SESSION['name']; ?>"
-        <?php } ?>
-        name="name"/>
-        <span id="nameHint">Hints will appear here.</span>
-      </div>
       <div class="pair">
         <label for="email">Enter your email:</label>
         <input type="text" id="email"
