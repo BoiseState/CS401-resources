@@ -1,0 +1,83 @@
+body {
+	font-family: fantasy, sans-serif;
+	color: #191A1C;
+	background-image: url("images/cutting-board.jpg");
+	background-repeat: repeat-x;
+}
+
+h1 {
+	font-size: 50pt;
+	text-align: center;
+}
+
+h1, h2 {
+	color: #660000; /* RED */
+	font-family: "Times New Roman", serif;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: grey;
+}
+
+a:visited {
+	color: purple;
+}
+
+p {
+	text-indent: 50px;
+	text-decoration: blink;
+	/* opacity: .5; */
+}
+
+img {
+	width: 50%;
+}
+
+p:hover {
+	background-color:green;
+}
+
+ol {
+	list-style-type: lower-greek;
+}
+
+table, tr, td {
+	border: 3px solid black;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+
+
+ol > ul > li {
+	color:green;
+}
+
+
+ol > li {
+	color: blue;
+}
+
+
+#logo {
+  width: 100px;
+}
+
+.shout {
+	text-transform: uppercase;
+	color: orange;
+}
+.important {
+	color: red;
+}
+
+#inapinch {
+	color: blue;
+	text-transform: lowercase;
+}
+
