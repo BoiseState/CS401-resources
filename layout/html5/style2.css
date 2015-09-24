@@ -1,0 +1,105 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #F5FCFC;
+}
+
+header {
+	background-color: #B2E6FF;
+  font-family: "Arial", sans-serif;
+  overflow: hidden; /* Take this out in inspector and see what happens */
+}
+
+header > h1 {
+  display: inline; /* Don't want to take up the entire width */
+  margin-left: 10px;
+  position: relative; /* A technique for vertically aligning */
+  top: 5px;
+}
+
+#logo {
+  float: left;
+  height: 50px; /* Better to just make the image the correct width/height */
+}
+
+
+nav {
+  float: right;
+  min-width: 425px; /* So it doesn't get messed up on smaller screens. There are other techniques for this,
+                     but you can look into these on your own if you want. */
+}
+
+nav > ul > li {
+	display: inline;
+	border: 1px dotted grey;
+	padding: 10px;
+  margin-right: 10px;
+	border-radius: 10px; /* rounded corners */
+}
+
+/*Add effects on hover */
+nav > ul > li:hover {
+	background-color: #597380;
+}
+
+main {
+  padding: 20px;
+}
+
+article {
+  background-color: #FEFEFE;
+}
+
+article > h1 {
+	background-color: #F5FCFC;
+}
+
+section {
+  background-color: #F0F0F0;
+  padding: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  /* margin: 0px 5px 5px 0px; Could also do the margin in one line.*/
+}
+
+section.column {
+  width: 40%;
+  min-width: 400px;
+  float: left;
+}
+
+section.full-width {
+  clear: both;
+  float: left;
+  width: 82%;
+}
+
+aside {
+  float: right;
+  width: 15%;
+  padding: 5px;
+  background-color: #CCFFFF;
+  color: #686868;
+}
+
+/* This is a footer that will always be on the bottom */
+footer.sticky {
+  clear: both;
+  background-color:#B2E6FF;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  bottom: 0px;
+}
+
+/* This is a footer that will move with the page */
+footer {
+  clear: both;
+  background-color:#B2E6FF;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

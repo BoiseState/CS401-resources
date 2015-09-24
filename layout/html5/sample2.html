@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Demo 2</title>
+  <!-- Try removing this style sheet and make sure the flow of the page still makes sense -->
+  <link href="style2.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <img id="logo" src="../images/penguin.jpg" alt="logo"/>
+    <h1 class="page-title">HTML 5 Semantic Tags Demo</h1>
+    <!-- We could either embed our nav in our header, or have a separate nav and header -->
+    <!-- Don't need the id="top-nav" attribute in 'ul' tag because we can just use the
+         selector 'nav > ul > li' in our style sheet -->
+    <nav role="navigation"> <!-- I forgot to mention this in class...role="navigation" is helpful for screen readers -->
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>My account</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+  </header>
+  <main role="main"> <!-- role="main" is good for screen readers -->
+    <p>This is the main content of our page.</p>
+    <article>
+      <h1>This is a sample article on our webpage.</h1>
+      <section class="column">
+        <h2>This is section 1 of our article</h2>
+        <p>Here is a paragraph in section 1.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet est sit amet orci
+        scelerisque volutpat. Sed et mauris felis. Pellentesque nunc dolor, faucibus eget nunc dictum,
+        efficitur efficitur sem. Mauris ut pharetra arcu. Aliquam erat volutpat. Nulla odio eros, accumsan in
+        porta ut, vulputate sed dui. Quisque id vestibulum ante. Aenean viverra mi et ex vestibulum, et
+        egestas felis ultricies. Sed ultricies augue at dolor molestie, et iaculis arcu dapibus. Quisque
+        efficitur quis lacus nec mollis. Nunc facilisis mattis lectus ac porta. Aliquam nec placerat lorem.</p>
+
+        <p>Praesent a leo fermentum urna venenatis viverra. Nam scelerisque nisi volutpat leo consectetur
+        tincidunt. Aenean sagittis tellus nec lorem vehicula finibus. Nam lobortis est velit, sed tincidunt
+        nibh semper vel. Morbi mattis erat eu elit vestibulum, quis condimentum tellus tempus. Donec diam
+        nibh, mattis suscipit augue a, tristique tempor neque. Proin a convallis nunc. Pellentesque rutrum,
+        quam a ultricies ullamcorper, orci augue scelerisque velit, vitae porta lacus ipsum nec orci. Nunc
+        id mauris metus. Vestibulum eget metus massa.</p>
+
+        <p>Ut id mi fermentum, venenatis elit ut, blandit urna. Ut at euismod lorem. Nullam pharetra erat
+        et purus dapibus, a ultricies neque aliquet. Proin convallis mauris nec dapibus tincidunt. Nullam
+        eu dui purus. Aliquam feugiat, eros nec dictum imperdiet, quam odio lacinia diam, tincidunt placerat
+        odio elit non leo. Nullam vel justo velit.</p>
+
+        <p>Sed accumsan sollicitudin accumsan. Quisque quis facilisis sem. Fusce commodo condimentum enim,
+        id sollicitudin libero feugiat vel. Phasellus interdum felis dolor, id mattis felis rutrum vitae.
+        Morbi sem risus, eleifend vel ex sed, scelerisque lobortis neque. Aliquam pretium risus sed dui
+        ultrices volutpat in nec ante. Donec tempus urna in risus dictum, rhoncus aliquet mi iaculis. Nunc
+        vel magna tempus, condimentum sem ut, scelerisque felis. Morbi pretium aliquam tellus ac auctor.
+        Fusce cursus massa sed lobortis gravida. In odio enim, volutpat vel enim cursus, dictum aliquet arcu.
+        Integer sagittis dapibus lectus, nec venenatis lectus.</p>
+      </section>
+      <section class="column">
+        <h2>This is section 2 of our article</h2>
+        <p>Here is a paragraph in section 2.</p>
+        <p>Praesent a leo fermentum urna venenatis viverra. Nam scelerisque nisi volutpat leo consectetur
+        tincidunt. Aenean sagittis tellus nec lorem vehicula finibus. Nam lobortis est velit, sed tincidunt
+        nibh semper vel. Morbi mattis erat eu elit vestibulum, quis condimentum tellus tempus. Donec diam
+        nibh, mattis suscipit augue a, tristique tempor neque. Proin a convallis nunc. Pellentesque rutrum,
+        quam a ultricies ullamcorper, orci augue scelerisque velit, vitae porta lacus ipsum nec orci. Nunc
+        id mauris metus. Vestibulum eget metus massa.</p>
+
+        <p>Ut id mi fermentum, venenatis elit ut, blandit urna. Ut at euismod lorem. Nullam pharetra erat
+        et purus dapibus, a ultricies neque aliquet. Proin convallis mauris nec dapibus tincidunt. Nullam
+        eu dui purus. Aliquam feugiat, eros nec dictum imperdiet, quam odio lacinia diam, tincidunt placerat
+        odio elit non leo. Nullam vel justo velit.</p>
+
+        <p>Sed accumsan sollicitudin accumsan. Quisque quis facilisis sem. Fusce commodo condimentum enim,
+        id sollicitudin libero feugiat vel. Phasellus interdum felis dolor, id mattis felis rutrum vitae.
+        Morbi sem risus, eleifend vel ex sed, scelerisque lobortis neque. Aliquam pretium risus sed dui
+        ultrices volutpat in nec ante. Donec tempus urna in risus dictum, rhoncus aliquet mi iaculis. Nunc
+        vel magna tempus, condimentum sem ut, scelerisque felis. Morbi pretium aliquam tellus ac auctor.
+        Fusce cursus massa sed lobortis gravida. In odio enim, volutpat vel enim cursus, dictum aliquet arcu.
+        Integer sagittis dapibus lectus, nec venenatis lectus.</p>
+      </section>
+      <aside>
+        This is just an aside. It's related to our article, but it isn't as important.
+      </aside>
+      <section class="full-width">
+        <h2>This is section 3 of our article</h2>
+        <p>Here is a paragraph in section 3.</p>
+        <p>Praesent a leo fermentum urna venenatis viverra. Nam scelerisque nisi volutpat leo consectetur
+        tincidunt. Aenean sagittis tellus nec lorem vehicula finibus. Nam lobortis est velit, sed tincidunt
+        nibh semper vel. Morbi mattis erat eu elit vestibulum, quis condimentum tellus tempus. Donec diam
+        nibh, mattis suscipit augue a, tristique tempor neque. Proin a convallis nunc. Pellentesque rutrum,
+        quam a ultricies ullamcorper, orci augue scelerisque velit, vitae porta lacus ipsum nec orci. Nunc
+        id mauris metus. Vestibulum eget metus massa.</p>
+
+        <p>Ut id mi fermentum, venenatis elit ut, blandit urna. Ut at euismod lorem. Nullam pharetra erat
+        et purus dapibus, a ultricies neque aliquet. Proin convallis mauris nec dapibus tincidunt. Nullam
+        eu dui purus. Aliquam feugiat, eros nec dictum imperdiet, quam odio lacinia diam, tincidunt placerat
+        odio elit non leo. Nullam vel justo velit.</p>
+
+        <p>Sed accumsan sollicitudin accumsan. Quisque quis facilisis sem. Fusce commodo condimentum enim,
+        id sollicitudin libero feugiat vel. Phasellus interdum felis dolor, id mattis felis rutrum vitae.
+        Morbi sem risus, eleifend vel ex sed, scelerisque lobortis neque. Aliquam pretium risus sed dui
+        ultrices volutpat in nec ante. Donec tempus urna in risus dictum, rhoncus aliquet mi iaculis. Nunc
+        vel magna tempus, condimentum sem ut, scelerisque felis. Morbi pretium aliquam tellus ac auctor.
+        Fusce cursus massa sed lobortis gravida. In odio enim, volutpat vel enim cursus, dictum aliquet arcu.
+        Integer sagittis dapibus lectus, nec venenatis lectus.</p>
+      </section>
+      <aside>
+        Here is another aside. It's related to our article, but it isn't as important.
+      </aside>
+    </article>
+  </main>
+  <footer>
+    <small>&copy; CS401 - Fall 2015</small>
+  </footer>
+  <!-- <footer class="sticky"> -->
+  <!--   <small>&#38;copy; CS401 &#45; Fall 2015</small> -->
+  <!-- </footer> -->
+</body>
+</html>
