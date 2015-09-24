@@ -1,0 +1,81 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%; /* If we want our article to have a height
+	of 100%, then we need to make sure the outer elements
+	have height 100% */
+	/* background-color: #B2E6FF; */ /* can color the sides the same as the header/footer if you want a "seamless" look. */
+}
+
+header {
+	text-align: right;
+	background-color: #B2E6FF;
+	padding: 20px;
+}
+
+nav > ul > li {
+	display: inline;
+	border: 1px dotted grey;
+	padding: 10px;
+	border-radius: 10px; /* rounded corners */
+}
+
+/*Add effects on hover */
+nav > ul > li:hover {
+	background-color: #597380;
+}
+
+main {
+	background-color: #186440;
+	height: 100%; /* Comment this out if you are using a sticky footer.
+					This is 100% of our parent container,
+	                 which is the body. So, we need to make
+					 sure the body is 100% of it's outer
+					 container. Scroll up to see the
+					 'html, body' style. It depends on the
+					 style you are looking for. */
+	width: 80%;
+	/* center using auto margins */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+article {
+	padding: 50px;
+	float: left;
+}
+
+aside{
+	float: right;
+}
+
+footer {
+	clear: both;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color:  #B2E6FF;
+	text-align: center;
+	width: 100%;
+
+	/* The below is for a "Sticky Footer".
+	 * If we want to use 100% height for our content,
+	 * this won't work. Also, if we adjust the screen
+	 * after content is rendered, it may cause problems.
+	 * Instead, look at the 'article' styling. */
+
+	/* position: absolute; */
+	/* bottom: 0px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

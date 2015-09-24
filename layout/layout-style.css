@@ -1,0 +1,74 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+div#header {
+	text-align: right;
+	background-color: #B2E6FF;
+	padding: 20px;
+}
+
+#top-nav > li {
+	display: inline;
+	border: 1px dotted grey;
+	padding: 10px;
+	border-radius: 10px; /* rounded corners */
+	/* float: right; don't want to float right. we are using text-align*/
+}
+
+/*Add effects on hover */
+#top-nav > li:hover {
+	background-color: #597380;
+}
+
+.bordered-box {
+	border: 3px solid black;
+	padding: 5px;
+	margin: 10px;
+	width: 200px;
+	height: 250px;
+	float:left;
+	clear:left;
+}
+
+#red {
+	background-color: red;
+}
+#green {
+	background-color: green;
+}
+#blue {
+	background-color: blue;
+}
+
+#annoying-ad {
+	background-color: yellow;
+	position: fixed;
+	top: 100px;
+	right: 100px;
+}
+
+#ad {
+	background-color: pink;
+	position: absolute;
+	top: 500px;
+	left: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
