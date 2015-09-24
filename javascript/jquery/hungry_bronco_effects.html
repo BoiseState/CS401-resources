@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: The Hungry Bronco Feast Menu: Toggle and Hover Effects</title>
+	
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
+	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function()
+		{
+			/* Define menu click toggle handlers */
+			$("#meatlover_button").click(function()
+			{
+				$("#meatlover_items").toggle("slow");
+			});
+			
+			$("#healthlover_button").click(function()
+			{
+				$("#healthlover_items").toggle("fast");
+			});
+						
+			$("#drink_button").click(function()
+			{
+				$("#drink_items").toggle(2000);
+			});
+			
+			/** Define item hover animation handlers (for left and right actions) */
+			$("ol").hover(
+				function()
+				{
+					$(this).animate({ marginLeft:38, marginRight: 0 });
+					
+				},
+				function()
+				{
+					$(this).animate({ marginLeft:18, marginRight: 18 });
+				}
+			);
+		});
+		
+	</script>
+
+	<!-- Give it a bit of style -->
+	<style> 
+		h1,h2 { text-align: center; }
+		li { font-size: 125%; } 
+		td { vertical-align:top; }
+	</style>
+</head>
+<body>
+<h1>Welcome to the Hungry Bronco!!</h1>
+<h2>Its Feast Time at the most popular restaurant in Downtown Boise!</h2>
+<table>
+<tr>
+<td>
+	<div id="horses"> <img src="images/hungry_horses.jpg" /> </div>
+</td>
+<td>
+	<h2>Search the menu to observe the meal item effects!</h2>
+	<ul>
+		<li>
+			<button id="meatlover_button" style="font-size:150%;color:red;">Meatlover Food Menu</button>
+			<ol id="meatlover_items" style="display:none;">
+				<li>Pepperoni + Sausage + Bacon Pizza</li>
+				<li>Roasted BBQ Chicken</li>
+				<li>Trailboss Buffalo Burger</li>
+				<li>Bacon Lettuce Tomato Sandwich</li>
+				<li>Chili + Cheese Hotdog</li>
+				<li>Pacific Clam Chowder</li>
+			</ol>
+		</li>
+		<li>
+			<button id="healthlover_button" style="font-size:150%;color:green;">Healthlover Food Menu</button> 
+			<ol id="healthlover_items" style="display:none;">
+				<li>Tofurky Vegetarian Roast</li>
+				<li>Tasty Idaho Baked Potatoes</li>
+				<li>Garbanzo Bean Tacos</li>
+				<li>Vegan Sloppy Joe Mix</li>
+				<li>Kale + Lettuce + Tomato Green Salad</li>
+				<li>Carrot + Mushroom Soup</li>
+			</ol>
+		</li>
+		<li>
+			<button id="drink_button" style="font-size:150%;color:blue;">Drink Menu</button> 
+			<ol id="drink_items" style="display:none;">
+				<li>H2O</li>
+				<li>Florida Orange Juice</li>
+				<li>High-Powered Gamer Soda</li>
+				<li>Cow Milk</li>
+				<li>Joe Cool's Brew</li>
+				<li>Jolt Cola</li>
+				<li>Fruity Fruit All-Berry Smoothie</li>
+			</ol>
+		</li>
+	</ul>
+</td>
+</tr>
+</table>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>

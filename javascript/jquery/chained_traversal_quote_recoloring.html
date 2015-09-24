@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: Chained Traversal With Quote Recoloring</title>
+  <!-- Custom web font -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='style.css' rel='stylesheet' type='text/css'>
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CDN). -->
+	<!-- There are other CDN possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<h1>Chained Traversal with Quote Recoloring</h1>
+<p><span id="cool-node">Click anywhere to execute!!</span></p>
+<p>"If you don't know anything about computers, just remember that they are machines that do exactly
+what you tell them but often surprise you in the result." --R. Dawkins</p>
+<p>"Artificial Intelligence usually beats natural stupidity." --Unknown</p>
+<p>"Computer Science is no more about computers than astronomy is about telescopes." --E. W. Dijkstra</p>
+<p>"Programmers are tools for converting caffeine into code." --Unknown</p>
+
+<!-- This is in this document because it is a demo. It would go in it's own file. -->
+<!-- Simple click handler that accesses the input elements via the span ID and chained traversal. -->
+<script>
+$(document).ready(function() { // Wait for document to be loaded.
+    $(document).click(function() { // Listen for click anywhere in document
+        $('#cool-node')
+            .parent().toggleClass('parent')
+            .siblings().toggleClass('sibling')
+            .parent().toggleClass('grandparent');
+    });
+});
+</script>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>

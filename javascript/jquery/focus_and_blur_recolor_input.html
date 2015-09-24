@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: Recolor Input (With Focus and Blur)</title>
+  <style>
+    input.focus {
+      background-color: #787878;
+      color: #00FF00;
+    }
+  </style>
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
+	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- Simple focus and blur handlers that access the input elements via IDs -->
+	<script>
+		$(document).ready(function() {
+			/* The focus event occurs when an element gets selected by a mouse (or by tab-navigating to it) */
+			/* This function will execute when the focus event occurs */
+      $("input").focus(function() { $(this).toggleClass('focus'); });
+
+			/* The blur event occurs when the element loses focus */
+      $("input").blur(function() { $(this).toggleClass('focus'); });
+		});
+	</script>
+</head>
+<body>
+<h1>Recolor Input (With Focus and Blur)</h1>
+
+
+<p>Username: <input type="text" name="fullname"></p>
+<p>Password: <input type="password" name="password"></p>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>
