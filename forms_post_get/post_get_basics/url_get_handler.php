@@ -1,44 +1,45 @@
 <html>
 <head><title>PHP Example: URL Get (Receive)</title> </head>
 <body>
-
 <?php
-if($_SERVER['REQUEST_METHOD'] == "GET")
+if(!empty($_REQUEST)) // Not necessary in this case, but to show that you can.
 {
 	/** Get value of first name input field and print */
-	$first_name = $_REQUEST['first_name'];
+  $first_name = isset($_REQUEST['first_name']) ? $_REQUEST['first_name'] : "(null)";
   if(empty($first_name)) {
-    $first_name = "null"; # just so we can tell in the output.
+    $first_name = "(empty)";
   }
+  // setting to string value of "null" or "empty" so we can tell the difference in the output.
 
   /** Get value of last name input field and print */
-	$last_name = $_REQUEST['last_name'];
-	if(empty($last_name)) {
-		$last_name = "null";
-	}
+  $last_name = isset($_REQUEST['last_name']) ? $_REQUEST['last_name'] : "(null)";
+  if(empty($last_name)) {
+    $last_name = "(empty)";
+  }
 
-	/** Get value of favorite operating system input field and print */
-	$favorite_os = $_REQUEST['favorite_os'];
-	if(empty($favorite_os)) {
-		$favorite_os = "null";
-	}
+  /** Get value of favorite class input field and print */
+  $favorite_class = isset($_REQUEST['favorite_class']) ? $_REQUEST['favorite_class'] : "(null)";
+  if(empty($favorite_class)) {
+    $favorite_class = "(empty)";
+  }
 ?>
-<!-- Print received values -->
 <div>
+  <!-- Print received values -->
   <p>Received the following results:</p>
   <p>First Name: "<?= $first_name; ?>"</p>
   <p>Last Name: "<?= $last_name; ?>"</p>
-  <p>Favorite Operating System: "<?= $favorite_os; ?>"</p>
+  <p>Favorite Operating System: "<?= $favorite_class; ?>"</p>
+  <!-- Print results summary -->
+  <p>Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite class is <?= $favorite_class; ?>!!!</p>
 </div>
-
-<!-- Print results summary -->
+<?php
+} else {
+?>
 <div>
-<p>
-  Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite operating system is <?= $favorite_os; ?>!!!
-</p>
+  <p>No request parameters found.</p>
 </div>
-<?php } ?>
-
-
+<?php
+}
+?>
 </body>
 </html>
