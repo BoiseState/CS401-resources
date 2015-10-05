@@ -166,7 +166,7 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
 <p>Also see <a href="post_get_basics/form_get.php">form_get.php</a>, <a href="post_get_basics/form_post.php">form_post.php</a> and <a href="post_get_basics/form_post.php">form_post_submit.php</a> </p>
 
 <h3>Another Example</h3>
-<p>Let's write a login handler to demonstrate how we can use the submitted values. Also see theme_selector example.</p>
+<p>Let's write a login handler to demonstrate how we can use the submitted values. Also see <a href="theme_selector/login.php">theme selector</a> example.</p>
 <form method="post" action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php">
 <!-- <form method="post" action="login_handler.php"> -->
   <fieldset>

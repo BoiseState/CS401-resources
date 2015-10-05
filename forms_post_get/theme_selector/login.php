@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Theme Selector Demo</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <h3>Form POSTing to external page</h3>
