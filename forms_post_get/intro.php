@@ -3,6 +3,10 @@
   <title>Request Parameters Demo</title>
   <!-- placing stying in here for convenience -->
   <style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
   samp, code {
     margin-left: 10px;
     padding: 10px;
@@ -131,6 +135,26 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
   </div>
 </form>
 
+<h2>HTTP GET vs POST</h2>
+<ul>
+  <li><strong>GET:</strong> asks a server for page or data.
+    <ul>
+      <li>If the request has params, they are sent in the URL as a query string.</li>
+      <li>URLs limited in length (~2083 characters)</li>
+      <li>Can remain in browser history</li>
+      <li>Can be bookmarked</li>
+      <li>Can be distributed and shared</li>
+      <li>Can be hacked. Private data in URLs can be seen or modified by users</li>
+    </ul>
+  </li>
+  <li><strong>POST:</strong> submits data to a web server and retrieves the server's response
+    <ul>
+      <li>If the request has params, they are embedded in the request's HTTP packet.</li>
+      <li>Use when submitting data to be saved (especially sensitive data).</li>
+    </ul>
+  </li>
+</ul>
+
 <h3>Form with input POSTing to external page</h3>
 <form action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php" method="POST">
   <div>
@@ -139,12 +163,14 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
   </div>
 </form>
 
-<h3>Form POSTing to external page (2)</h3>
-<p>Let's write a login handler to demonstrate how we can use the submitted values.</p>
+<p>Also see <a href="post_get_basics/form_get.php">form_get.php</a>, <a href="post_get_basics/form_post.php">form_post.php</a> and <a href="post_get_basics/form_post.php">form_post_submit.php</a> </p>
+
+<h3>Another Example</h3>
+<p>Let's write a login handler to demonstrate how we can use the submitted values. Also see theme_selector example.</p>
 <form method="post" action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php">
 <!-- <form method="post" action="login_handler.php"> -->
   <fieldset>
-  <legend>Random Poll of the Day</legend>
+  <legend>Login</legend>
     <div>
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" />
