@@ -2,7 +2,7 @@
 <head><title>PHP Example: URL Get (Send and Receive)</title> </head>
 <body>
 
-<a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>?first_name=&last_name=Turing&favorite_class=Web+Development">
+<a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>?first_name=Jane&last_name=Doe&favorite_class=Web+Development">
   Click here to test GET
 </a>
 
@@ -33,7 +33,7 @@ if(!empty($_REQUEST)) // We only want to display results if $_REQUEST array has 
   <p>Received the following results:</p>
   <p>First Name: "<?= $first_name; ?>"</p>
   <p>Last Name: "<?= $last_name; ?>"</p>
-  <p>Favorite Operating System: "<?= $favorite_class; ?>"</p>
+  <p>Favorite Class: "<?= $favorite_class; ?>"</p>
   <!-- Print results summary -->
   <p>Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite class is <?= $favorite_class; ?>!!!</p>
 </div>

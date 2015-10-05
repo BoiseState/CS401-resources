@@ -28,7 +28,7 @@ if(!empty($_REQUEST)) // Not necessary in this case, but to show that you can.
   <p>Received the following results:</p>
   <p>First Name: "<?= $first_name; ?>"</p>
   <p>Last Name: "<?= $last_name; ?>"</p>
-  <p>Favorite Operating System: "<?= $favorite_class; ?>"</p>
+  <p>Favorite Class: "<?= $favorite_class; ?>"</p>
   <!-- Print results summary -->
   <p>Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite class is <?= $favorite_class; ?>!!!</p>
 </div>

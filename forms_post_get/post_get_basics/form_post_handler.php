@@ -5,7 +5,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-  if(isset($_POST['favOsSubmitButton']))
+  if(isset($_POST['favClassSubmitButton']))
   {
 	  /** Get value of first name input field and print */
 	  $first_name = $_POST['first_name'];
@@ -19,10 +19,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		  $last_name = "null";
 	  }
 
-	  /** Get value of favorite operating system input field and print */
-	  $favorite_os = $_POST['favorite_os'];
-	  if(empty($favorite_os)) {
-		  $favorite_os = "null";
+	  /** Get value of favorite class input field and print */
+	  $favorite_class = $_POST['favorite_class'];
+	  if(empty($favorite_class)) {
+		  $favorite_class = "null";
     }
 ?>
 <!-- Print received values -->
@@ -30,13 +30,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   <p>Received the following results:</p>
   <p>First Name: "<?= $first_name; ?>"</p>
   <p>Last Name: "<?= $last_name; ?>"</p>
-  <p>Favorite Operating System: "<?= $favorite_os; ?>"</p>
+  <p>Favorite Class: "<?= $favorite_class; ?>"</p>
 </div>
 
 <!-- Print results summary -->
 <div>
 <p>
-  Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite operating system is <?= $favorite_os; ?>!!!
+  Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite class is <?= $favorite_class; ?>!!!
 </p>
 </div>
 <?php

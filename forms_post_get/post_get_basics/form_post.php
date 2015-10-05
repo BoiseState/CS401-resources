@@ -2,11 +2,11 @@
 <head><title>PHP Example: Form Post (Submit + Receive)</title></head>
 <body>
 
-<form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
+<form method="post" action="" >
   <div>
 	  <p>First Name: <input type="text" name="first_name"> </p>
     <p>Last Name: <input type="text" name="last_name"> </p>
-    <p>Favorite Operating System: <input type="text" name="favorite_os"> </p>
+    <p>Favorite Class: <input type="text" name="favorite_class"> </p>
     <input type="hidden" name="timestamp" value="<?= date("Y-m-d h:i:sa"); ?>">
     <p><input type="submit" name="submitButton"></p>
   </div>
@@ -27,10 +27,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		$last_name = "null";
 	}
 
-	/** Get value of favorite operating system input field and print */
-	$favorite_os = $_POST['favorite_os'];
-	if(empty($favorite_os)) {
-		$favorite_os = "null";
+	/** Get value of favorite class input field and print */
+	$favorite_class = $_POST['favorite_class'];
+	if(empty($favorite_class)) {
+		$favorite_class = "null";
   }
 
   $timestamp = $_POST['timestamp'];
@@ -40,14 +40,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   <p>Received the following results:</p>
   <p>First Name: "<?= $first_name; ?>"</p>
   <p>Last Name: "<?= $last_name; ?>"</p>
-  <p>Favorite Operating System: "<?= $favorite_os; ?>"</p>
+  <p>Favorite Class: "<?= $favorite_class; ?>"</p>
   <p>Time: "<?= $timestamp; ?>"</p>
 </div>
 
 <!-- Print results summary -->
 <div>
 <p>
-  Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite operating system is <?= $favorite_os; ?>!!!
+  Guess what?! <?= $first_name . ' ' . $last_name; ?>'s favorite is class <?= $favorite_class; ?>!!!
 </p>
 </div>
 
