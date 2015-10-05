@@ -15,11 +15,20 @@
     height: 200px;
   }
 
-  form > fieldset {
+  fieldset {
+    width: 50%;
+    margin: 0px auto;
+  }
+
+  #poll > fieldset {
     width: 45%;
     display: inline;
     margin: 1%;
-    /* float: left; */
+    float: left;
+  }
+
+  form > fieldset > div {
+    padding: 5px 0px;
   }
 
   form .submit {
@@ -113,6 +122,7 @@ the form.
 </form>
 <p>We can determine how it was submitted using the <var>$_SERVER["REQUEST_METHOD"]</var> variable.</p>
 Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
+
 <h3>Form with input sending GET request to external page</h3>
 <form action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php">
   <div>
@@ -120,6 +130,7 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
     <input name="getSubmitButton" type="submit" value="Click me!"/>
   </div>
 </form>
+
 <h3>Form with input POSTing to external page</h3>
 <form action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php" method="POST">
   <div>
@@ -128,17 +139,42 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
   </div>
 </form>
 
-<h1>Form Elements</h1>
-<form method="post" action="poll_handler.php" enctype="multipart/form-data">
+<h3>Form POSTing to external page (2)</h3>
+<p>Let's write a login handler to demonstrate how we can use the submitted values.</p>
+<form method="post" action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php">
+<!-- <form method="post" action="login_handler.php"> -->
   <fieldset>
   <legend>Random Poll of the Day</legend>
     <div>
-      <label for"name">Name:</label>
-      <input type="text" name="name" id="name" value="Your name here" />
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" />
     </div>
     <div>
-      <label for"password">Password:</label>
+      <label for="password">Password:</label>
       <input type="password" name="password" id="password"/>
+    </div>
+    <div>
+      View:
+      <input type="radio" name="view" value="basic" checked="checked"/> Basic
+      <input type="radio" name="view" value="fantastical"/> Fantastical
+      <input type="radio" name="view" value="cosmic"/> Cosmic
+    </div>
+    <div>
+      <input name="postSubmitButton2" type="submit" value="Log In"/>
+    </div>
+  </fieldset>
+</form>
+
+<h3>Form Elements</h3>
+<form id="poll" method="post" action="poll_handler.php" enctype="multipart/form-data">
+  <fieldset>
+  <legend>Random Poll of the Day</legend>
+    <div>
+      <label for"name">Name: <input type="text" name="name" id="name" value="Your name here" /></label>
+      <label for"age">Age: <input type="text" name="age" id="age" size="3" maxlength="3" /></label>
+    </div>
+    <div>
+      <label for"password">Password: <input type="password" name="password" id="password"/></label>
     </div>
     <div>
       <span>Are you awake?</span>
@@ -146,9 +182,15 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
       <label><input type="radio" name="awake" value="no" /> No</label>
     </div>
     <div>
-      <textarea name="comments" rows="4" cols="20">Your comments here.</textarea>
+      <span>Which drinks would you like?</span>
+      <label><input type="checkbox" name="coffee" checked="checked"/>Coffee</label>
+      <label><input type="checkbox" name="orange" />Orange Juice</label>
+      <label><input type="checkbox" name="water" />Water</label>
     </div>
     <div>
+      <textarea name="comments" rows="4" cols="20">Your comments here.</textarea>
+    </div>
+    <!-- <div> -->
       <label>Would you like to upload a file?</label>
       <input type="file" name="random_file" size="60"/> <!-- Make sure to set the enctype attribute in form element tag -->
     </div>
@@ -158,6 +200,10 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
   <!-- START HTML 5 ONLY... MAY NOT BE SUPPORTED ON ALL BROWSERS -->
   <fieldset>
     <legend>HTML 5 Elements</legend>
+      <div>
+        <label for"name">Name:<input type="text" name="name" id="name" placeholder="your name here" autocomplete="off" required/></label>
+        <label for"age">Age: <input type="number" name="age" id="age" min="18" max="150" /></label>
+      </div>
       <div>
         <label for="favorite_color">Favorite Color</label>
        <input type="color" name="favorite_color" id="favorite_color"/>
