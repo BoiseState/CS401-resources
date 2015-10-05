@@ -1,0 +1,207 @@
+<html>
+<head>
+  <title>Request Parameters Demo</title>
+  <!-- placing stying in here for convenience -->
+  <style>
+  samp, code {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #FFFFCC;
+    border: 1px dashed #FF3399;
+    display: block;
+    font-size: 14pt;
+  }
+  div.space {
+    height: 200px;
+  }
+
+  form > fieldset {
+    width: 45%;
+    display: inline;
+    margin: 1%;
+    /* float: left; */
+  }
+
+  form .submit {
+    margin-top: 20px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+<h1>Query Strings and Parameters</h1>
+  <p>A <em>query string</em> is a set of parameters passed from the browser to the
+  web server.
+  </p>
+  <samp>
+  URL?name=value&amp;name=value
+  </samp>
+  <ul>
+    <li>Much like passing parameters to a function, where your target script is the function.</li>
+    <li>Parameters are name/value pairs.</li>
+    <li>We can handle the parameters using PHP.</li>
+  </ul>
+  <p>
+    When we want to search for something on Google, we can pass a query parameter to Google's search
+    page.
+  </p>
+  <samp>
+  <a href="https://www.google.com/search?q=Boise+State+University">https://www.google.com/search?q=Boise+State+University</a>
+  </samp>
+  <p>
+  <h2>Handling Parameters in PHP</h2>
+  <p><a href="http://php.net/manual/en/language.variables.superglobals.php">PHP Superglobals</a> are built-in variables that
+  are always in scope. Request parameters are available in the <var>$_REQUEST</var>, <var>$_GET</var>, and <var>$_POST</var>
+  super global associative arrays.</p>
+  <p>We can see the values of these arrays using my handy-dandy
+  <a href="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php">param-tester</a>. Try passing different parameters
+  to see what we get.</p>
+  <samp>
+  <a href="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php?color=blue&lang=en-us">http://cs.boisestate.edu/~marissa/classes/401/param-tester.php?color=blue&lang=en-us</a>
+  </samp>
+  <p>To access a specific parameter from one of the arrays, we can index into the array using the parameter name. Here is
+  an example using the generic <var>$_REQUEST</var> array.</p>
+<code><pre>
+if(!empty($_REQUEST)) {
+  if(isset($_REQUEST["user"]) && !empty($_REQUEST["user"])) {
+    $user = $_REQUEST["user"];
+  }
+}
+</pre></code>
+  <p>However, it is always best to use the specific array for the request method used.</p>
+<code><pre>
+if(!empty($_GET)) {
+  if(isset($_GET["user"]) && !empty($_GET["user"])) {
+    $user = $_GET["user"];
+  }
+}
+</pre></code>
+  <p>Try passing a "user" parameter to this script. Something should show up in the box below.</p>
+  <samp>
+<?php
+if(!empty($_GET)) {
+  if(isset($_GET["user"]) && !empty($_GET["user"])) {
+    $user = $_GET["user"];
+?>
+  <p>Hello <?= $user ?>! You are awesome! &bigstar;</p>
+<?php
+  }
+}
+?>
+</samp>
+<h1>Form Basics</h1>
+<p>A form is a group of UI controls that accepts information from the user and sends the information to the server as a query string.</p>
+<samp><pre>
+<?php
+echo htmlspecialchars('<form action="">') . "\n";
+echo htmlspecialchars('   <!-- input elements -->') . "\n";
+echo htmlspecialchars('</form>');
+?>
+</pre></samp>
+<p>The <em>action</em> attribute defines the target URL for the script that will handle
+the form.
+<ul>
+  <li>If the <em>action</em> is left blank, the form will submit to itself (e.g. this page).</li>
+  <li>By default, the form is sent via a GET request.</li>
+  <li>We can change to POST using the <var>method</var> attribute.</li>
+</ul>
+</p>
+<h2>Submitting a form</h2>
+<h3>Simple, default form</h3>
+<form action="">
+    <input type="submit"/>
+</form>
+<p>We can determine how it was submitted using the <var>$_SERVER["REQUEST_METHOD"]</var> variable.</p>
+Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
+<h3>Form with input sending GET request to external page</h3>
+<form action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php">
+  <div>
+    <label>Username: <input type="input" name="user"/></label>
+    <input name="getSubmitButton" type="submit" value="Click me!"/>
+  </div>
+</form>
+<h3>Form with input POSTing to external page</h3>
+<form action="http://cs.boisestate.edu/~marissa/classes/401/param-tester.php" method="POST">
+  <div>
+    <label>Username: <input type="input" name="user"/></label>
+    <input name="postSubmitButton" type="submit" value="No, click ME!"/>
+  </div>
+</form>
+
+<h1>Form Elements</h1>
+<form method="post" action="poll_handler.php" enctype="multipart/form-data">
+  <fieldset>
+  <legend>Random Poll of the Day</legend>
+    <div>
+      <label for"name">Name:</label>
+      <input type="text" name="name" id="name" value="Your name here" />
+    </div>
+    <div>
+      <label for"password">Password:</label>
+      <input type="password" name="password" id="password"/>
+    </div>
+    <div>
+      <span>Are you awake?</span>
+      <label><input type="radio" name="awake" value="yes" checked="checked" /> Yes</label>
+      <label><input type="radio" name="awake" value="no" /> No</label>
+    </div>
+    <div>
+      <textarea name="comments" rows="4" cols="20">Your comments here.</textarea>
+    </div>
+    <div>
+      <label>Would you like to upload a file?</label>
+      <input type="file" name="random_file" size="60"/> <!-- Make sure to set the enctype attribute in form element tag -->
+    </div>
+    <input type="hidden" name="secret" value="shhhh" />
+  </fieldset>
+
+  <!-- START HTML 5 ONLY... MAY NOT BE SUPPORTED ON ALL BROWSERS -->
+  <fieldset>
+    <legend>HTML 5 Elements</legend>
+      <div>
+        <label for="favorite_color">Favorite Color</label>
+       <input type="color" name="favorite_color" id="favorite_color"/>
+      </div>
+      <div>
+        <label>What type of vehicle?</label>
+        <input list="vehicles" name="vehicle">
+        <datalist id="vehicles">
+          <option value="Truck">
+          <option value="Car">
+          <option value="Suv">
+          <option value="Bike">
+          <option value="Moped">
+        </datalist>
+      </div>
+      <div>
+        <label for="how_much">How much?</label>
+        <input type="range" name="how_much" id="how_much" min="0" max="50" step="10"/>
+      </div>
+      <div>
+        <label for="birthday">When is your birthday?</label>
+        <input type="date" name="birthday" id="birthday"/>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" />
+      </div>
+      <div>
+        <label for="homepage">Homepage</label>
+        <input type="url" name="homepage" id="homepage">
+      </div>
+      <div>
+        <label>Would you like to upload a picture?</label>
+        <!-- NOTE that the accept parameter is new and not very reliable. -->
+        <input type="file" name="picture" accept="image/jpeg|image/gif|image/png"/>
+      </div>
+  </fieldset>
+  <!-- END HTML 5 ONLY... MAY NOT BE SUPPORTED ON ALL BROWSERS -->
+  <div class="submit">
+    <input type="reset" value="Reset Poll"/>
+    <input type="submit" value="Submit Poll"/>
+  </div>
+</form>
+
+<div class="space"><!-- this is just so the people in the back can see the bottom of the page --></div>
+</body>
+</html>
