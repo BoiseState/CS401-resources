@@ -32,7 +32,7 @@ $a[] = "Wenche";
 $a[] = "Vicky";
 
 // get the q parameter from URL
-$q = $_REQUEST["q"];
+$q = $_GET["q"];
 
 $hints = array("hints" => array());
 

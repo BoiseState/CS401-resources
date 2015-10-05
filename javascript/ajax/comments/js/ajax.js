@@ -10,11 +10,17 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(response) {
 				console.log(response); // THERE IS A BUG HERE!
-				$("#comments tbody").prepend("<tr><td>" +
+				console.log(response.status);
+				if(response.status == "error") {
+					$("#ageError").text(response.errorMessage);
+				}
+				else {
+					$("#comments tbody").prepend("<tr><td>" +
 						comment + "</td><td>Just now</td></tr>");
-				$("#comment").val("");
-				$("#email").val("");
-				$("#age").val("");
+					$("#comment").val("");
+					$("#email").val("");
+					$("#age").val("");
+				}
 			},
 			error: function () {
 				alert("FAILURE");
