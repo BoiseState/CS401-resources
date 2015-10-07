@@ -8,19 +8,17 @@ USE marissa;
 SHOW TABLES;
 
 
-
 // create a table in database
 CREATE TABLE users (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	username VARCHAR (50) NOT NULL,
+	email VARCHAR(100) NOT NULL,
 	password VARCHAR (50) NOT NULL,
 	name VARCHAR(100) NOT NULL,
-	email VARCHAR(100) NOT NULL,
-	gender VARCHAR (1) NOT NULL,
 	species VARCHAR (100) NOT NULL DEFAULT 'human',
+	gender CHAR(1) NOT NULL,
 	age INT NOT NULL,
-	UNIQUE(username)
-	);
+	UNIQUE(email)
+);
 
 
 
@@ -36,25 +34,24 @@ SELECT * FROM users;
 // Can show warnings with \W
 
 // use insert to populate the users table (faster to do this from a file or copy/paste!!!)
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('snoopy', 'snoopypass', 'Snoopy', 'snoopy@example.com', 'M', 'dog', 7 );
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('nataliaromanova', 'nataliapass', 'Natalia Romanova', 'natalia@example.com', 'F', 'human', 30);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('huamulan', 'huapass', 'Hua Mulan', 'hua@example.com', 'F', 'human', 18);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('fredflintstone', 'fredpass', 'Fred Flintstone', 'fred@example.com', 'M', 'human', 40);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('bugsbunny', 'bugspass', 'Bugs Bunny', 'bugs@example.com', 'M', 'rabbit', 6);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('brucebanner', 'brucepass', 'Bruce D. Banner', 'bruce@example.com', 'M', 'human', 47);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('charliebrown', 'charliepass', 'Charlie Brown', 'charlie@example.com', 'M', 'human', 8);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('princesspocahontas', 'pocahontaspass', 'Pocahontas', 'princesspocahontas@example.com', 'F', 'human', 23);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('brucewayne', 'brucepass', 'Bruce Wayne', 'brucewayne@example.com', 'M', 'bat', 38);
-
+INSERT INTO users (email, password, name, species, gender, age)
+	VALUES ('snoopy@example.com', 'snoopypass', 'Snoopy', 'dog', 'M', 7 );
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('natalia@example.com', 'nataliapass', 'Natalia Romanova', 'human', 'F', 30);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('mulan@example.com', 'huapass', 'Hua Mulan', 'human', 'F', 18);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('fred@example.com', 'fredpass', 'Fred Flintstone', 'human', 'M', 40);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('bugs@example.com', 'bugspass', 'Bugs Bunny', 'rabbit', 'M', 6);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('brucebanner@example.com', 'brucepass', 'Bruce D. Banner', 'human', 'M', 47);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('charliebrown@example.com', 'charliepass', 'Charlie Brown', 'human', 'M', 8);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('princesspocahontas@example.com', 'pocahontaspass', 'Pocahontas', 'human', 'F', 23);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('brucewayne@example.com', 'brucepass', 'Bruce Wayne', 'bat', 'M', 38);
 
 
 // use the select statement to show table contents
@@ -167,14 +164,14 @@ SELECT COUNT(*) FROM users WHERE age > 30;
 // before using UPDATE and DELETE to modify data .... first show the result we will update
 SELECT * FROM users WHERE name = 'Pocahontas';
 
-// use UPDATE to modify data (single column entry) of a row.... Pocahontas wants a shorter username and email!
-UPDATE users SET username = 'pocahontas', email = 'pocahontas@example.com' WHERE name = 'Pocahontas';
+// use UPDATE to modify data (single column entry) of a row.... Pocahontas wants a shorter and email and password!
+UPDATE users SET password = 'pocapass', email = 'pocahontas@example.com' WHERE name = 'Pocahontas';
 
 // show all results after update
 SELECT * FROM users;
 
 // use UPDATE to modify data (multiple column entries) of a row .... Snoopy wants to be cool and change his name and email!
-UPDATE users SET name = 'Joe Cool', email = 'joecool@example.com' WHERE username = 'snoopy';
+UPDATE users SET name = 'Joe Cool', email = 'joecool@example.com' WHERE email = 'snoopy@example.com';
 
 // show all results after update and before delete
 SELECT * FROM users;

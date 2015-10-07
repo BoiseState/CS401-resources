@@ -14,12 +14,13 @@ class Dao {
     return $conn;
   }
 
+  // Username is actually their email address
   public function getPostsByUsername($username)
   {
     $conn = $this->getConnection();
   	$stmt = $conn->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
 							JOIN users AS u ON p.user_id = u.id
-              WHERE username = :uname");
+              WHERE email = :uname");
     $stmt->bindParam(":uname", $username);
     $stmt->execute();
     return $stmt;

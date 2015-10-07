@@ -112,7 +112,7 @@ try {
 Exposing Data.
 <ul>
   <li>Try filtering as: <code>' or '1' = '1</code></li>
-  <li>Try filtering as: <code>' UNION SELECT password, email, species FROM users WHERE username='snoopy</code></li>
+  <li>Try filtering as: <code>' UNION SELECT password, age, name FROM users WHERE email='snoopy@example.com</code></li>
 </ul>
 </p>
 <p>
@@ -129,7 +129,7 @@ if($username)
   try {
     $rows = $dao->query("SELECT u.name, p.message, p.posted FROM posts AS p
                         JOIN users AS u ON p.user_id = u.id
-                        WHERE username = '$username'"); ?>
+                        WHERE email = '$username'"); ?>
     <table>
     <?php foreach($rows as $row) { ?>
       <tr>
@@ -158,7 +158,7 @@ if($username)
     $safeusername = $dao->quote($username);
     $rows = $dao->query("SELECT u.name, p.message, p.posted FROM posts AS p
                         JOIN users AS u ON p.user_id = u.id
-                        WHERE username = $safeusername"); ?>
+                        WHERE email = $safeusername"); ?>
     <table>
     <?php foreach($rows as $row) { ?>
       <tr>
@@ -187,13 +187,13 @@ if($username)
   try {
     $stmt = $dao->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
                         JOIN users AS u ON p.user_id = u.id
-                        WHERE username = ?");
+                        WHERE email = ?");
     $stmt->execute(array($username));
 
     # OR
     // $stmt = $dao->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
     //                     JOIN users AS u ON p.user_id = u.id
-    //                     WHERE username = :uname");
+    //                     WHERE email = :uname");
     // $stmt->bindParam(":uname", $username);
     // $stmt->execute();
 
@@ -221,11 +221,11 @@ if($username)
 <h1>Other commands</h1>
 <?php
 try {
-  $rows = $dao->query("SELECT username, email FROM users WHERE gender = 'F'"); ?>
+  $rows = $dao->query("SELECT email, name FROM users WHERE gender = 'F'"); ?>
   <p>Row Count: <?= $rows->rowCount(); ?></p>
   <p>Column Count: <?= $rows->columnCount(); ?></p>
   <?php $first = $rows->fetch(); ?>
-  <p>First Result: [username: <?= $first['username']; ?>, email: <?= $first['email']; ?>]</p>
+  <p>First Result: [email: <?= $first['email']; ?>, name: <?= $first['name']; ?>]</p>
 <?php
 } catch (PDOException $e) {
   echo "<p>Failed to retrieve posts.</p>";

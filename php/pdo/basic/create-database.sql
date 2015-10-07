@@ -5,37 +5,37 @@ DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
 
 # Recreate them.
+
+// create a table in database
 CREATE TABLE users (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	username VARCHAR (50) NOT NULL,
+	email VARCHAR(100) NOT NULL,
 	password VARCHAR (50) NOT NULL,
 	name VARCHAR(100) NOT NULL,
-	email VARCHAR(100) NOT NULL,
-	gender VARCHAR (1) NOT NULL,
 	species VARCHAR (100) NOT NULL DEFAULT 'human',
+	gender CHAR(1) NOT NULL,
 	age INT NOT NULL,
-	UNIQUE(username)
+	UNIQUE(email)
 );
-# use insert to populate the users table (faster to do this from a file or copy/paste!!!)
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('snoopy', 'snoopypass', 'Snoopy', 'snoopy@example.com', 'M', 'dog', 7 );
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('nataliaromanova', 'nataliapass', 'Natalia Romanova', 'natalia@example.com', 'F', 'human', 30);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('huamulan', 'huapass', 'Hua Mulan', 'hua@example.com', 'F', 'human', 18);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('fredflintstone', 'fredpass', 'Fred Flintstone', 'fred@example.com', 'M', 'human', 40);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('bugsbunny', 'bugspass', 'Bugs Bunny', 'bugs@example.com', 'M', 'rabbit', 6);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('brucebanner', 'brucepass', 'Bruce D. Banner', 'bruce@example.com', 'M', 'human', 47);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('charliebrown', 'charliepass', 'Charlie Brown', 'charlie@example.com', 'M', 'human', 8);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('princesspocahontas', 'pocahontaspass', 'Pocahontas', 'princesspocahontas@example.com', 'F', 'human', 23);
-INSERT INTO users (username, password, name, email, gender, species, age)
-	VALUES ('brucewayne', 'brucepass', 'Bruce Wayne', 'brucewayne@example.com', 'M', 'bat', 38);
 
+INSERT INTO users (email, password, name, species, gender, age)
+	VALUES ('snoopy@example.com', 'snoopypass', 'Snoopy', 'dog', 'M', 7 );
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('natalia@example.com', 'nataliapass', 'Natalia Romanova', 'human', 'F', 30);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('mulan@example.com', 'huapass', 'Hua Mulan', 'human', 'F', 18);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('fred@example.com', 'fredpass', 'Fred Flintstone', 'human', 'M', 40);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('bugs@example.com', 'bugspass', 'Bugs Bunny', 'rabbit', 'M', 6);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('brucebanner@example.com', 'brucepass', 'Bruce D. Banner', 'human', 'M', 47);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('charliebrown@example.com', 'charliepass', 'Charlie Brown', 'human', 'M', 8);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('princesspocahontas@example.com', 'pocahontaspass', 'Pocahontas', 'human', 'F', 23);
+INSERT INTO users (email, password, name, species, age)
+	VALUES ('brucewayne@example.com', 'brucepass', 'Bruce Wayne', 'bat', 'M', 38);
 
 # create a second table with posts
 CREATE TABLE posts (
