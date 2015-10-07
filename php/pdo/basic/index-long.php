@@ -3,7 +3,7 @@
 </head>
 <body>
 <?php
-$dao = new PDO("mysql:dbname=marissa;host=localhost;", "marissa", "mysqlpass");
+$dao = new PDO("mysql:dbname=marissa;host=localhost;", "marissa", "LetMeIn!");
 # But what if something is wrong??
 ?>
 <h1>Select all posts correctly</h1>
@@ -63,11 +63,11 @@ try {
 <h1>Select all posts and users and print in table</h1>
 <?php
 try {
-  $rows = $dao->query("SELECT u.name, p.message, p.posted FROM posts AS p JOIN users AS u ON p.user_id = u.id"); ?>
+  $rows = $dao->query("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p JOIN users AS u ON p.user_id = u.id"); ?>
   <table>
   <?php foreach($rows as $row) { ?>
     <tr>
-      <td><?= $row['name']; ?></td>
+      <td><?= $row['first_name'] . " " . $row['last_name']; ?></td>
       <td><?= $row['message']; ?></td>
       <td><?= $row['posted']; ?></td>
     </tr>
@@ -83,7 +83,12 @@ try {
 <h1>Add new post</h1>
 <?php
 try {
-  $count = $dao->exec("INSERT INTO posts (user_id, message) VALUES (1, 'Woof woof woof!...woof.')");
+  // First, find out snoopy's id so we can use it when inserting his post.
+  $result = $dao->query("SELECT id FROM users WHERE username = 'snoopy'");
+  $row = $result->fetch();
+  $user_id = $row['id'];
+  // Then, add the post using his id.
+  $count = $dao->exec("INSERT INTO posts (user_id, message) VALUES ($user_id, 'Woof woof woof!...woof.')");
   $id = $dao->lastInsertId();
 ?>
   <p>Added <?= $count ?> new messages with id: <?= $id ?></p>
@@ -101,7 +106,7 @@ try {
 ?>
 
 <h1>Add a form to select posts by username VULNERABLE</h1>
-<form name="messageFilter" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="GET">
+<form name="messageFilter" action="" method="GET">
     <div>
       Filter by (username): <input type="text" name="username">
       <input type="submit" name="filterButton" value="Filter">
@@ -112,7 +117,7 @@ try {
 Exposing Data.
 <ul>
   <li>Try filtering as: <code>' or '1' = '1</code></li>
-  <li>Try filtering as: <code>' UNION SELECT password, age, name FROM users WHERE email='snoopy@example.com</code></li>
+  <li>Try filtering as: <code>' UNION SELECT password, age, first_name, last_name FROM users WHERE username='snoopy</code></li>
 </ul>
 </p>
 <p>
@@ -127,13 +132,13 @@ $username = isset($_GET['username']) ? $_GET['username'] : "";
 if($username)
 {
   try {
-    $rows = $dao->query("SELECT u.name, p.message, p.posted FROM posts AS p
+    $rows = $dao->query("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
                         JOIN users AS u ON p.user_id = u.id
-                        WHERE email = '$username'"); ?>
+                        WHERE username = '$username'"); ?>
     <table>
     <?php foreach($rows as $row) { ?>
       <tr>
-        <td><?= $row['name']; ?></td>
+        <td><?= $row['first_name'] . " " . $row['last_name']; ?></td>
         <td><?= $row['message']; ?></td>
         <td><?= $row['posted']; ?></td>
       </tr>
@@ -156,13 +161,13 @@ if($username)
 {
   try {
     $safeusername = $dao->quote($username);
-    $rows = $dao->query("SELECT u.name, p.message, p.posted FROM posts AS p
+    $rows = $dao->query("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
                         JOIN users AS u ON p.user_id = u.id
-                        WHERE email = $safeusername"); ?>
+                        WHERE username = $safeusername"); ?>
     <table>
     <?php foreach($rows as $row) { ?>
       <tr>
-        <td><?= $row['name']; ?></td>
+        <td><?= $row['first_name'] . " " . $row['last_name']; ?></td>
         <td><?= $row['message']; ?></td>
         <td><?= $row['posted']; ?></td>
       </tr>
@@ -185,13 +190,13 @@ $username = isset($_GET['username']) ? $_GET['username'] : "";
 if($username)
 {
   try {
-    $stmt = $dao->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
+    $stmt = $dao->prepare("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
                         JOIN users AS u ON p.user_id = u.id
-                        WHERE email = ?");
+                        WHERE username = ?");
     $stmt->execute(array($username));
 
     # OR
-    // $stmt = $dao->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
+    // $stmt = $dao->prepare("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
     //                     JOIN users AS u ON p.user_id = u.id
     //                     WHERE email = :uname");
     // $stmt->bindParam(":uname", $username);
@@ -202,7 +207,7 @@ if($username)
     <table>
     <?php foreach($stmt as $row) { ?>
       <tr>
-        <td><?= $row['name']; ?></td>
+        <td><?= $row['first_name'] . " " . $row['last_name']; ?></td>
         <td><?= $row['message']; ?></td>
         <td><?= $row['posted']; ?></td>
       </tr>
@@ -221,11 +226,11 @@ if($username)
 <h1>Other commands</h1>
 <?php
 try {
-  $rows = $dao->query("SELECT email, name FROM users WHERE gender = 'F'"); ?>
+  $rows = $dao->query("SELECT username, first_name, last_name FROM users WHERE gender = 'F'"); ?>
   <p>Row Count: <?= $rows->rowCount(); ?></p>
   <p>Column Count: <?= $rows->columnCount(); ?></p>
   <?php $first = $rows->fetch(); ?>
-  <p>First Result: [email: <?= $first['email']; ?>, name: <?= $first['name']; ?>]</p>
+  <p>First Result: [username: <?= $first['username']; ?>, first_name: <?= $first['first_name']; ?>, last_name: <?= $first['last_name']; ?>]</p>
 <?php
 } catch (PDOException $e) {
   echo "<p>Failed to retrieve posts.</p>";

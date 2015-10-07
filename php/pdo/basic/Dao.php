@@ -4,7 +4,7 @@ class Dao {
   private $dbname = "marissa";
   private $host ="localhost";
   private $database = "marissa";
-  private $password = "mysqlpass";
+  private $password = "LetMeIn!";
 
   private function getConnection()
   {
@@ -18,9 +18,9 @@ class Dao {
   public function getPostsByUsername($username)
   {
     $conn = $this->getConnection();
-  	$stmt = $conn->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
+  	$stmt = $conn->prepare("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
 							JOIN users AS u ON p.user_id = u.id
-              WHERE email = :uname");
+              WHERE username = :uname");
     $stmt->bindParam(":uname", $username);
     $stmt->execute();
     return $stmt;
