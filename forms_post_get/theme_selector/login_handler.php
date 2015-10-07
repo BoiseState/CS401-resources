@@ -9,7 +9,7 @@
       $message = "Live long and prosper.";
       break;
     case "fantastical":
-      $style = "fantastical";
+      $style = "fantastical.css";
       $message = "Not all those who wander are lost. Enjoy your journey!";
       break;
    default:
