@@ -53,7 +53,7 @@ try
     <tbody>
       <?php foreach($posts as $post) { ?>
       <tr>
-        <td><?= $post['name']; ?></td>
+        <td><?= $post['first_name'] . " " . $post['last_name']; ?></td>
         <td><?= $post['message']; ?></td>
         <td><?= $post['posted']; ?></td>
         <td>

@@ -30,8 +30,8 @@ class Dao {
   public function filterPostsByKey($key, $value)
   {
     $conn = $this->getConnection();
-  	$stmt = $conn->prepare("SELECT u.name, p.message, p.posted FROM posts AS p
-							JOIN users AS u ON p.user_id = u.id
+    $stmt = $conn->prepare("SELECT u.first_name, u.last_name, p.message, p.posted
+              FROM posts AS p JOIN users AS u ON p.user_id = u.id
               WHERE $key = :value");
     $stmt->bindParam(":value", $value);
     $stmt->execute();
@@ -40,8 +40,8 @@ class Dao {
 
   public function getPostsJoinUserName() {
     $conn = $this->getConnection();
-    return $conn->query("SELECT u.name, p.id, p.message, p.posted FROM posts AS p
-      JOIN users AS u ON p.user_id = u.id");
+    return $conn->query("SELECT u.first_name, u.last_name, p.id, p.message, p.posted
+             FROM posts AS p JOIN users AS u ON p.user_id = u.id");
   }
 
   public function getPosts()
