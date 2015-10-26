@@ -1,9 +1,17 @@
-
 <html>
 <head>
 <title>PHP Example: Filter: Callable Trim String</title>
 </head>
 <body>
+
+<!-- Show the form -->
+<form method="post" action="" >
+	Enter string to trim: <input type="text" name="data">
+	<input type="submit">
+</form>
+
+<hr>
+<h2>Result:</h2>
 
 <?php
 $data = "";
@@ -29,22 +37,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	$data = filter_input(INPUT_POST, "data", FILTER_CALLBACK, array("options" => $function_name));
 
 	$result .= "was filtered to become \"$data\"!";
+
+	echo "$result";
 }
 ?>
-
-<!-- Show the form -->
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
-	Enter string to trim: <input type="text" name="data">
-	<input type="submit">
-</form>
-
-<?php
-/* Print the validation results */
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-	echo "<br><br>Trim Result: $result";
-}
-?>
-
 </body>
 </html

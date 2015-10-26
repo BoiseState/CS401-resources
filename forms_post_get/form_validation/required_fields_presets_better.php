@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 ?>
 
 <!-- Print the form and insert error messages if necessary -->
-<form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
+<form method="post" action="" >
 
   <!-- First Name: Required, must only contain letters and whitespace. -->
   <div class="control-group">

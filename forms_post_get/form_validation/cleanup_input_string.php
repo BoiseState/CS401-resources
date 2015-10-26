@@ -20,7 +20,7 @@ function cleanup_input($string)
 }
 ?>
 
-<form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
+<form method="post" action="" >
   <div>
     <p>Enter a messy string with extra spaces, newlines, and/or backslashes:</p>
 	  <textarea name="stringthing" rows="10" cols="30"></textarea>

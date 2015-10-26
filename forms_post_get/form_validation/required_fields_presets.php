@@ -1,11 +1,9 @@
 <html>
 <head>
 <title>PHP Example: Form Validation: Required Fields</title>
-
 <style>
 .error { color:red; }
 </style>
-
 </head>
 <body>
 
@@ -13,99 +11,91 @@
 require_once('./form_util.php');
 
 /** Define variables and set to empty values */
-$First_Name = $Middle_Initial = $Last_Name = $Email = $URL = $Favorite_OS = $Favorite_PL = $Comments = "";
+$first_name = $middle_initial = $last_name = $email = $url = $favorite_os = $favorite_pl = $comments = "";
 
 /** Define potential error variables */
-$First_Name_Error = $Middle_Initial_Error = $Last_Name_Error = $Email_Error = $URL_Error = $Favorite_OS_Error = $Favorite_PL_Error = "";
+$first_name_error = $middle_initial_error = $last_name_error = $email_error = $url_error = $favorite_os_error = $favorite_pl_error = "";
 
 /** Test the posted input field values */
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
 	/** Verify that the first name value is available and store it, otherwise set as error */
-	if(empty($_POST['first_name']))
-	{
-		$First_Name_Error = "First name is a required field!";
-	}
-	else
-	{
-		$First_Name = cleanup_input($_POST['first_name']);
+	if(empty($_POST['first_name'])) {
+		$first_name_error = "First name is a required field!";
+	} else {
+		$first_name = cleanup_input($_POST['first_name']);
 	}
 
 	/** Store the middle initial value */
-	$Middle_Initial = cleanup_input($_POST['middle_initial']);
+	$middle_initial = cleanup_input($_POST['middle_initial']);
 
 	/** Verify that the last name value is available and store it, otherwise set as error */
-	if(empty($_POST['last_name']))
-	{
-		$Last_Name_Error = "Last name is a required field!";
-	}
-	else
-	{
-		$Last_Name = cleanup_input($_POST['last_name']);
+	if(empty($_POST['last_name'])) {
+		$last_name_error = "Last name is a required field!";
+	} else {
+		$last_name = cleanup_input($_POST['last_name']);
 	}
 
 	/** Verify that the email value is available and store it, otherwise set as error */
-	if(empty($_POST['email']))
-	{
-		$Email_Error = "Email is a required field!";
-	}
-	else
-	{
-		$Email = cleanup_input($_POST['email']);
-	}
+	if(empty($_POST['email'])) {
+		$email_error = "Email is a required field!";
+	} else {
+		$email = cleanup_input($_POST['email']);
+  }
 
 	/** Store the website url value */
-	$URL = cleanup_input($_POST['url']);
+	$url = cleanup_input($_POST['url']);
 
 	/** Verify that the favorite os value is available and store it, otherwise set as error */
-	if(empty($_POST['favorite_os']))
-	{
-		$Favorite_OS_Error = "Favorite operating system is a required field!";
-	}
-	else
-	{
-		$Favorite_OS = cleanup_input($_POST['favorite_os']);
+	if(empty($_POST['favorite_os'])) {
+		$favorite_os_error = "Favorite operating system is a required field!";
+	} else {
+		$favorite_os = cleanup_input($_POST['favorite_os']);
 	}
 
 	/** Verify that the favorite os value is available and store it, otherwise set as error */
-	if(empty($_POST['favorite_pl']))
-	{
-		$Favorite_PL_Error = "Favorite programming language is a required field!";
-	}
-	else
-	{
-		$Favorite_PL = cleanup_input($_POST['favorite_pl']);
+	if(empty($_POST['favorite_pl'])) {
+		$favorite_pl_error = "Favorite programming language is a required field!";
+	} else {
+		$favorite_pl = cleanup_input($_POST['favorite_pl']);
 	}
 
 	/** Store the comments value */
-	$Comments = cleanup_input($_POST['comments']);
+	$comments = cleanup_input($_POST['comments']);
 }
-
 ?>
 
 <!-- Print the form and insert error messages if necessary -->
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
+<form method="post" action="" >
 
-	<!-- First Name: Required -->
-	First Name: <input type="text" name="first_name" value="<?php echo $First_Name; ?>">
-	<span class="error">* <?php echo $First_Name_Error; ?> </span><br><br>
-
-	<!-- Middle Initial: Optional -->
-	Middle Initial: <input type="text" name="middle_initial" value="<?php echo $Middle_Initial; ?>"> </span><br><br>
-
-	<!-- Last Name: Required -->
-	Last Name: <input type="text" name="last_name" value="<?php echo $Last_Name; ?>">
-	<span class="error">* <?php echo $Last_Name_Error; ?> </span><br><br>
-
-	<!-- Email: Required -->
-	Email: <input type="text" name="email" value="<?php echo $Email; ?>">
- 	<span class="error">* <?php echo $Email_Error; ?> </span><br><br>
-
-	<!-- Website URL: Optional -->
-	Website: <input type="text" name="url" value="<?php echo $URL; ?>"><br><br>
-
+  <div>
+  	<!-- First Name: Required -->
+	  <label>First Name: </label><input type="text" name="first_name" value="<?= $first_name; ?>">
+	  <span class="error">* <?= $first_name_error; ?> </span>
+  </div>
+  <div>
+    <!-- Middle Initial: Optional -->
+    <label>Middle Initial: </label><input type="text" name="middle_initial" value="<?= $middle_initial; ?>">
+	  <span class="error"><?= $middle_initial_error; ?> </span>
+  </div>
+  <div>
+	  <!-- Last Name: Required -->
+	  <label>Last Name: </label><input type="text" name="last_name" value="<?= $last_name; ?>">
+	  <span class="error">* <?= $last_name_error; ?> </span>
+  </div>
+  <div>
+	  <!-- Email: Required -->
+	  <label>Email: </label><input type="text" name="email" value="<?= $email; ?>">
+ 	  <span class="error">* <?= $email_error; ?> </span>
+  </div>
+  <div>
+	  <!-- Website URL: Optional -->
+	  <label>Website: </label><input type="text" name="url" value="<?= $url; ?>">
+ 	  <span class="error"> <?= $url_error; ?> </span>
+  </div>
+  <div>
 	<!-- Favorite OS: Required, must select one -->
-	Favorite Operating System:
+	<label>Favorite Operating System: </label>
 	<input type="radio" name="favorite_os" value="Linux" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Linux")) { echo "checked"; }?> > Linux
 	<input type="radio" name="favorite_os" value="Windows" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Windows")) { echo "checked"; } ?> > Windows
 	<input type="radio" name="favorite_os" value="Mac_OS_X" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Mac_OS_X")){ echo "checked"; } ?> > Mac OS X
@@ -114,10 +104,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	<input type="radio" name="favorite_os" value="Plan_9" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Plan_9")) { echo "checked"; } ?> > Plan 9
 	<input type="radio" name="favorite_os" value="IOS" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "IOS")) { echo "checked"; } ?> > IOS
 	<input type="radio" name="favorite_os" value="Other" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Other")) { echo "checked"; } ?> > Other...
-	<span class="error">* <?php echo $Favorite_OS_Error; ?> </span><br><br>
-
+	<span class="error">* <?= $favorite_os_error; ?> </span>
+  </div>
+  <div>
 	<!-- Favorite PL: Required, must select one -->
-	Favorite Programming Language:
+	<label>Favorite Programming Language: </label>
 	<select name="favorite_pl">
 		<option selected disabled hidden value=''></option>
 		<option value="python" <?php if(isset($_POST['favorite_pl']) && ($_POST['favorite_pl'] == "python")) { echo "selected"; } ?> > Python </option>
@@ -134,14 +125,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		<option value="lisp" <?php if(isset($_POST['favorite_pl']) && ($_POST['favorite_pl'] == "lisp")) { echo "selected"; } ?> > Lisp </option>
 		<option value="other" <?php if(isset($_POST['favorite_pl']) && ($_POST['favorite_pl'] == "other")) { echo "selected"; } ?> > Other...</option>
 	</select>
-	<span class="error">* <?php echo $Favorite_PL_Error; ?> </span><br><br>
-
-	<!-- Comments(s): Optional -->
-	Comment(s):<br> <textarea name="comments" rows="10" cols="30"><?php echo $Comments; ?></textarea><br><br>
-
-	<input type="submit">
-	<br><br>
-	<span class="error">*</span>Indicates a required field.
+	<span class="error">* <?= $favorite_pl_error; ?> </span>
+  </div>
+  <div>
+	  <!-- Comments(s): Optional -->
+    <label>Comment(s): </label><br>
+    <textarea name="comments" rows="10" cols="30"><?= $comments; ?></textarea>
+  </div>
+  <div>
+	  <input type="submit">
+  </div>
+  <span class="error">*</span>Indicates a required field.
 </form>
 
 
@@ -150,17 +144,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 /** After a post, print the results for demonstration purposes */
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-	echo "Received the following results: <br>";
-	echo "<p>First Name: \"$First_Name\" </p>";
-	echo "<p>Middle Initial: \"$Middle_Initial\" </p>";
-	echo "<p>Name: \"$Last_Name\" </p>";
-	echo "<p>Email: \"$Email\" </p>";
-	echo "<p>Website: \"$URL\" </p>";
-	echo "<p>Favorite Operating System: \"$Favorite_OS\" </p>";
-	echo "<p>Favorite Programming Language: \"$Favorite_PL\" </p>";
-	echo "<p>Comment(s): \"$Comments\" </p>";
+?>
+  <h2>Received the following results:</h2>
+  <p>First Name: <?= $first_name; ?> </p>
+  <p>Middle Initial: <?= $middle_initial; ?> </p>
+  <p>Name: <?= $last_name; ?> </p>
+  <p>Email: <?= $email; ?> </p>
+  <p>Website: <?= $url; ?> </p>
+  <p>Favorite Operating System: <?= $favorite_os; ?> </p>
+  <p>Favorite Programming Language: <?= $favorite_pl; ?> </p>
+  <p>Comment(s): <?= $comments; ?> </p>
+<?php
 }
-
 ?>
 
 </body>
