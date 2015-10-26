@@ -1,0 +1,3 @@
+To create tables needed in this example, execute the following sql script:
+
+CS401-lab/sql/create-tables.sql
