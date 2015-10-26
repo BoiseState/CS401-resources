@@ -1,5 +1,5 @@
 <?php
-  $username = $_POST['username'];
+  $username = htmlspecialchars($_POST['username']);
   $password = $_POST['password'];
   $view = $_POST['view'];
 
@@ -24,7 +24,8 @@
   <link href="css/<?= $style ?>" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <h1>Welcome <?= $username ?>!</h1>
+<pre>
+  <h1>Welcome <?= $username ?>!</h1></pre>
   <p><?= $message ?></p>
 </body>
 </html>

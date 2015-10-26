@@ -67,7 +67,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 <!-- Print the form and insert error messages if necessary -->
 <form method="post" action="" >
-
   <div>
   	<!-- First Name: Required -->
 	  <label>First Name: </label><input type="text" name="first_name" value="<?= $first_name; ?>">
@@ -95,16 +94,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   </div>
   <div>
 	<!-- Favorite OS: Required, must select one -->
-	<label>Favorite Operating System: </label>
-	<input type="radio" name="favorite_os" value="Linux" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Linux")) { echo "checked"; }?> > Linux
-	<input type="radio" name="favorite_os" value="Windows" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Windows")) { echo "checked"; } ?> > Windows
-	<input type="radio" name="favorite_os" value="Mac_OS_X" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Mac_OS_X")){ echo "checked"; } ?> > Mac OS X
-	<input type="radio" name="favorite_os" value="Android" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Android")) { echo "checked"; } ?> > Android
-	<input type="radio" name="favorite_os" value="FreeBSD" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "FreeBSD")) { echo "checked"; } ?> > FreeBSD
-	<input type="radio" name="favorite_os" value="Plan_9" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Plan_9")) { echo "checked"; } ?> > Plan 9
-	<input type="radio" name="favorite_os" value="IOS" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "IOS")) { echo "checked"; } ?> > IOS
-	<input type="radio" name="favorite_os" value="Other" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Other")) { echo "checked"; } ?> > Other...
-	<span class="error">* <?= $favorite_os_error; ?> </span>
+    <label>Favorite Operating System: </label>
+    <input type="radio" name="favorite_os" value="Linux" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Linux")) { echo "checked"; }?> > Linux
+    <input type="radio" name="favorite_os" value="Windows" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Windows")) { echo "checked"; } ?> > Windows
+    <input type="radio" name="favorite_os" value="Mac_OS_X" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Mac_OS_X")){ echo "checked"; } ?> > Mac OS X
+    <input type="radio" name="favorite_os" value="Android" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Android")) { echo "checked"; } ?> > Android
+    <input type="radio" name="favorite_os" value="FreeBSD" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "FreeBSD")) { echo "checked"; } ?> > FreeBSD
+    <input type="radio" name="favorite_os" value="Plan_9" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Plan_9")) { echo "checked"; } ?> > Plan 9
+    <input type="radio" name="favorite_os" value="IOS" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "IOS")) { echo "checked"; } ?> > IOS
+    <input type="radio" name="favorite_os" value="Other" <?php if(isset($_POST['favorite_os']) && ($_POST['favorite_os'] == "Other")) { echo "checked"; } ?> > Other...
+    <span class="error">* <?= $favorite_os_error; ?> </span>
   </div>
   <div>
 	<!-- Favorite PL: Required, must select one -->
