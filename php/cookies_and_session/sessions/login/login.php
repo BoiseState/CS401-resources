@@ -38,10 +38,7 @@ if(isset($_SESSION['status']))
 ?>
 
 <html>
-  <head>
-    <title>Login Session, Form Presets, and Status</title>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-  </head>
+  <?php include_once('header.php'); ?>
   <body>
     <h1>Login to my Secret System</h3>
     <div id="status"><?= $status; ?></div>
