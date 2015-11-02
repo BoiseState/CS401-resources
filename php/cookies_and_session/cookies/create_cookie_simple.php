@@ -10,6 +10,12 @@ $directory = "/"; # Note: the value "/" means that the cookie is available in en
 if(!isset($_COOKIE[$cookie_name])) {
   setcookie($cookie_name, $cookie_value, $time_stamp, $directory);
 }
+
+/* Delete cookie if we are done with it.
+ * IMPORTANT: this must appear before the <html> tag. */
+if(isset($_COOKIE[$cookie_name])) {
+  setcookie($cookie_name, '', -1, $directory);
+}
 ?>
 <html>
 <head><title>Cookie Example: Simple Create</title></head>
@@ -28,6 +34,6 @@ if(!isset($_COOKIE[$cookie_name])) { ?>
 Challenge: How can you view and change the value of this cookie with your web browser?
 Hint: In Chrome, find and open the Javascript console and enter:
 document.cookie="username=bigbird". Then reload the page.
-Now what do you see? How can you do this in other browsers?
+Now what do you see?
 -->
 
