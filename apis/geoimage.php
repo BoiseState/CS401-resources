@@ -20,7 +20,7 @@ if(isset($_GET['submit'])) {
 
       # Instagram API Request
       # Need to generate your own client id (https://instagram.com/developer).
-      $instagram_client_id="8ec36eb2cd0b4615878bbd8b7abda7d4";
+      $instagram_client_id="";
       $instagram_url = "https://api.instagram.com/v1/media/search" .
                         "?lat=$lat&lng=$lng&client_id=$instagram_client_id";
       $instagram_json = file_get_contents($instagram_url);
