@@ -3,13 +3,13 @@ class Dao {
 
   private $dbname = "marissa";
   private $host ="localhost";
-  private $database = "marissa";
+  private $username = "marissa";
   private $password = "mysqlpass";
 
   private function getConnection()
   {
     $conn = new PDO("mysql:dbname={$this->dbname};host={$this->host};",
-      "$this->database", "$this->password");
+      "$this->username", "$this->password");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
   }
