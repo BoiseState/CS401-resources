@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Example: Timestamp</title>
+</head>
+<body>
+
+<!-- Example 1: An onclick attribute (with code) is added to a button element -->
+<button onclick="getElementById('demo').innerHTML=Date()">Example 1: Click here to print the current date and time below!</button>
+<p id="demo"></p>
+
+<!-- Example 2: An onclick attribute (with code) is added to a button element,
+where the code uses "this.innerHTML" to change its own element. -->
+<button onclick="this.innerHTML=Date()">Example 2: Click here to print the current date and time on this button!</button>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>

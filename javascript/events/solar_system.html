@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Example: Mouseover and Click Events </title>
+<script src="solar_system.js" type="text/javascript"></script> 
+</head>
+
+<body>
+<h1>Mouseover and/or click a massive object in our solar system to trigger an event!</h1>
+<img src ="images/solarsystem.jpg" alt="Solar System" usemap="#planetmap" />
+
+<map name="planetmap">
+<area shape ="poly" coords ="0,423,94,489,162,575,0,574" onmouseover="update_mouseover('The Sun!')" onmouseout="update_mouseover('???')"  onclick="update_singleclick('Sun!')" ondblclick="update_doubleclick('Sun!')" alt="Sun" />
+
+<area shape ="circle" coords ="227,477,54" onmouseover="update_mouseover('Mercury!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Mercury!')" ondblclick="update_doubleclick('The Sun!')" alt="Mercury" />
+
+<area shape ="circle" coords ="328,411,54" onmouseover="update_mouseover('Venus!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Venus!')" ondblclick="update_doubleclick('Venus!')" alt="Venus" />
+
+<area shape ="circle" coords ="451,353,70" onmouseover="update_mouseover('Earth!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Earth!')" ondblclick="update_doubleclick('Earth!')" alt="Earth" />
+
+<area shape ="circle" coords ="481,258,10" onmouseover="update_mouseover('Moon!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Moon!')" ondblclick="update_doubleclick('Moon!')" alt="Moon" />
+
+<area shape ="circle" coords ="569,312,40" onmouseover="update_mouseover('Mars!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Mars!')" ondblclick="update_doubleclick('Mars!')" alt="Mars" />
+
+<area shape ="circle" coords ="650,269,35" onmouseover="update_mouseover('Jupiter!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Jupiter!')" ondblclick="update_doubleclick('Jupiter!')" alt="Jupiter" />
+
+<area shape ="circle" coords ="776,219,50" onmouseover="update_mouseover('Saturn!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Saturn!')" ondblclick="update_doubleclick('Saturn!')" alt="Saturn" />
+
+<area shape ="circle" coords ="906,157,30" onmouseover="update_mouseover('Uranus!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Uranus!')" ondblclick="update_doubleclick('Uranus!')" alt="Uranus" />
+
+<area shape ="circle" coords ="979,119,30" onmouseover="update_mouseover('Neptune!')" onmouseout="update_mouseover('???')" onclick="update_singleclick('Neptune!')" ondblclick="update_doubleclick('Neptune!')" alt="Neptune" />
+
+<h3>Current massive object mouseover: <span id="current_object_mouseover">???</span></h3>
+
+<h3>Most recent massive object single-click: <span id="recent_object_singleclick">???</span></h3>
+
+<h3>Most recent massive object double-click: <span id="recent_object_doubleclick">???</span></h3>
+
+</body>
+</html>

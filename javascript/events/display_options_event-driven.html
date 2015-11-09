@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Example: Display Options (Event-Driven)</title>
+	<script src="display_options_event-driven.js" type="text/javascript"></script>
+</head>
+<body>
+<!--
+JavaScript does not have any built-in print or display functions, but it can "display" data
+in various ways. This simple example demonstrates four distinct methods of doing this.
+-->
+<div>
+	<!-- Example Option #1: Use the window.alert() method to display data in a pop-up alert box -->
+	<p><button onclick="display_option1_windowalert();">Event Option 1: Print the sum of two numbers with window.alert()!</button></p>
+</div>
+<div>
+	<!-- Example Option #2: Use the document.getElementById(id) method to access an HTML element -->
+	<p><button onclick="display_option2_documentGetElementById();">Event Option 2: Print the sum of two numbers with document.getElementById(id)!</button></p>
+	<p id="example2"></p> <!-- Define HTML element with id attribute -->
+</div>
+<div>
+	<!-- Example Option #3: Use the document.write() method, which is often convenient for testing and debugging purposes -->
+	<!-- Warning: Since you're using document.write() after the HTML document is fully loaded, then it will delete all existing html, so it should only be used for debugging/testing purposes. -->
+	<p><button onclick="display_option3_documentwrite();">Event Option 3: Print the sum of two numbers with document.write()! (Warning: This will delete all other existing HTML!) </button></p>
+</div>
+<div>
+	<!-- Example Option #4: Use the console.log() method, where the data can be viewed in the browser console. -->
+	<!-- Note: In Windows/Linux Chrome, select the "Customize and control Google Chrome" > More Tools > JavaScript Console -->
+	<p><button onclick="display_option4_consolelog();">Event Option 4: Print the sum of two numbers with console.log()! (Hint: Access this via the JavaScript Console!) </button></p>
+</div>
+
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>
+
+
+
