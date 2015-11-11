@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- To use JQuery, one option is to include it from Google's content delivery network (CDN). -->
+	<!-- There are other CDN possibilities. Another option is to download and install it manually. -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="menu.js"></script>
+  <script src="menu-form.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <form action="test.php">
+    <label for="menuname">Menu Name:</label>
+    <input type="text" name="menuname" id="menuname" placeholder="New Menu" />
+    <label class="error"></label>
+    <input type="submit" value="Add Menu"/>
+  </form>
+
+  <ul class="menu">
+    <li><a href="">Menu</a> <ul style="display:none;"><li>Item 1</li><li>Item 2</li></ul></li>
+    <li><a href="">Menu</a> <ul style="display:none;"><li>Item 1</li><li>Item 2</li></ul></li>
+  </ul>
+  <button>Add Menu</button>
+</body>
+</html>

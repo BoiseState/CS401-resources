@@ -3,11 +3,11 @@
 <html>
 <head>
 	<title>JQuery Example: The Hungry Bronco Feast Menu: Toggle and Hover Effects</title>
-	
+
 	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
 	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+
 	<script>
 		$(document).ready(function()
 		{
@@ -16,23 +16,23 @@
 			{
 				$("#meatlover_items").toggle("slow");
 			});
-			
+
 			$("#healthlover_button").click(function()
 			{
 				$("#healthlover_items").toggle("fast");
 			});
-						
+
 			$("#drink_button").click(function()
 			{
 				$("#drink_items").toggle(2000);
 			});
-			
+
 			/** Define item hover animation handlers (for left and right actions) */
 			$("ol").hover(
 				function()
 				{
 					$(this).animate({ marginLeft:38, marginRight: 0 });
-					
+
 				},
 				function()
 				{
@@ -40,13 +40,13 @@
 				}
 			);
 		});
-		
+
 	</script>
 
 	<!-- Give it a bit of style -->
-	<style> 
+	<style>
 		h1,h2 { text-align: center; }
-		li { font-size: 125%; } 
+		li { font-size: 125%; }
 		td { vertical-align:top; }
 	</style>
 </head>
@@ -73,7 +73,7 @@
 			</ol>
 		</li>
 		<li>
-			<button id="healthlover_button" style="font-size:150%;color:green;">Healthlover Food Menu</button> 
+			<button id="healthlover_button" style="font-size:150%;color:green;">Healthlover Food Menu</button>
 			<ol id="healthlover_items" style="display:none;">
 				<li>Tofurky Vegetarian Roast</li>
 				<li>Tasty Idaho Baked Potatoes</li>
@@ -84,7 +84,7 @@
 			</ol>
 		</li>
 		<li>
-			<button id="drink_button" style="font-size:150%;color:blue;">Drink Menu</button> 
+			<button id="drink_button" style="font-size:150%;color:blue;">Drink Menu</button>
 			<ol id="drink_items" style="display:none;">
 				<li>H2O</li>
 				<li>Florida Orange Juice</li>

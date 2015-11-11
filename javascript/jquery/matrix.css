@@ -1,0 +1,16 @@
+body {
+  font-family: 'consolas', monospace;
+}
+table, td {
+  border: 5px solid gray;
+  border-collapse: collapse;
+}
+table {
+  background-color: black;
+  color: #0066FF;
+  font-size: 50pt;
+}
+
+td.redpill {
+  color: red;
+}
