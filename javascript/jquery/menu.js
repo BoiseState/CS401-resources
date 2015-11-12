@@ -33,4 +33,7 @@ $(document).ready(function(){
 		$("ul.menu").append(item);
 	});
 
+	// These are part of jQuery UI. Need to include the plugins in your HTML header.
+	$( "#sortable-menu" ).sortable();
+    $( "#sortable-menu" ).disableSelection();
 });
