@@ -11,8 +11,7 @@ $(document).ready(function() {
 		$(this).toggleClass("redpill");
 	});
 
-	$(function() {
-		$( "#draggable" ).draggable();
-	});
+	$("#title").draggable();
+	$("#matrix").draggable();
 });
 
