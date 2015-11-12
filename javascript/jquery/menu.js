@@ -1,16 +1,18 @@
 $(document).ready(function(){
 
-	$(".menu").find("a").on("click", function(){
+	$(".menu").find("a").on("click", function(e){
+
 		$(this).toggleClass('selected');
 		$(this).next().toggle();
-		return false;
+
+		e.preventDefault(); // prevent default click operation
 	});
 
 	// This works if elements are added later
-	// $(".menu").on("click", "a", function(){
-	// 	$(this).toggleClass('purple');
+	// $(".menu").on("click", "a", function(e){
+	// 	$(this).toggleClass('selected');
 	// 	$(this).next().toggle();
-	// 	return false;
+	// 	e.preventDefault();
 	// });
 
 	$(".menu").children("li").hover(function(){
@@ -29,7 +31,6 @@ $(document).ready(function(){
 	$("button").on("click", function(){
 		var item = $('<li><a href="" class="menu">Menu</a> <ul style="display:none;"><li>Item 1</li><li>Item 2</li></ul></li>');
 		$("ul.menu").append(item);
-		return false;
 	});
 
 });
