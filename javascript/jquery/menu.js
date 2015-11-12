@@ -3,14 +3,16 @@ $(document).ready(function(){
 	$(".menu").find("a").on("click", function(){
 		$(this).toggleClass('selected');
 		$(this).next().toggle();
+		return false;
 	});
 
 	// This works if elements are added later
 	// $(".menu").on("click", "a", function(){
 	// 	$(this).toggleClass('purple');
 	// 	$(this).next().toggle();
+	// 	return false;
 	// });
-    //
+
 	$(".menu").children("li").hover(function(){
 		$(this).animate({ marginLeft: 18, marginRight: 0});
 	}, function(){
@@ -27,6 +29,7 @@ $(document).ready(function(){
 	$("button").on("click", function(){
 		var item = $('<li><a href="" class="menu">Menu</a> <ul style="display:none;"><li>Item 1</li><li>Item 2</li></ul></li>');
 		$("ul.menu").append(item);
+		return false;
 	});
 
 });

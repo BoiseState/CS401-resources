@@ -36,7 +36,6 @@ ul.menu > li {
 input[type="text"].focus {
   background-color: #e7edf9;
   padding: 3px;
-  /* opacity: .5; */
   color: #1f3e7c;
 }
 
