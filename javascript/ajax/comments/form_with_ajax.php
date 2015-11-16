@@ -42,7 +42,7 @@ $comments = $dao->getComments();
           value="<?php echo $_SESSION['age']; ?>"
         <?php } ?>
         name="age"/>
-        <span id="ageError"></span>
+        <span id="ageError" class="error"></span>
       </div>
       <div class="pair">
         <input id="submit" type="submit"/><small>(You must be 18 to post)</small>

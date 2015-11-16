@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$("#form").submit(function() {
-		var values = $("form").serialize(); // takes all form values and serializes:w
+		var values = $("form").serialize(); // takes all form values and serializes
 		var comment = $("#comment").val();
 		console.log(values);
 		$.ajax({
@@ -13,13 +13,22 @@ $(document).ready(function() {
 				console.log(response.status);
 				if(response.status == "error") {
 					$("#ageError").text(response.errorMessage);
+					$("#age").toggleClass("error");
 				}
 				else {
+					// prepend the comment so it shows immediately with no
+					// page refresh.
 					$("#comments tbody").prepend("<tr><td>" +
 						comment + "</td><td>Just now</td></tr>");
+
+					// clear previous form values.
 					$("#comment").val("");
 					$("#email").val("");
 					$("#age").val("");
+
+					// clear any previous errors.
+					$("#ageError").text("");
+					$("#age").toggleClass("error");
 				}
 			},
 			error: function () {
