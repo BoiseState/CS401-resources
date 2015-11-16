@@ -1,4 +1,5 @@
 <?php
+require_once("Dao.php");
 #start the session. if session is already in progress, has no effect.
 session_start();
 
@@ -33,7 +34,8 @@ if($_POST)
   if($validEmail && $validPassword) {
     # For simplification, let's pretend I got these login credentials
     # from an SQL table.
-    if ("snoopy@example.com" == $email && "snoopypass" == $password) {
+    $dao = new Dao();
+    if($dao->validateUser($email, $password)) {
       $_SESSION["access_granted"] = true;
       header("Location: granted.php");
       die;

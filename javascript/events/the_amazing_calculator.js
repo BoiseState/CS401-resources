@@ -1,21 +1,26 @@
-
 /**
  * This is the JavaScript companion to "the_amazing_calculator.html",
  * which contains the function for the event handler.
  */
 
 /**
+ * add action listener to button.
+ */
+window.onload = function(e) {
+	document.getElementById("computeButton").onclick = compute;
+}
+
+/**
  * Function: Compute
  * Description: Applies the binary operation to the two number variables to obtain the result.
  */
-function compute()
-{
+function compute() {
 	var x = document.getElementById("var_x");
 	var y = document.getElementById("var_y");
 	var operation = document.getElementById("operation");
 	var answer = document.getElementById("answer");
 	var result;
-	
+
 	switch(operation.value)
 	{
 		case "add":
@@ -44,6 +49,6 @@ function compute()
 			break;
 	}
 	console.log(x.value + " and " + y.value + " to obtain " + result);
-	
+
 	answer.innerHTML = result;
 }

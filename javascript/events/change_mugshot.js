@@ -9,10 +9,10 @@
 window.onload = function(e) {
 
 	// Makes sure that the timestamp is updated when the page is initially loaded.
-	update_timestamp(e);
+	updateTimestamp(e);
 
 	// Add event listener handler (change_mugshot function) to mugshot button.
-	document.getElementById("updateButton").onclick = change_mugshot;
+	document.getElementById("updateButton").onclick = changeMugshot;
 }
 
 /**
@@ -20,44 +20,38 @@ window.onload = function(e) {
  * Description: Uses the document.getElementById() method to access the attribute contents
  * of the image node with the "mugshot" identifier.
  */
-function change_mugshot()
-{
+function changeMugshot() {
 	var mugshot = document.getElementById("mugshot");
 
 	/* Switch between the two mugshots, depending on the value of "mugshot.alt".
 	 * Note: we could use the path of mugshot.src, but it uses the absolute path
 	 * (instead of the relative path) so it could change depending on the system
 	 */
-	if(mugshot.alt === "Your current mugshot: Yeti")
-	{
+	if(mugshot.alt === "Your current mugshot: Yeti") {
 		mugshot.src = "images/puppy.jpg";
 		mugshot.alt = "Your current mugshot: Puppy";
-	}
-	else
-	{
+	} else {
 		mugshot.src = "images/yeti.jpg";
 		mugshot.alt = "Your current mugshot: Yeti";
 	}
 
 	/* Update the timestamp of the mugshot */
-	update_timestamp();
+	updateTimestamp();
 }
 
 /**
  * Function: Update Timestamp
  * Description: Updates the timestamp of the "timestamp" span with the current time.
  */
-function update_timestamp()
-{
+function updateTimestamp() {
 	var timestamp = document.getElementById("timestamp");
-	timestamp.innerHTML = get_timestamp();
+	timestamp.innerHTML = getTimestamp();
 }
 
 /** Function: Get Time Stamp
  *  Description: Uses a Date object to access the current timestamp and then format it.
  */
-function get_timestamp()
-{
+function getTimestamp() {
 	var currentTime = new Date();
 	var hours = currentTime.getHours();
 	var minutes = currentTime.getMinutes();

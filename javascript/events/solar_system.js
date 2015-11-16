@@ -1,18 +1,43 @@
-
 // This JavaScript file contains simple event handlers that correspond
 // to the mouseover and click events in the "solar_system.html" companion
 // file.
+
+/**
+ * add action listener to button.
+ */
+window.onload = function(e) {
+	addListeners("sun");
+	addListeners("mercury");
+	addListeners("venus");
+	addListeners("earth");
+	addListeners("moon");
+	addListeners("mars");
+	addListeners("jupiter");
+	addListeners("saturn");
+	addListeners("uranus");
+	addListeners("neptune");
+}
+
+function addListeners(id) {
+	var element = document.getElementById(id);
+	element.onclick = updateSingleClick;
+	element.ondblclick = updateDoubleClick;
+	element.onmouseover = updateMouseover;
+	element.onmouseout = updateMouseover;
+}
+
+
+
 
 /*
  * Function: Update Mouseover
  * Description: "Listens" for mouseover events and then changes the corresponding
  * "current massive object mouseover" value in the companion HTML file.
 */
-function update_mouseover(object_name) 
-{
-	
-	document.getElementById("current_object_mouseover").innerHTML = object_name;
-    document.getElementById("object_name").innerHTML = object_name;
+function updateMouseover() {
+	var element = document.getElementById("current_object_mouseover");
+	var name = this.getAttribute('data-name');
+    element.innerHTML = name;
 }
 
 /*
@@ -20,9 +45,10 @@ function update_mouseover(object_name)
  * Description: "Listens" for single-click events and then changes the corresponding
  * "most recent massive object single-click" value in the companion HTML file.
 */
-function update_singleclick(object_name) 
-{
-    document.getElementById("recent_object_singleclick").innerHTML = object_name;
+function updateSingleClick() {
+    var element = document.getElementById("recent_object_singleclick");
+	var name = this.getAttribute('data-name');
+    element.innerHTML = name;
 }
 
 /*
@@ -30,7 +56,8 @@ function update_singleclick(object_name)
  * Description: "Listens" for double-click events and then changes the corresponding
  * "most recent massive object double-click" value in the companion HTML file.
 */
-function update_doubleclick(object_name) 
-{
-    document.getElementById("recent_object_doubleclick").innerHTML = object_name;
+function updateDoubleClick() {
+    var element = document.getElementById("recent_object_doubleclick");
+	var name = this.getAttribute('data-name');
+    element.innerHTML = name;
 }

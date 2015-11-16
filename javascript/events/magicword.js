@@ -8,17 +8,15 @@
  * Function: Text Magic Word
  * Description: Uses the window.alert() method to display a word with text in a pop-up alert box.
  */
-function textMagicWord()
-{
-	window.alert("PLEASE!");	
+function textMagicWord() {
+	window.alert("PLEASE!");
 }
 
 /**
  * Function: Speak Magic Word
  * Description: Uses a speech synthesis object to verbally speak a word.
  */
-function speakMagicWordSpeak()
-{
+function speakMagicWordSpeak() {
 	/** Initialize and configure speech synthesis object */
 	var msg = new SpeechSynthesisUtterance();
 	var voices = window.speechSynthesis.getVoices();
@@ -30,5 +28,5 @@ function speakMagicWordSpeak()
 	msg.text = 'PLEASE!';
 	msg.lang = 'en-US';
 
-	speechSynthesis.speak(msg);	
+	speechSynthesis.speak(msg);
 }
