@@ -8,9 +8,9 @@
 
 	// 1d associative
 	$links = array( 'Home'    => 'index.php',
-					'About'   => 'about.php',
-				    'Contact' => 'contact.php',
-				    'Search'  => 'http://www.google.com' );
+			'About'   => 'about.php',
+			'Contact' => 'contact.php',
+			'Search'  => 'http://www.google.com' );
 	//$links['Home'];
 
 	// String to array
