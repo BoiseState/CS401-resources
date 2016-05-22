@@ -15,7 +15,7 @@
 
 	// String to array
 	$animals = "Ant, Bear, Cat, Dog, Elephant"; 
-    $animalArray = explode(",", $animals);  // php, it's dynamite.
+    	$animalArray = explode(",", $animals);  // php, it's dynamite.
 ?>
 <!DOCTYPE html>
 <html>
