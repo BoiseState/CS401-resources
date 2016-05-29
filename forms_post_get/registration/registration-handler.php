@@ -37,7 +37,7 @@ if(empty($errors)) {
 } else {
 	$_SESSION['errors'] = $errors;
 	$_SESSION['presets'] = array('fullName' => htmlspecialchars($fullName),
-								 'email' => htmlspecialchars($email));
+					'email' => htmlspecialchars($email));
 	header('Location: index.php');
 }
 ?>
