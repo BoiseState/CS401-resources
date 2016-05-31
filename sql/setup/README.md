@@ -1,17 +1,19 @@
 # MariaDB Setup on webdev VMs
-1. Configure MariaDB using the following command-line executable.
+1. Configure MariaDB using the following command-line executable. Answer 'y' to all the prompts.
 
     ```
     $ mysql_secure_installation
     ```
 
-2. Create your webdev database. (Enter your root password when prompted)
+2. Create your webdev database. (Enter your root password when prompted).
 
     ```
     $ mysql -u root -p < create-webdev-db.sql
     ```
+    
 
 3. Create your webdev database user. (Enter your root password when prompted)
+    You will need to open this file with vim and edit the line with your chosen password.
 
     ```
     $ mysql -u root -p < create-user.sql
