@@ -1,5 +1,5 @@
 -- To run this script, use the following command on webdev
--- mysql -u yourlogin -p yourlogin < create-database.sql
+-- mysql -u yourlogin -p yourlogin < create-tables.sql
 
 -- Drop tables first.
 DROP TABLE IF EXISTS posts;
