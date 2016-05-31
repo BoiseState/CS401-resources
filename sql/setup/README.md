@@ -19,6 +19,6 @@
 
 4. Create your first table. (Enter your csstudent password when prompted)
    
-     ```
+    ```
     mysql -u csstudent -p < create-table.sql
     ```
