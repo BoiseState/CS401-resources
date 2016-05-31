@@ -1,5 +1,19 @@
 # MariaDB Setup on webdev VMs
-1. Configure MariaDB using the following command-line executable. Answer 'y' to all the prompts.
+1. Checkout this repo from git on webdev.
+
+    ```
+    git clone https://github.com/BoiseState/CS401-resources.git
+    ```
+    
+    Change into this directory
+    
+    ```
+    cd CS401-resources/sql/setup
+    ```
+
+1. Configure MariaDB using the following command-line executable. 
+    There is no root password to start, so just hit enter. Then enter your chosen root password.
+    Answer 'y' to all the prompts.
 
     ```
     $ mysql_secure_installation
