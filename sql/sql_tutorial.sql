@@ -1,11 +1,11 @@
 -- login to mysql before running these commands.
-mysql -u marissa -p marissa
+mysql -u csstudent -p webdev 
 
 -- see existing databases for your username
 SHOW DATABASES;
 
 -- user your database from this point on.
-USE marissa;
+USE webdev;
 
 -- display all tables in database (probably empty)
 SHOW TABLES;
