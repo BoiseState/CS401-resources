@@ -1,13 +1,18 @@
--- Create a file called 'create-tables.sql'
+-- 1. Create a file called 'create-tables.sql'
+----------------------------------------------
 -- Put all of the commands required for creating your database tables into that file.
 -- This makes it so much easier to reproduce your database on several machines for
 -- development and to reset if you ever need to change anything or accidentally delete
 -- something that you shouldn't have. 
 
--- Create another file called 'queries.sql'
--- Put all of the query commands that you use in this file (along with a comment explaining
--- what it does. This makes it easier to remember any queries that you may need to use in
+-- 2. Create another file called 'queries.sql'
+---------------------------------------------
+-- Run all of the SELECT, UPDATE, and DELETE queries from the mysql console first. Then
+-- copy all of the query commands that you used into this file (along with a comment explaining
+-- what it does). This makes it easier to remember any queries that you may need to use in
 -- the future.
+
+-- You will turn in copies of both files at the end of class.
 
 -- (put in create-tables.sql) Use your webdev database from this point on.
 USE webdev;
@@ -21,7 +26,7 @@ CREATE TABLE users (
 	email VARCHAR(100) NOT NULL UNIQUE,
 	password VARCHAR (256) NOT NULL,
 	name VARCHAR (50) NOT NULL,
-    age INT NOT NULL
+        age INT NOT NULL
 );
 
 -- Make sure that this worked. Show that the new blank table is empty
@@ -55,10 +60,10 @@ SELECT * FROM users WHERE name = 'Snoopy';
 -- Where would this be helpful in your website?
 
 
--- Write a select statemet to filter where age is between 7 and 33. 
+-- Write a select statement to filter where age is between 7 and 33. 
 SELECT * FROM users WHERE age between 7 AND 33;
 
--- TODO: Write a select statemet to filter where age is between 7 and 33 and name = snoopy. 
+-- TODO: Write a select statement to filter where age is between 7 and 33 and name = snoopy. 
 
 
 -- in most cases in MariaDB, the simple pattern matching provided by LIKE is sufficient. LIKE has two types of matches:
@@ -137,7 +142,7 @@ DELETE FROM users;
 -- Reload your tables using the script. Hopefully you saved your initial entries so you don't have to do everything again.
 
 
--- Create a second table with messages 
+-- (put in create-tables.sql) Create a second table with messages 
 CREATE TABLE posts (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	user_id INT NOT NULL,
@@ -146,7 +151,7 @@ CREATE TABLE posts (
 	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Use insert to populate the posts table (faster to do this from a file or copy/paste!!!)
+-- (put in create-tables.sql) Use insert to populate the posts table (faster to do this from a file or copy/paste!!!)
 -- TODO: Why do we have a SELECT statement inside of our INSERT statement? What is this doing?
 INSERT INTO posts (user_id, message) VALUES (
 	(SELECT id FROM users WHERE email='snoopy@peanuts.com'), 'woof! woof! woof!');
