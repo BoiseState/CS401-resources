@@ -1,45 +1,71 @@
-<?php
-require_once('Dao.php');
-try
-{
-  $dao = new Dao();
-} catch(PDOException $e) {
-  echo "<p>Please try again later.</p>";
-  die();
-}
-?>
-<form name="messageFilter" action="" method="GET">
-<div>
-  Filter by (username): <input type="text" name="username">
-  <input type="submit" name="filterButton" value="Filter">
-</div>
-</form>
-<?php
-if(isset($_GET['username']) && !empty($_GET['username']))
-{
-  $username = htmlspecialchars($_GET['username']);
-  try {
-    $results = $dao->getPostsByUsername($username);
-    ?>
-    <table>
-    <?php
-      foreach($results as $row) {?>
-      <tr>
-        <td><?= $row['first_name'] . " " . $row['last_name'] ?></td>
-        <td><?= $row['message'] ?></td>
-        <td><?= $row['posted'] ?></td>
-      </tr>
-      <?php
-      }?>
-    </table>
-    <?php
-  } catch (PDOException $e) {
-    echo $e->getMessage();
-    echo "<p>Failed to retrieve posts. Please come back later.</p>";
-  }
-}
+<?php require_once('Dao.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<section>
+		<!-- Filter form will just submit to itself. This is okay on a GET request -->
+		<form method="GET">
+			<p>
+				<label>Filter by email:
+				<input type="text" name="email" required>
+				</label>
+				<input type="submit" name="filterButton" value="Filter">
+			</p>
+		</form>
+	</section>
+	<section>
+		<!-- Add form will submit to a separate handler. POST/Redirect/GET pattern. -->
+		<form action="test-handler.php" method="POST">
+			<p>
+				<label>Add email:
+				<input type="text" name="email" required>
+				</label>
+				<input type="submit" name="addButton" value="Add Email">
+			</p>
+		</form>
+	</section>
+	<section>
+	<h1>Search Results</h1>
+	<?php
+	// filter results if email parameter is present in URL, otherwise, display
+	// all results.
+	if(isset($_GET['email']))
+	{
+		$email = htmlspecialchars($_GET['email']);
+		try {
+			$dao = new Dao();
+			$results = $dao->getRow($email);
+			printResultTable($results);
+		} catch (PDOException $e) {
+			echo $e->getMessage(); // only print this during development. Don't print in production.
+			echo "<p>Failed to filter data. Please come back later.</p>";
+		}
+	} else {
+		try {
+			$dao = new Dao();
+			$results = $dao->getAllRows();
+			printResultTable($results);
+		} catch (PDOException $e) {
+			echo $e->getMessage(); // only print this during development. Don't print in production.
+			echo "<p>Failed to retrieve data. Please come back later.</p>";
+		}
+	}
 
-$dao = NULL;
-?>
-
+	function printResultTable($rows) {
+		if(!empty($rows)) { ?>
+			<table>
+			<?php foreach($rows as $row) {?>
+				<tr><td><?= $row['email'] ?></td></tr>
+			<?php }?>
+			</table>
+	<?php } else { ?>
+		<p>No results.</p>
+	<?php }
+	}
+	?>
+	</section>
+</body>
+</html>
 

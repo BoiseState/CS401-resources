@@ -1,7 +1,0 @@
-You must create the users and posts tables before this example will work.
-
-To create them, run the create-tables.sql script located in CS401-lab/sql in mysql using the following command.
-
-mysql -u yourlogin -p yourlogin < create-tables.sql
-
-
