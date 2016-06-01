@@ -1,4 +1,14 @@
-<?php require_once('Dao.php'); ?>
+<?php
+// If you don't know what session_start is, make sure you watch the videos
+// on Forms (Error Handling and Presets).
+session_start();
+if(isset($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+	unset($_SESSION['error']); // clear so gone when page is refreshed.
+}
+
+require_once('Dao.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +34,10 @@
 				</label>
 				<input type="submit" name="addButton" value="Add Email">
 			</p>
+			<?php
+			if(isset($error)) { ?>
+				<p class="error"><?= $error ?></p>
+			<?php } ?>
 		</form>
 	</section>
 	<section>
