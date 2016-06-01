@@ -27,44 +27,44 @@
 		</form>
 	</section>
 	<section>
-	<h1>Search Results</h1>
-	<?php
-	// filter results if email parameter is present in URL, otherwise, display
-	// all results.
-	if(isset($_GET['email']))
-	{
-		$email = htmlspecialchars($_GET['email']);
-		try {
-			$dao = new Dao();
-			$results = $dao->getRow($email);
-			printResultTable($results);
-		} catch (PDOException $e) {
-			echo $e->getMessage(); // only print this during development. Don't print in production.
-			echo "<p>Failed to filter data. Please come back later.</p>";
+		<h1>Search Results</h1>
+		<?php
+		// filter results if email parameter is present in URL, otherwise, display
+		// all results.
+		if(isset($_GET['email']))
+		{
+			$email = htmlspecialchars($_GET['email']);
+			try {
+				$dao = new Dao();
+				$results = $dao->getRow($email);
+				printResultTable($results);
+			} catch (PDOException $e) {
+				echo $e->getMessage(); // only print this during development. Don't print in production.
+				echo "<p>Failed to filter data. Please come back later.</p>";
+			}
+		} else {
+			try {
+				$dao = new Dao();
+				$results = $dao->getAllRows();
+				printResultTable($results);
+			} catch (PDOException $e) {
+				echo $e->getMessage(); // only print this during development. Don't print in production.
+				echo "<p>Failed to retrieve data. Please come back later.</p>";
+			}
 		}
-	} else {
-		try {
-			$dao = new Dao();
-			$results = $dao->getAllRows();
-			printResultTable($results);
-		} catch (PDOException $e) {
-			echo $e->getMessage(); // only print this during development. Don't print in production.
-			echo "<p>Failed to retrieve data. Please come back later.</p>";
+	
+		function printResultTable($rows) {
+			if(!empty($rows)) { ?>
+				<table>
+				<?php foreach($rows as $row) {?>
+					<tr><td><?= $row['email'] ?></td></tr>
+				<?php }?>
+				</table>
+			<?php } else { ?>
+				<p>No results.</p>
+			<?php }
 		}
-	}
-
-	function printResultTable($rows) {
-		if(!empty($rows)) { ?>
-			<table>
-			<?php foreach($rows as $row) {?>
-				<tr><td><?= $row['email'] ?></td></tr>
-			<?php }?>
-			</table>
-	<?php } else { ?>
-		<p>No results.</p>
-	<?php }
-	}
-	?>
+		?>
 	</section>
 </body>
 </html>
