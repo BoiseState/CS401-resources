@@ -8,8 +8,7 @@ class Dao {
 
   private function getConnection()
   {
-    $conn = new PDO("mysql:dbname={$this->dbname};host={$this->host};",
-      "$this->database", "$this->password");
+    $conn = new PDO("mysql:dbname={$this->dbname};host={$this->host};", "$this->database", "$this->password");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
   }
@@ -18,9 +17,8 @@ class Dao {
   public function getPostsByUsername($username)
   {
     $conn = $this->getConnection();
-  	$stmt = $conn->prepare("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
-							JOIN users AS u ON p.user_id = u.id
-              WHERE username = :uname");
+    $stmt = $conn->prepare("SELECT u.first_name, u.last_name, p.message, p.posted FROM posts AS p
+	                    JOIN users AS u ON p.user_id = u.id WHERE username = :uname");
     $stmt->bindParam(":uname", $username);
     $stmt->execute();
     return $stmt;
