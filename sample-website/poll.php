@@ -32,26 +32,26 @@ $upload_dir = "uploads";
   <fieldset>
   <legend>Random Poll of the Day</legend>
     <div>
-      <label for"name">Name:</label>
-      <input type="text" name="name" id="name" value="Your name here" />
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="Your name here">
     </div>
     <div>
-      <label for"password">Password:</label>
-      <input type="password" name="password" id="password"/>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">
     </div>
     <div>
       <span>Are you awake?</span>
-      <label><input type="radio" name="awake" value="yes" checked="checked" /> Yes</label>
-      <label><input type="radio" name="awake" value="no" /> No</label>
+      <label><input type="radio" name="awake" value="yes" checked="checked"> Yes</label>
+      <label><input type="radio" name="awake" value="no"> No</label>
     </div>
     <div>
       <textarea name="comments" rows="4" cols="20">Your comments here.</textarea>
     </div>
     <div>
-      <label>Would you like to upload a file?</label>
-      <input type="file" name="random_file" size="60"/> <!-- Make sure to set the enctype attribute in form element tag -->
+      <label for="random_file">Would you like to upload a file?</label>
+      <input type="file" id="random_file" name="random_file" size="60"> <!-- Make sure to set the enctype attribute in form element tag -->
     </div>
-    <input type="hidden" name="secret" value="shhhh" />
+    <input type="hidden" name="secret" value="shhhh">
   </fieldset>
 
   <!-- START HTML 5 ONLY... MAY NOT BE SUPPORTED ON ALL BROWSERS -->
@@ -59,11 +59,11 @@ $upload_dir = "uploads";
     <legend>HTML 5 Elements</legend>
       <div>
         <label for="favorite_color">Favorite Color</label>
-       <input type="color" name="favorite_color" id="favorite_color"/>
+        <input type="color" name="favorite_color" id="favorite_color">
       </div>
       <div>
-        <label>What type of vehicle?</label>
-        <input list="vehicles" name="vehicle">
+        <label for="vehicles">What type of vehicle?</label>
+        <input id="vehicles" list="vehicles" name="vehicle">
         <datalist id="vehicles">
           <option value="Truck">
           <option value="Car">
@@ -74,30 +74,30 @@ $upload_dir = "uploads";
       </div>
       <div>
         <label for="how_much">How much?</label>
-        <input type="range" name="how_much" id="how_much" min="0" max="50" step="10"/>
+        <input type="range" name="how_much" id="how_much" min="0" max="50" step="10">
       </div>
       <div>
         <label for="birthday">When is your birthday?</label>
-        <input type="date" name="birthday" id="birthday"/>
+        <input type="date" name="birthday" id="birthday">
       </div>
       <div>
         <label for="email">Email</label>
-        <input type="email" name="email" />
+        <input type="email" name="email" id="email">
       </div>
       <div>
         <label for="homepage">Homepage</label>
         <input type="url" name="homepage" id="homepage">
       </div>
       <div>
-        <label>Would you like to upload a picture?</label>
+        <label id="picture">Would you like to upload a picture?</label>
         <!-- NOTE that the accept parameter is new and not very reliable. -->
-        <input type="file" name="picture" accept="image/*"/>
+        <input type="file" id="picture" name="picture" accept="image/*">
       </div>
   </fieldset>
   <!-- END HTML 5 ONLY... MAY NOT BE SUPPORTED ON ALL BROWSERS -->
   <div class="submit">
-    <input type="reset" value="Reset Poll"/>
-    <input type="submit" value="Submit Poll"/>
+    <input type="reset" value="Reset Poll">
+    <input type="submit" value="Submit Poll">
   </div>
   </form>
 <?php } ?>
