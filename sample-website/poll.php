@@ -91,7 +91,7 @@ $upload_dir = "uploads";
       <div>
         <label>Would you like to upload a picture?</label>
         <!-- NOTE that the accept parameter is new and not very reliable. -->
-        <input type="file" name="picture" accept="image/jpeg|image/gif|image/png"/>
+        <input type="file" name="picture" accept="image/*"/>
       </div>
   </fieldset>
   <!-- END HTML 5 ONLY... MAY NOT BE SUPPORTED ON ALL BROWSERS -->
