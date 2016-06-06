@@ -17,7 +17,7 @@ class Dao {
   public function userExists($username)
   {
     $conn = $this->getConnection();
-  	$stmt = $conn->prepare("SELECT * FROM users WHERE username = :uname");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = :uname");
     $stmt->bindParam(":uname", $username);
     $stmt->execute();
     if($stmt->fetch()) {
@@ -30,7 +30,7 @@ class Dao {
   public function filterPostsByKey($key, $value)
   {
     $conn = $this->getConnection();
-    $stmt = $conn->prepare("SELECT u.first_name, u.last_name, p.message, p.posted
+    $stmt = $conn->prepare("SELECT u.first_name, u.last_name, u.username, p.message, p.posted
               FROM posts AS p JOIN users AS u ON p.user_id = u.id
               WHERE $key = :value");
     $stmt->bindParam(":value", $value);
@@ -40,7 +40,7 @@ class Dao {
 
   public function getPostsJoinUserName() {
     $conn = $this->getConnection();
-    return $conn->query("SELECT u.first_name, u.last_name, p.id, p.message, p.posted
+    return $conn->query("SELECT u.first_name, u.last_name, u.username, p.id, p.message, p.posted
              FROM posts AS p JOIN users AS u ON p.user_id = u.id");
   }
 
