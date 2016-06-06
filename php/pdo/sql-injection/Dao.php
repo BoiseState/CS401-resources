@@ -32,7 +32,7 @@ class Dao
 
 		// Execute the query. If we aren't accepting any user input,
 		// then we can use a query instead of a prepared statement.
-		$stmt = $conn->query("SELECT * FROM users");
+		$stmt = $conn->query("SELECT email, name FROM users");
 		return $stmt->fetchAll();
 	}
 
@@ -47,7 +47,7 @@ class Dao
 		// This is BAD. Never insert user input directly into a query
 		// string. Try passing in "'; DROP TABLE users;'" as the $email
 		// parameter and see what happens.
-		$stmt = $conn->query("SELECT * FROM users WHERE email = '$email'");
+		$stmt = $conn->query("SELECT email, name FROM users WHERE email = '$email'");
 		return $stmt->fetchAll();
 	}
 
@@ -62,8 +62,6 @@ class Dao
 		return $this->getUserByEmailBAD($safeemail);
 	}
 
-
-
 	/**
 	 * Returns rows with email column equal to the given email.
 	 * Accepts user input.
@@ -75,7 +73,7 @@ class Dao
 		// Setup the query string. ':email' is a "named placeholder". We will
 		// tie ':email' to an actual value before we execute the prepared
 		// statement.
-		$query = "SELECT * FROM users WHERE email = :email";
+		$query = "SELECT email, name FROM users WHERE email = :email";
 
 		// Create the prepared statement (returns a PDOStatement object).
 		$stmt = $conn->prepare($query);

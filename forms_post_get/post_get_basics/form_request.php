@@ -2,7 +2,7 @@
 <head><title>PHP Example: Form Request (Submit + Receive)</title></head>
 <body>
 
-<form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
+<form method="post" action="" >
   <div>
     <p>First Name: <input type="text" name="first_name"> </p>
     <p>Last Name: <input type="text" name="last_name"> </p>

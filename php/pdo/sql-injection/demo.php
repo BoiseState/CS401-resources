@@ -2,26 +2,6 @@
 require_once('Dao.php');
 $dao = new Dao();
 
-function printPersonalUserData($rows) {
-	if($rows) { ?>
-		<table>
-		<tr>
-			<th>Email</th><th>Password</th><th>Name</th><th>Level</th>
-		</tr>
-		<?php foreach($rows as $row) { ?>
-		<tr>
-			<td><?= $row['email']; ?></td>
-			<td><?= $row['password']; ?></td>
-			<td><?= $row['name']; ?></td>
-			<td><?= $row['level']; ?></td>
-		</tr>
-		<?php } ?>
-		</table>
-	<?php } else { ?>
-		<p>No rows.</p>
-	<?php }
-}
-
 function printUsers($rows) {
 	if($rows) { ?>
 		<table>
@@ -55,18 +35,7 @@ function printUsers($rows) {
 		printUsers($rows);
 	} catch (PDOException $e) {
 		echo "<p>Failed to retrieve posts.</p>";
-	}
-	?>
-	</section>
-
-	<section>
-	<h1>Snoopy's Private Information</h1>
-	<?php
-	try {
-		$rows = $dao->getUserByEmail('snoopy@peanuts.com');
-		printPersonalUserData($rows);
-	} catch (PDOException $e) {
-		echo "<p>Failed to retrieve posts.</p>";
+		echo $e->getMessage();
 	}
 	?>
 	</section>
@@ -86,7 +55,7 @@ function printUsers($rows) {
 	<h2>Exposing Data</h2>
 		<ul>
 		  <li>Try searching as: <code>' or '1' = '1</code></li>
-		  <li>Try searching as: <code>' UNION SELECT * FROM users; --</code></li>
+		  <li>Try searching as: <code>' UNION SELECT password, level FROM users; --</code></li>
 		</ul>
 	<h2>Modifying or Destroying Data</h2>
 		<ul>
@@ -103,7 +72,6 @@ function printUsers($rows) {
 		try {
 			$rows = $dao->getUserByEmailBAD($email);
 			printUsers($rows);
-			printPersonalUserData($rows);
 		} catch (PDOException $e) {
 			echo "<p>Failed to retrieve posts.</p>";
 			echo $e->getMessage();
@@ -120,7 +88,6 @@ function printUsers($rows) {
 		try {
 			$rows = $dao->getUserByEmailBETTER($email);
 			printUsers($rows);
-			printPersonalUserData($rows);
 		} catch (PDOException $e) {
 			echo "<p>Failed to retrieve posts.</p>";
 			echo $e->getMessage();
@@ -137,7 +104,6 @@ function printUsers($rows) {
 		try {
 			$rows = $dao->getUserByEmail($email);
 			printUsers($rows);
-			printPersonalUserData($rows);
 		} catch (PDOException $e) {
 			echo "<p>Failed to retrieve posts.</p>";
 			echo $e->getMessage();
