@@ -9,7 +9,7 @@ class Dao
 	private $host ="localhost";
 	private $dbname = "webdev";
 	private $user = "csstudent";
-	private $password = "w3bD3vSQLdb";
+	private $password = "password";
 
 	/**
 	 * Creates a new PDO connection and returns the handle.
