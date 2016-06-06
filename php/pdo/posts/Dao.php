@@ -1,10 +1,10 @@
 <?php
 class Dao {
 
-  private $dbname = "marissa";
+  private $dbname = "webdev";
   private $host ="localhost";
-  private $username = "marissa";
-  private $password = "mysqlpass";
+  private $username = "csstudent";
+  private $password = "password";
 
   private function getConnection()
   {
