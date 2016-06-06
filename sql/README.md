@@ -8,7 +8,7 @@
     Change into this directory
     
     ```
-    cd CS401-resources/sql/setup
+    cd CS401-resources/sql
     ```
 
 1. Configure MariaDB using the following command-line executable. 
