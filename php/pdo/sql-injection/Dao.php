@@ -1,8 +1,6 @@
 <?php
 /**
  * Data Access Object (DAO) class. Contains all DB access code.
- * $dao = new Dao();
- * $result = $dao->getAllRows();
  */
 class Dao
 {
@@ -25,46 +23,59 @@ class Dao
 	}
 
 	/**
-	 * Returns all rows in the test table. No user input.
+	 * Returns all rows in the users table. No user input.
 	 */
-	public function getAllRows()
+	public function getUsers()
 	{
 		// Get a connection to the database.
 		$conn = $this->getConnection();
 
 		// Execute the query. If we aren't accepting any user input,
 		// then we can use a query instead of a prepared statement.
-		return $conn->query("SELECT * FROM test");
+		$stmt = $conn->query("SELECT * FROM users");
+		return $stmt->fetchAll();
 	}
 
 	/**
 	 * Returns rows with email column equal to the given email.
 	 * Accepts user input. DON'T DO THIS!!
 	 */
-	public function getRowBAD($email)
+	public function getUserByEmailBAD($email)
 	{
 		$conn = $this->getConnection();
 
 		// This is BAD. Never insert user input directly into a query
-		// string. Try passing in "'; DROP TABLE test;'" as the $email
+		// string. Try passing in "'; DROP TABLE users;'" as the $email
 		// parameter and see what happens.
-		$getQuery = "SELECT * FROM test WHERE email = '$email'";
-		return $conn->query($getQuery);
+		$stmt = $conn->query("SELECT * FROM users WHERE email = '$email'");
+		return $stmt->fetchAll();
 	}
+
+	/**
+	 * Returns rows with email column equal to the given email.
+	 * Accepts user input. Escapes special characters. Better.
+	 */
+	public function getUserByEmailBETTER($email)
+	{
+		$conn = $this->getConnection();
+		$safeemail = $conn->quote($email);
+		return $this->getUserByEmailBAD($safeemail);
+	}
+
 
 
 	/**
 	 * Returns rows with email column equal to the given email.
 	 * Accepts user input.
 	 */
-	public function getRow($email)
+	public function getUserByEmail($email)
 	{
 		$conn = $this->getConnection();
 
 		// Setup the query string. ':email' is a "named placeholder". We will
 		// tie ':email' to an actual value before we execute the prepared
 		// statement.
-		$query = "SELECT * FROM test WHERE email = :email";
+		$query = "SELECT * FROM users WHERE email = :email";
 
 		// Create the prepared statement (returns a PDOStatement object).
 		$stmt = $conn->prepare($query);
@@ -84,29 +95,31 @@ class Dao
 	 * Adds a row with email column equal to the given email.
 	 * Accepts user input. DON'T DO THIS!!
 	 */
-	public function addRowBAD($email)
+	public function addUserBAD($email, $password, $name)
 	{
 		$conn = $this->getConnection();
 
 		// This is BAD. Never insert user input directly into a query
-		// string. Try passing in "'; DROP TABLE test; --" as the $email
+		// string. Try passing in "'; DROP TABLE users; --" as the $email
 		// parameter and see what happens.
 		// exec returns the number of rows affected.
-		$count = $conn->exec("INSERT INTO test (email) VALUES ('$email')");
+		$count = $conn->exec("INSERT INTO users (email, password, name)
+		                      VALUES ('$email', '$password', '$name')");
 	}
 
 	/**
-	 * Adds a row to the test table with the given email attribute (aka column).
+	 * Adds a row to the users table with the given email attribute (aka column).
 	 * Accepts user input.
 	 */
-	public function addRow($email)
+	public function addUser($email, $password, $name)
 	{
 		$conn = $this->getConnection();
 
 		// Setup the insert string. ':email' is a "named placeholder". We will
 		// tie ':email' to an actual value before we execute the prepared
 		// statement.
-		$query = "INSERT INTO test (email) VALUES (:email)";
+		$query = "INSERT INTO users (email, password, name)
+		          VALUES (:email, :password, :name)";
 
 		// Create the prepared statement (returns a PDOStatement object).
 		$stmt = $conn->prepare($query);
@@ -114,6 +127,8 @@ class Dao
 		// Bind the $email parameter passed into the method to the ':email'
 		// placeholder of the query.
 		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':password', $password);
+		$stmt->bindParam(':name', $name);
 
 		// Finally, execute the statement.
 		$stmt->execute();

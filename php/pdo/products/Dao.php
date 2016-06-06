@@ -4,9 +4,9 @@
 class Dao {
 
   private $host = "localhost";
-  private $db = "marissa";
-  private $user = "marissa";
-  private $pass = "mysqlpass";
+  private $db = "webdev";
+  private $user = "csstudent";
+  private $pass = "password";
 
   public function getConnection () {
     $conn = new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);

@@ -1,3 +1,5 @@
+USE webdev;
+
 DROP TABLE IF EXISTS product;
 
 CREATE TABLE product (

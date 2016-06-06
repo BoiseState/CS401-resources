@@ -1,0 +1,19 @@
+section {
+  background-color: #e6f9ff;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+article h2, aside h2, nav h2, section h2 {
+  font-size: 1.2em;
+
+}
+
+table, tr, td, th {
+  border: 2px solid black;
+  border-collapse: collapse
+}
+
+td, th {
+  padding: 5px;
+}

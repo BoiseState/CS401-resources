@@ -4,9 +4,9 @@
 class Dao {
 
   private $host = "localhost";
-  private $db = "marissa";
-  private $user = "marissa";
-  private $pass = "LetMeIn!";
+  private $db = "webdev";
+  private $user = "csstudent";
+  private $pass = "password";
 
   public function getConnection () {
     $conn = new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);
@@ -17,7 +17,7 @@ class Dao {
   public function saveComment ($comment) {
     $conn = $this->getConnection();
     $saveQuery =
-        "INSERT INTO comment
+        "INSERT INTO comments
         (comment)
         VALUES
         (:comment)";
@@ -28,6 +28,6 @@ class Dao {
 
   public function getComments () {
     $conn = $this->getConnection();
-    return $conn->query("SELECT * FROM comment");
+    return $conn->query("SELECT * FROM comments");
   }
 } // end Dao

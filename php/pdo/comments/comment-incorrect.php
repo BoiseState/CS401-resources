@@ -20,7 +20,7 @@
     <?php
     if (isset($_POST["commentButton"])) {
       # We still want to clean up this comment before inserting into the database.
-      $comment = filter_var($_POST["comment"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $comment = htmlspecialchars($_POST["comment"]);
       # NOTE: This still allows us to save an empty comment. How would we avoid this?
       try {
         $dao->saveComment($comment);

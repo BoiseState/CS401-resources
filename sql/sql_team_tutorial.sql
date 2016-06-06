@@ -3,7 +3,7 @@
 -- Put all of the commands required for creating your database tables into that file.
 -- This makes it so much easier to reproduce your database on several machines for
 -- development and to reset if you ever need to change anything or accidentally delete
--- something that you shouldn't have. 
+-- something that you shouldn't have.
 
 -- 2. Create another file called 'queries.sql'
 ---------------------------------------------
@@ -38,7 +38,7 @@ INSERT INTO users (email, password, name, age) VALUES('snoopy@peanuts.com', 'w00
 INSERT INTO users (email, password, name, age) VALUES('scooby@whereareyou.com', 'w00fWOOF', 'Scooby', 9);
 INSERT INTO users (email, password, name, age) VALUES('snowwhite@disney.com', 'iLov3AppleZ', 'Snow White', 18);
 
--- Write a select statement to show all table contents 
+-- Write a select statement to show all table contents
 SELECT * FROM users;
 
 -- TODO: Write a select statement to select the email column from the users table
@@ -47,43 +47,43 @@ SELECT * FROM users;
 -- TODO: Write a select statement to select the email and name columns from the users table
 
 
--- TODO: Write a select statement to filter where name equals snoopy. 
+-- TODO: Write a select statement to filter where name equals snoopy.
 SELECT * FROM users WHERE name = 'Snoopy';
 
--- TODO: Write a select statement to filter where age equals 7. 
+-- TODO: Write a select statement to filter where age equals 7.
 
 
--- TODO: Write a select statement to filter where age less than or equal to 18. 
+-- TODO: Write a select statement to filter where age less than or equal to 18.
 
 
--- TODO: Write a select statement that checks if the user with email 'snoopy@peanuts.com' and password 'w00fWOOF' exists. 
+-- TODO: Write a select statement that checks if the user with email 'snoopy@peanuts.com' and password 'w00fWOOF' exists.
 -- Where would this be helpful in your website?
 
 
--- Write a select statement to filter where age is between 7 and 33. 
+-- Write a select statement to filter where age is between 7 and 33.
 SELECT * FROM users WHERE age between 7 AND 33;
 
--- TODO: Write a select statement to filter where age is between 7 and 33 and name = snoopy. 
+-- TODO: Write a select statement to filter where age is between 7 and 33 and name = snoopy.
 
 
 -- in most cases in MariaDB, the simple pattern matching provided by LIKE is sufficient. LIKE has two types of matches:
 -- 1) _ the underscore, matching a single character
 -- 2) % the percentage sign, matching any number of characters
 
--- TODO: Write a select statement to select the id and name of users whose names start with 'Sn' followed by 4 additional characters. 
+-- TODO: Write a select statement to select the id and name of users whose names start with 'Sn' followed by 4 additional characters.
 SELECT id, name FROM users WHERE name LIKE 'Sn____';
 
--- TODO: Write a select statement to select the id and name of users whose names start with 'S' followed by 5 additional characters. 
+-- TODO: Write a select statement to select the id and name of users whose names start with 'S' followed by 5 additional characters.
 
 
 -- Filter with like operator to filter strings. the '%' is a wildcard placeholder for pattern specifications
 -- Filter text that starts with a given prefix
 SELECT id, name FROM users WHERE name LIKE 'S%';
 
--- TODO: Write a select statement to select the id and name of users whose names contain an 'o'. 
+-- TODO: Write a select statement to select the id and name of users whose names contain an 'o'.
 
 
--- TODO: Write a select statement to select the id and name of users whose names contain an 'o' AND whose age is less than 18. 
+-- TODO: Write a select statement to select the id and name of users whose names contain an 'o' AND whose age is less than 18.
 
 
 -- Order/sort results (in ascending order)
@@ -110,7 +110,7 @@ SELECT AVG(age) FROM users;
 -- Aggregate data to count the number of users with age greater than 30
 SELECT COUNT(*) FROM users WHERE age > 30;
 
--- TODO: Aggregate data to count the number of users whose names start with S 
+-- TODO: Aggregate data to count the number of users whose names start with S
 
 
 
@@ -142,7 +142,7 @@ DELETE FROM users;
 -- Reload your tables using the script. Hopefully you saved your initial entries so you don't have to do everything again.
 
 
--- (put in create-tables.sql) Create a second table with messages 
+-- (put in create-tables.sql) Create a second table with messages
 CREATE TABLE posts (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	user_id INT NOT NULL,
@@ -159,7 +159,7 @@ INSERT INTO posts (user_id, message, posted) VALUES (
 	(SELECT id FROM users WHERE email='snoopy@peanuts.com'), 'woof! woof!', '2015-09-22 12:00:02');
 INSERT INTO posts (user_id, message) VALUES (
 	(SELECT id FROM users WHERE email='scooby@whereareyou.com'), 'Scoobie Doobie Doo!');
--- TODO: Insert a few more messages for different users. 
+-- TODO: Insert a few more messages for different users.
 
 
 -- Use join to link the two tables by columns that have the same id.
@@ -169,7 +169,7 @@ SELECT * FROM users JOIN posts ON users.id = posts.user_id;
 -- Display only the name, time, and message
 SELECT email, posted, message FROM users JOIN posts ON users.id = posts.user_id;
 
--- TODO: Select the same as above, but order by email. 
+-- TODO: Select the same as above, but order by email.
 
 
 
@@ -177,5 +177,5 @@ SELECT email, posted, message FROM users JOIN posts ON users.id = posts.user_id;
 SELECT email, posted, message FROM users JOIN posts ON users.id = posts.user_id WHERE posted < 20150925 ORDER BY posted;
 
 
--- TODO: Select email, posted date, and message from users join posts where the posted date is after 20150925 and the user is Snoopy or Scooby (ordered by date). 
+-- TODO: Select email, posted date, and message from users join posts where the posted date is after 20150925 and the user is Snoopy or Scooby (ordered by date).
 SELECT username, posted, message FROM users JOIN posts ON users.id = posts.user_id WHERE posted > 20150417 AND username = 'batman' OR username = 'blackwidow' ORDER BY posted;
