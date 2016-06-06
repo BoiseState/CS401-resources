@@ -6,8 +6,8 @@ class Dao
 {
 	private $host ="localhost";
 	private $dbname = "webdev";
-	private $user = "marissa";
-	private $password = "mysqlpass";
+	private $user = "csstudent";
+	private $password = "password";
 
 	/**
 	 * Creates a new PDO connection and returns the handle.
