@@ -58,8 +58,10 @@ class Dao
 	public function getUserByEmailBETTER($email)
 	{
 		$conn = $this->getConnection();
+		//Use the quote method to add quotes and escape special characters.
 		$safeemail = $conn->quote($email);
-		return $this->getUserByEmailBAD($safeemail);
+		$stmt = $conn->query("SELECT email, name FROM users WHERE email = $safeemail");
+		return $stmt->fetchAll();
 	}
 
 	/**
