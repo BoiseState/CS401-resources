@@ -1,0 +1,65 @@
+<?php
+require_once("includes/Dao.php");
+require_once('includes/session-helper.php');
+
+//start the session. if session is already in progress, has no effect.
+session_start();
+
+// We only want to validate if they reached this page via a post.
+if($_POST)
+{
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+
+	$errors = array();
+
+	function valid_length($field, $min, $max) {
+		$trimmed = trim($field);
+		return (strlen($trimmed) >= $min && strlen($trimmed) <= $max);
+	}
+
+	if(!valid_length($email, 1, 50)) {
+		$errors['email'] = "Email is required.";
+	} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$errors['email'] = "Must be a valid email address.";
+	}
+
+	if(strlen(trim($password)) <= 0 ) {
+		$errors['password'] = "Password is required.";
+	}
+
+	// If input is valid, check values against user info in database.
+	if(empty($errors)) {
+		// Would be great to write a User class with a "login" method if you
+		// wanted to use a more advanced design. This is "simplified" (but
+		// in some ways more complicated I suppose) to show you how the
+		// process works.
+		$dao = new Dao();
+		// IMPORTANT! The current implementation of validateUser() in this
+		// example always returns true.
+		if($dao->validateUser($email, $password)) {
+			session_regenerate_id(true);
+			$_SESSION["access_granted"] = true;
+			header("Location: granted.php");
+			die;
+		} else {
+			$errors['status'] = "Invalid username or password";
+		}
+	} else {
+		$errors['status'] = "Invalid input";
+	}
+
+	# If we get this far, something went wrong.
+	$_SESSION['errors'] = $errors;
+	$_SESSION['presets'] = array('email' => htmlspecialchars($email));
+	$_SESSION["access_granted"] = false;
+	header("Location: login.php");
+	die; # Make sure this script terminates.
+} else {
+	# tried to access this page incorrectly. Just redirect them back to the
+	# main login page.
+	$_SESSION["access_granted"] = false;
+	header("Location: login.php");
+	die;
+}
+?>
