@@ -192,7 +192,7 @@ Your form was submitted using <?= $_SERVER["REQUEST_METHOD"]; ?>.</p>
 </form>
 
 <h3>Form Elements</h3>
-<form id="poll" method="post" action="poll_handler.php" enctype="multipart/form-data">
+<form id="poll" method="post" action="poll-handler.php" enctype="multipart/form-data">
   <fieldset>
   <legend>Random Poll of the Day</legend>
     <div>
