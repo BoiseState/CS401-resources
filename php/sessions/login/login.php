@@ -1,7 +1,6 @@
 <?php
 require_once('includes/session-helper.php');
 
-// start a new session.
 session_start();
 
 // Check if user is already logged in. If they are, redirect them to the correct location.

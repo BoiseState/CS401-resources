@@ -1,8 +1,9 @@
 <?php
 require_once('includes/session-helper.php');
+
 session_start();
 
-// make sure session is valid. If not, direct them to login page.
+// Make sure session is valid. If not, direct them to login page.
 if (!validateSession()) {
 	$_SESSION["status"] = "You need to log in first";
 	header("Location: login.php");

@@ -2,7 +2,6 @@
 require_once("includes/Dao.php");
 require_once('includes/session-helper.php');
 
-//start the session. if session is already in progress, has no effect.
 session_start();
 
 // We only want to validate if they reached this page via a post.
@@ -38,10 +37,8 @@ if($_POST)
 		// IMPORTANT! The current implementation of validateUser() in this
 		// example always returns true.
 		if($dao->validateUser($email, $password)) {
-			session_regenerate_id(true);
-			$_SESSION["access_granted"] = true;
+			loginUser($email);
 			header("Location: granted.php");
-			die;
 		} else {
 			$errors['status'] = "Invalid username or password";
 		}
@@ -52,13 +49,11 @@ if($_POST)
 	# If we get this far, something went wrong.
 	$_SESSION['errors'] = $errors;
 	$_SESSION['presets'] = array('email' => htmlspecialchars($email));
-	$_SESSION["access_granted"] = false;
 	header("Location: login.php");
 	die; # Make sure this script terminates.
 } else {
 	# tried to access this page incorrectly. Just redirect them back to the
 	# main login page.
-	$_SESSION["access_granted"] = false;
 	header("Location: login.php");
 	die;
 }

@@ -10,8 +10,6 @@ if (!validateSession()) {
 	die;
 }
 
-
-session_destroy();
-session_regenerate_id(true); # nuke old session
+logoutUser();
 header("Location: login.php");
 ?>

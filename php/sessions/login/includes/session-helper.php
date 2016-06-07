@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Validates that the user has a valid session with access granted.
  */
@@ -10,6 +9,22 @@ function validateSession() {
 	} else {
 		return false;
 	}
+}
+
+/**
+ * Regenerates the session id and sets the login flag to true.
+ */
+function loginUser($email) {
+	session_regenerate_id(true);
+	$_SESSION["access_granted"] = true;
+}
+
+/**
+ * Destroys the session.
+ */
+function logoutUser() {
+	session_destroy();
+	session_regenerate_id(true); # nuke old session
 }
 
 /**
