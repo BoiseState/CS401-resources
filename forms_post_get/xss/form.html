@@ -1,0 +1,19 @@
+<html>
+	<head><title>XSS Demo</title></head>
+<body>
+	<section>
+	<form method="post" action="form-handler.php" >
+		<div>
+			<p><label>First Name: <input type="text" name="firstName"></label></p>
+			<p><label>Last Name: <input type="text" name="lastName"></label></p>
+			<p><input type="submit" name="Submit"></p>
+		</div>
+	</form>
+	</section>
+	<section>
+		<p>Enter: &lt;script&gt;alert('Haha!!');&lt;/script&gt;</p>
+		<p>Enter: &lt;script&gt;alert(document.cookie);&lt;/script&gt;</p>
+		<p>Enter: &lt;script&gt;alert(navigator.userAgent);&lt;/script&gt;</p>
+	</section>
+</body>
+</html>
