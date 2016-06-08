@@ -49,7 +49,7 @@ INSERT INTO users (username, password, first_name, last_name, email, species, ge
 CREATE TABLE posts (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	user_id INT NOT NULL,
-	message VARCHAR (255) NOT NULL,
+	message TEXT NOT NULL,
 	posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	FOREIGN KEY (user_id) REFERENCES users(id)
 );
