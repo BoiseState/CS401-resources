@@ -26,16 +26,13 @@ function addListeners(id) {
 	element.onmouseout = updateMouseover;
 }
 
-
-
-
 /*
  * Function: Update Mouseover
  * Description: "Listens" for mouseover events and then changes the corresponding
  * "current massive object mouseover" value in the companion HTML file.
 */
 function updateMouseover() {
-	var element = document.getElementById("current_object_mouseover");
+	var element = document.getElementById("current-object-mouseover");
 	var name = this.getAttribute('data-name');
     element.innerHTML = name;
 }
@@ -46,7 +43,7 @@ function updateMouseover() {
  * "most recent massive object single-click" value in the companion HTML file.
 */
 function updateSingleClick() {
-    var element = document.getElementById("recent_object_singleclick");
+    var element = document.getElementById("recent-object-singleclick");
 	var name = this.getAttribute('data-name');
     element.innerHTML = name;
 }
@@ -57,7 +54,7 @@ function updateSingleClick() {
  * "most recent massive object double-click" value in the companion HTML file.
 */
 function updateDoubleClick() {
-    var element = document.getElementById("recent_object_doubleclick");
+    var element = document.getElementById("recent-object-doubleclick");
 	var name = this.getAttribute('data-name');
     element.innerHTML = name;
 }

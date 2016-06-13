@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Example: Mouseover and Click Events </title>
+</head>
+
+<body>
+	<h1>Mouseover and/or click a massive object in our solar system to trigger an event!</h1>
+	<img src ="images/solarsystem.jpg" data-name="Solar System" usemap="#planetmap" />
+
+	<map name="planetmap">
+		<area id="sun" shape ="poly" coords ="0,423,94,489,162,575,0,574" data-name="Sun"/>
+		<area id="mercury" shape ="circle" coords ="227,477,54" data-name="Mercury" />
+		<area id="venus" shape ="circle" coords ="328,411,54" data-name="Venus"/>
+		<area id="earth" shape ="circle" coords ="451,353,70" data-name="Earth" />
+		<area id="moon" shape ="circle" coords ="481,258,10" data-name="Moon" />
+		<area id="mars" shape ="circle" coords ="569,312,40" data-name="Mars" />
+		<area id="jupiter" shape ="circle" coords ="650,269,35" data-name="Jupiter" />
+		<area id="saturn" shape ="circle" coords ="776,219,50" data-name="Saturn" />
+		<area id="uranus" shape ="circle" coords ="906,157,30" data-name="Uranus" />
+		<area id="neptune" shape ="circle" coords ="979,119,30" data-name="Neptune" />
+	</map>
+	<section>
+		<h1>Current massive object mouseover</h3>
+			<p id="current-object-mouseover">???</p>
+		<h1>Most recent massive object single-click</h3>
+			<p id="recent-object-singleclick">???</p>
+		<h1>Most recent massive object double-click</h3>
+			<p id="recent-object-doubleclick">???</p>
+	</section>
+		<script src="solar-system.js" type="text/javascript"></script>
+</body>
+</html>

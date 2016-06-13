@@ -22,18 +22,16 @@ window.onload = function(e) {
  */
 function changeMugshot() {
 	var mugshot = document.getElementById("mugshot");
+	var yeti = { alt: "yeti", src: "images/yeti.jpg"};
+	var puppy = { alt: "puppy", src: "images/puppy.jpg"};
 
 	/* Switch between the two mugshots, depending on the value of "mugshot.alt".
 	 * Note: we could use the path of mugshot.src, but it uses the absolute path
 	 * (instead of the relative path) so it could change depending on the system
 	 */
-	if(mugshot.alt === "Your current mugshot: Yeti") {
-		mugshot.src = "images/puppy.jpg";
-		mugshot.alt = "Your current mugshot: Puppy";
-	} else {
-		mugshot.src = "images/yeti.jpg";
-		mugshot.alt = "Your current mugshot: Yeti";
-	}
+	var img = (mugshot.alt === yeti.alt) ? puppy: yeti;
+	mugshot.setAttribute("src", img.src);
+	mugshot.setAttribute("alt", img.alt);
 
 	/* Update the timestamp of the mugshot */
 	updateTimestamp();
