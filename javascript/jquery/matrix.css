@@ -1,11 +1,12 @@
 body {
   font-family: 'consolas', monospace;
 }
-table, td {
+table, td, li {
   border: 5px solid gray;
   border-collapse: collapse;
 }
-table {
+
+table, ul{
   background-color: black;
   color: #0066FF;
   font-size: 50pt;
@@ -13,4 +14,10 @@ table {
 
 td.redpill {
   color: red;
+}
+
+li {
+  list-style: none;
+  width: 30%;
+  margin: 5px;
 }
