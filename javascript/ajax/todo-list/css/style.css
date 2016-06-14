@@ -1,0 +1,27 @@
+body {
+  font-family: 'consolas', monospace;
+}
+
+ul{
+
+  color: #0066FF;
+  font-size: 2em;
+}
+
+li {
+  border: 5px solid gray;
+  list-style: none;
+  margin: 5px;
+}
+
+.low {
+  color: green;
+}
+
+.medium {
+  color: orange;
+}
+
+.high {
+  color: red;
+}
