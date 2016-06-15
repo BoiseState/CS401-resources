@@ -7,8 +7,9 @@ $(document).ready(function() {
 	// Or could use hover
 	$("td").hover(function(){
 		$(this).toggleClass("redpill");
-	}, function(){
-		$(this).toggleClass("redpill");
+		$(this).hide("slow", function() {
+			$(this).show("slow");
+		});
 	});
 
 	$("#title").draggable();
