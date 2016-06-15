@@ -102,7 +102,7 @@ label.error {
   float:left;
   margin-right: 20px;
 }
-ul {
+ul.bronco {
   display: inline-block;
 }
 ul.bronco > li > ol {
