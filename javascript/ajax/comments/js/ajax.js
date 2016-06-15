@@ -5,7 +5,7 @@ $(document).ready(function() {
 		console.log(values);
 		$.ajax({
 			type: "POST",
-			url: "handler_ajax.php",
+			url: "ajax-handler.php",
 			data: values,
 			dataType: "json",
 			success: function(response) {

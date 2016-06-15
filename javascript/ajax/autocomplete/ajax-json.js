@@ -11,22 +11,22 @@ $(document).ready(function() {
 // Uses Ajax to get hint for current string value and displays the
 // hint in the nameHint span.
 function showHint(str) {
-    if (str.length == 0) {
-        $("#nameHint").text("");
-        return;
-    } else {
-		$.ajax({
-			type: "GET",
-			url: "form_hint.php",
-			data: {'q' : str },
-			dataType: "json",
-			success: function(response) {// response is json.
-				$("#nameHint").text(response.hints); // could make a dropdown.
-			},
-			error: function (request, status, errorThrown) {
+		if (str.length == 0) {
 				$("#nameHint").text("");
-			}
-		});
-	}
+				return;
+		} else {
+			$.ajax({
+				type: "GET",
+				url: "form-hint.php",
+				data: {'q' : str },
+				dataType: "json",
+				success: function(response) {// response is json.
+					$("#nameHint").text(response.hints); // could make a dropdown.
+				},
+				error: function (request, status, errorThrown) {
+					$("#nameHint").text("");
+				}
+			});
+		}
 }
 
