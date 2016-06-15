@@ -2,9 +2,7 @@
 <html>
 <head>
 	<title>JQuery Form Validation</title>
-	<!-- Custom web font -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	<link href='style.css' rel='stylesheet' type='text/css'>
+	<link href='css/style.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<!-- This is a modified version of example found at http://jqueryvalidation.org/documentation/ -->
@@ -30,20 +28,20 @@
 		<p>
 			<input class="submit" type="submit" name="submitButton" value="Submit">
 			<?php if(isset($_GET['success']) && $_GET['success'] == true) { ?>
-			<span class="success">Form submitted successfully!</span>
+				<span class="success">Form submitted successfully!</span>
 			<?php } ?>
 		</p>
 	</fieldset>
-</form>
-	<!-- To use JQuery, one option is to include it from Google's content delivery network (CDN). -->
-	<!-- There are other CDN possibilities. Another option is to download and install it manually. -->
+	</form>
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- JQuery validation plugin (http://plugins.jquery.com/validation/) included from Microsoft CDN -->
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
-<!-- This should really go in a separate js file -->
-<script>
-$(document).ready(function() {
-	$("#commentForm").validate();
-});
-</script>
+
+	<!-- This should really go in a separate js file -->
+	<script>
+	$(document).ready(function() {
+		$("#commentForm").validate();
+	});
+	</script>
 </body>

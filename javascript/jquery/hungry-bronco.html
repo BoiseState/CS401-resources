@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Example: The Hungry Bronco Feast Menu: Toggle and Hover Effects</title>
+	<link href="css/style.css" rel="stylesheet">
+	<!-- <!&#45;&#45; Give it a bit of style &#45;&#45;> -->
+	<!-- <style> -->
+	<!-- 	h1,h2 { text&#45;align: center; } -->
+	<!-- 	li { font&#45;size: 125%; } -->
+	<!-- 	td { vertical&#45;align:top; } -->
+	<!-- </style> -->
+</head>
+<body>
+<h1>Welcome to the Hungry Bronco!!</h1>
+<h2>Its Feast Time at the most popular restaurant in Downtown Boise!</h2>
+	<div id="horses"> <img src="images/hungry-horses.jpg" /> </div>
+	<h2>Search the menu to observe the meal item effects!</h2>
+	<ul class="menu bronco">
+		<li>
+			<button id="meatlover_button">Meatlover Food Menu</button>
+			<ol id="meatlover_items">
+				<li>Pepperoni + Sausage + Bacon Pizza</li>
+				<li>Roasted BBQ Chicken</li>
+				<li>Trailboss Buffalo Burger</li>
+				<li>Bacon Lettuce Tomato Sandwich</li>
+				<li>Chili + Cheese Hotdog</li>
+				<li>Pacific Clam Chowder</li>
+			</ol>
+		</li>
+		<li>
+			<button id="healthlover_button">Healthlover Food Menu</button>
+			<ol id="healthlover_items">
+				<li>Tofurky Vegetarian Roast</li>
+				<li>Tasty Idaho Baked Potatoes</li>
+				<li>Garbanzo Bean Tacos</li>
+				<li>Vegan Sloppy Joe Mix</li>
+				<li>Kale + Lettuce + Tomato Green Salad</li>
+				<li>Carrot + Mushroom Soup</li>
+			</ol>
+		</li>
+		<li>
+			<button id="drink_button">Drink Menu</button>
+			<ol id="drink_items">
+				<li>H2O</li>
+				<li>Florida Orange Juice</li>
+				<li>High-Powered Gamer Soda</li>
+				<li>Cow Milk</li>
+				<li>Joe Cool's Brew</li>
+				<li>Jolt Cola</li>
+				<li>Fruity Fruit All-Berry Smoothie</li>
+			</ol>
+		</li>
+	</ul>
+	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
+	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/bronco.js"></script>
+<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
+<noscript>
+<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+</noscript>
+</body>
+</html>

@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Styles used in menu.html */
@@ -96,3 +97,17 @@ label.error {
   margin-left: 10px;
 }
 
+/* For hungry-brono.php */
+#horses {
+  float:left;
+  margin-right: 20px;
+}
+ul {
+  display: inline-block;
+}
+ul.bronco > li > ol {
+  display: none;
+}
+ul.bronco > li {
+  background-color: inherit;
+}
