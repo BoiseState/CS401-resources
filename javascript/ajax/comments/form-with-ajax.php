@@ -10,7 +10,7 @@ $comments = $dao->getComments();
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<form id="form" method="POST" action="ajax-handler.php">
+		<form id="comment-form" method="POST">
 			<fieldset>
 			<legend>Leave a comment</legend>
 			<p>
@@ -19,7 +19,7 @@ $comments = $dao->getComments();
 				<?php if (isset($_SESSION["email"])) { ?>
 					value="<?php echo $_SESSION['email']; ?>"
 				<?php } ?>
-				name="email"/>
+				name="email" required>
 			</p>
 			<p>
 				<label for="comment">Leave a comment:</label>
@@ -27,7 +27,7 @@ $comments = $dao->getComments();
 				<?php if (isset($_SESSION["comment"])) { ?>
 					value="<?php echo $_SESSION['comment']; ?>"
 				<?php } ?>
-				name="comment"/>
+				name="comment" required>
 			<p>
 			<p>
 				<label for="age">Enter your age:</label>
@@ -35,7 +35,7 @@ $comments = $dao->getComments();
 				<?php if (isset($_SESSION['age'])) { ?>
 					value="<?php echo $_SESSION['age']; ?>"
 				<?php } ?>
-				name="age"/>
+				name="age" required>
 				<span id="ageError" class="error"></span>
 			<p>
 			<p>
