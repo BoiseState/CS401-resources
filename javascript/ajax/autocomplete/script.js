@@ -29,4 +29,3 @@ function showHint(str) {
 			});
 		}
 }
-
