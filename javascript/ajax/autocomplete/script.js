@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// Action listener for producing name hint
-	$('#name').keyup(function(e) { // listen for key up events in name field.
+	$('#name').on("keyup", function(e) { // listen for key up events in name field.
 		var code = e.which;
 		if(code != 16) { // ignore shift key
 			showHint($(this).val());
