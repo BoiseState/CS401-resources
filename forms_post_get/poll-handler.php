@@ -5,6 +5,16 @@
 <body>
 <?php
 /**
+ * Prints all the key value pairs received in the $_GET array
+ */
+function print_get_values() {
+  if(isset($_GET) && !empty($_GET)) {
+    foreach($_GET as $key => $value) { ?>
+      <p><?= $key . ': '; print_r(htmlspecialchars($value)); ?></p>
+  <?php }
+  }
+}
+/**
  * Prints all the key value pairs received in the $_POST array
  */
 function print_post_values() {
@@ -39,9 +49,14 @@ function upload_image($image_file, $upload_dir = "uploads") {
 ?>
 
 <?php
-if($_SERVER['REQUEST_METHOD'] == "POST")
+if($_SERVER['REQUEST_METHOD'] == "GET")
 {
   // Print all values received in the POST array
+  print_get_values();
+}
+else if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+   // Print all values received in the POST array
   print_post_values();
 
   // Print all values received in the FILES array
