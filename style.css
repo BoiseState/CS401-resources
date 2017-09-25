@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+  width: 100%;
+  height: 100vh;
+}
+
+.flex-item {
+  text-align: center;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  color: Gray;
+  background-color: AntiqueWhite;
+  text-decoration: none;
+  font-size: 1.5em;
+  border-radius: 5px;
+}
+
+.flex-item:hover {
+  background-color: lightGrey;
+}
