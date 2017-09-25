@@ -1,14 +1,14 @@
 <html>
 <head>
-  <title>Password Hashing</title>
+	<title>Password Hashing</title>
 </head>
 <body>
-  <form>
-    <p>
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password"></input>
-    </p>
-  </form>
+	<form>
+		<p>
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password"></input>
+		</p>
+	</form>
 </body>
 </html>
 <?php
@@ -20,14 +20,14 @@ $digest = password_hash($password, PASSWORD_DEFAULT);
 
 // Make sure it doesn't return false. Can fail for various reasons.
 if($digest) {
-  echo("<p>Generated digest: $digest</p>");
+	echo("<p>Generated digest: $digest</p>");
 } else {
-  echo("<p>Failed :(</p>");
+	echo("<p>Failed :(</p>");
 }
 
 // Verify that the password matches the digest
 if(password_verify($password, $digest)) {
-  echo("<p>Digest matched. Password verified.</p>");
+	echo("<p>Digest matched. Password verified.</p>");
 } else {
-  echo("<p>No match. You shall not pass.</p>");
+	echo("<p>No match. You shall not pass.</p>");
 }
