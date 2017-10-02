@@ -40,7 +40,3 @@ class Movie {
       return "{" . $this->title . ", " . $this->director . ", " . $this->releaseDate . "}";
     }
 }
-
-
-?>
-

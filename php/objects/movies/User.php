@@ -19,11 +19,11 @@ class User {
       return $this->email;
     }
 
-    public function getMovies() {
+    public function getFavMovies() {
       return $this->movies;
     }
 
-    public function addMovie($movie) {
+    public function addFavMovie($movie) {
       $this->movies[] = $movie;
     }
 
@@ -32,7 +32,3 @@ class User {
     }
 
 }
-
-
-?>
-

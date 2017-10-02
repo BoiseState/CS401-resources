@@ -11,8 +11,8 @@ $user1 = new User("HotDog42", "hotdog42@gmail.com");
 # read the movies from the file.
 $movies = readMovies("movies.txt");
 
-$user1->addMovie($movies[0]);
-$user1->addMovie($movies[count($movies) - 1]);
+$user1->addFavMovie($movies[0]);
+$user1->addFavMovie($movies[count($movies) - 1]);
 ?>
 <h1>All Movies</h1>
   <ul>
@@ -23,7 +23,7 @@ $user1->addMovie($movies[count($movies) - 1]);
 
 <h1><?= $user1->getUsername() . "'s " ?> Favorite Movies</h1>
   <ul>
-  <?php foreach($user1->getMovies() as $movie) { ?>
+  <?php foreach($user1->getFavMovies() as $movie) { ?>
     <li><?= $movie; ?></li>
   <?php } ?>
   </ul>
