@@ -1,0 +1,14 @@
+#!/bin/bash
+# Don't forget to chmod +x
+
+USER="your-heroku-user";
+PASS="your-heroku-pass";
+HOST="your-heroku-host";
+DB="your-heroku-db";
+
+# If passing name of script, then have mysql execute script.
+if [[ $# == 1 ]]; then
+	mysql --user="$USER" --password="$PASS" $DB --host="$HOST" < $1;
+else
+	mysql --user="$USER" --password="$PASS" $DB --host="$HOST";
+fi
