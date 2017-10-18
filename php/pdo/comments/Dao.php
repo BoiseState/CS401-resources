@@ -1,33 +1,43 @@
 <?php
-// Dao.php
-// class for saving and getting comments from MySQL
-class Dao {
+require_once('../db_config.php');
 
-  private $host = "localhost";
-  private $db = "webdev";
-  private $user = "csstudent";
-  private $pass = "password";
+class Dao
+{
+	/**
+	 * Creates a new PDO connection and returns the handle.
+	 */
+	private function getConnection()
+	{
+		$url = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
-  public function getConnection () {
-    $conn = new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); # Causes errors to throw an exception.
-    return $conn;
-  }
+		$host = $url["host"];
+		$db	 = substr($url["path"], 1);
+		$user = $url["user"];
+		$pass = $url["pass"];
 
-  public function saveComment ($comment) {
-    $conn = $this->getConnection();
-    $saveQuery =
-        "INSERT INTO comments
-        (comment)
-        VALUES
-        (:comment)";
-    $q = $conn->prepare($saveQuery);
-    $q->bindParam(":comment", $comment);
-    $q->execute();
-  }
+		// Create PDO instance using MySQL connection string.
+		$conn = new PDO("mysql:host=$host;dbname=$db;", $user, $pass);
 
-  public function getComments () {
-    $conn = $this->getConnection();
-    return $conn->query("SELECT * FROM comments");
-  }
+		// Make sure to turn on exceptions for debugging.
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		return $conn;
+	}
+
+	public function saveComment ($comment) {
+		$conn = $this->getConnection();
+		$saveQuery =
+				"INSERT INTO comments
+				(comment)
+				VALUES
+				(:comment)";
+		$q = $conn->prepare($saveQuery);
+		$q->bindParam(":comment", $comment);
+		$q->execute();
+	}
+
+	public function getComments () {
+		$conn = $this->getConnection();
+		return $conn->query("SELECT * FROM comments");
+	}
 } // end Dao

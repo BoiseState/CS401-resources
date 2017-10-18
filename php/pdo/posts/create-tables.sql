@@ -1,8 +1,5 @@
--- To run this script, use the following command on webdev
--- mysql -u csstudent -p < create-tables.sql
-
--- Tell it to use the webdev database.
-USE webdev;
+-- To run this script, use the following command at the mysql prompt 
+-- source create-tables.sql;
 
 -- Drop tables first.
 DROP TABLE IF EXISTS posts;

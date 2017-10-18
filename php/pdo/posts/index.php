@@ -1,7 +1,6 @@
 <?php 
 	require_once('Dao.php');
-	// for session hijack demo
-	setcookie('stolen', '', time()-3600);
+	setcookie('stolen', '', time()-3600); // for session hijack demo
 ?>
 <html>
 <head>
@@ -15,8 +14,8 @@
     <fieldset>
         <label for="username">Fake login username:</label>
         <input type="text" id="username" name="username" required>
-        <label for="fullName">Your real name:</label>
-        <input type="text" id="fullName" name="fullName" required>
+        <label for="realname">Your real name:</label>
+        <input type="text" id="realname" name="realname" required>
         <input type="submit" name="loginButton" value="Login">
     </fieldset>
   </form>

@@ -2,10 +2,10 @@
 This example demonstrates the use of a comments table managing comments on a simple web page.
 
 ## Setup
-To create tables needed in this example, execute the following sql script:
+To create tables needed in this example, source the create-table.sql script :
 
 ```
-$mysql -u csstudent -p < create-tables.sql
+source create-table.sql;
 ```
 
 ## Comments Table

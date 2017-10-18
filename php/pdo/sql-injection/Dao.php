@@ -1,24 +1,28 @@
 <?php
+require_once('../db_config.php');
 /**
  * Data Access Object (DAO) class. Contains all DB access code.
  */
 class Dao
 {
-	private $host ="localhost";
-	private $dbname = "webdev";
-	private $user = "csstudent";
-	private $password = "password";
-
 	/**
 	 * Creates a new PDO connection and returns the handle.
 	 */
 	private function getConnection()
 	{
+		$url = parse_url(getenv('CLEARDB_DATABASE_URL'));
+
+		$host = $url["host"];
+		$db   = substr($url["path"], 1);
+		$user = $url["user"];
+		$pass = $url["pass"];
+
 		// Create PDO instance using MySQL connection string.
-		$conn = new PDO("mysql:dbname={$this->dbname};host={$this->host};",
-						"$this->user", "$this->password");
+		$conn = new PDO("mysql:host=$host;dbname=$db;", $user, $pass);
+
 		// Make sure to turn on exceptions for debugging.
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 		return $conn;
 	}
 
@@ -134,4 +138,3 @@ class Dao
 		$stmt->execute();
 	}
 }
-?>

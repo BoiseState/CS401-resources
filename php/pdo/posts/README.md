@@ -1,12 +1,12 @@
 # Users and Posts
 This example demonstrates the use of a users table and a posts table for
-managinguse posts on a simple web page.
+managing posts on a simple web page.
 
 ## Setup
-To create tables needed in this example, execute the following sql script:
+To create tables needed in this example, source the create-tables.sql script:
 
 ```
-$mysql -u csstudent -p < create-tables.sql
+source create-tables.sql;
 ```
 
 ## Users Table

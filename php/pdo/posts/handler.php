@@ -1,7 +1,11 @@
 <?php
 require_once "Dao.php";
 
-# Used to send messages back to posts.php. Better to use sessions though.
+// Get userId from session so we can use it to validate their identity.
+session_start();
+$userId = $_SESSION['userId'];
+
+# Used to send messages back to posts.php. You should use sessions though.
 $queryParams = "";
 
 # Handle filter from index.php
@@ -37,9 +41,10 @@ if (isset($_POST["deleteButton"])) {
 	# May want to verify that they really want to delete it.
 	try {
 		$dao = new Dao();
-		# Not shown here, but before deleting, make sure that this post is actually
-		# owned by the user who is logged in before deleting.
-		$dao->deletePostById($id);
+		# Make sure that this post is actually owned by the user who is logged in before deleting.
+		if(!$dao->deleteUserPostById($userId, $id)) {
+			$queryParams="?error=Failed to delete post";
+		}
 	} catch (Exception $e) {
 		echo "<p>Failed to delete the post. Please try again later</p>.";
 		# Need to add logging so we know what went wrong.
@@ -54,7 +59,8 @@ if (isset($_POST["modifyButton"])) {
 	# May want to verify that they really want to modify it.
 	try {
 		$dao = new Dao();
-		$dao->updatePost($id, $message);
+		# Make sure that this post is actually owned by the user who is logged in before deleting.
+		$dao->updateUserPost($userId, $id, $message);
 	} catch (Exception $e) {
 		echo "<p>Failed to update the post. Please try again later</p>.";
 		# Need to add logging so we know what went wrong.

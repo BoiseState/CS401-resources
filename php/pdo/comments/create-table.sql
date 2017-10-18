@@ -1,5 +1,3 @@
-USE webdev;
-
 DROP TABLE IF EXISTS comments;
 
 CREATE TABLE comments (
