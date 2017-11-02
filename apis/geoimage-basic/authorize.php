@@ -1,15 +1,16 @@
 <?php
 	session_start();
+	$clientJson = json_decode(file_get_contents("instagram-client.txt"), true);
 
-	$lines = file("instagram-client.txt");
-	$CLIENT_ID = trim(explode(", ", $lines[0])[1]);	
-	$CLIENT_SECRET = trim(explode(", ", $lines[1])[1]);	
+	$CLIENT_ID = $clientJson['client_id'];
+	$CLIENT_SECRET = $clientJson['client_secret']; 
+	$REDIRECT_URI = $_SERVER['HTTP_REFERER'] . "authorize.php";
 	
 	$params = array(
 		 "client_id" => $CLIENT_ID,
 		 "client_secret" => $CLIENT_SECRET,
 		 "grant_type" => "authorization_code",
-		 "redirect_uri" => "http://webdev01.boisestate.edu/CS401-resources/apis/authorize.php", 
+		 "redirect_uri" => "$REDIRECT_URI", 
 		 "code" => $_GET['code']);
 
 	$pageurl = "https://api.instagram.com/oauth/access_token";
