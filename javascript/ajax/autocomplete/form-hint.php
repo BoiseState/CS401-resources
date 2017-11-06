@@ -7,5 +7,6 @@ if(isset($_GET["q"]))
 
 	$autocomplete = new NameAutoComplete();
 
+	header('Content-Type: application/json');
 	echo $autocomplete->getHintsJson($query);
 }
