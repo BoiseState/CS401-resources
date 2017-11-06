@@ -3,6 +3,15 @@ body {
   font-weight: 300;
 }
 
+table, th, tr, td {
+  border: 2px solid #B0B0B0;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+}
+
 /* Styles used in form_validation.php */
 legend {
   font-weight: 400;
@@ -45,5 +54,4 @@ label.error, span.error {
   color: #009900;
   margin-left: 10px;
 }
-
 
