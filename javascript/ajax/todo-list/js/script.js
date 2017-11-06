@@ -49,7 +49,6 @@ $(document).ready(function() {
 			console.log(error.responseJSON.message);
 			item.text('Failed to add task');
 			item.fadeOut(2000, function() { item.remove(); });
-
 		});
 	}
 
@@ -96,8 +95,10 @@ $(document).ready(function() {
 	}
 
 	function appendTaskListItem(json) {
-		var task = $('<li><span class="description"></span></li>');
+		console.log(json);
+		var task = $('<li><div class="description"></div><div class="details"></div></li>');
 		task.find('.description').text(json.description);
+		task.find('.details').text(json.details);
 		task.addClass(json.priority);
 		task.attr('id', "task_" + json.id);
 		taskList.append(task);

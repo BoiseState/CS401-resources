@@ -3,7 +3,6 @@ body {
 }
 
 ul{
-
   color: #0066FF;
   font-size: 2em;
 }
@@ -12,6 +11,11 @@ li {
   border: 5px solid gray;
   list-style: none;
   margin: 5px;
+}
+
+.details {
+  font-size: 1em;
+  display: none;
 }
 
 .low {
