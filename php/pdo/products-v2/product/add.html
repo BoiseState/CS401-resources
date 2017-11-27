@@ -1,0 +1,23 @@
+<!-- product/add.html -->
+<html>
+  <head><title>Add a product</title></head>
+  <body>
+     <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="name">Product Name:</label>
+          <input type="text" id="name" name="name"/>
+        </div>
+        <div>
+        <label for="description">Product Description:</label>
+        <input type="text" id="description" name="description"/>
+        </div>
+        <div>
+          <label for="file">Image:</label>
+          <input type="file" name="file" id="file">
+        </div>
+		<div>
+			<input type="submit" name="submit" value="Submit">
+		</div>
+     </form>
+  </body>
+</html>

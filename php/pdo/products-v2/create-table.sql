@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS product;
+
+CREATE TABLE product (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+	description VARCHAR(255) NOT NULL,
+	image_path VARCHAR(256),
+	image LONGBLOB
+);
