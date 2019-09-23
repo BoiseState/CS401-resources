@@ -26,7 +26,7 @@ class Superhero
 	}
 
 	public function setAlias($alias) {
-		$this->name = $name;
+		$this->alias = $alias;
 	}
 
 	public function getAlias() {

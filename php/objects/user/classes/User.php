@@ -48,7 +48,7 @@ class User
 
   public function deleteRoles($roles)
   {
-    $this->permissions = array_merge($this->permissions, $roles);
+    $this->permissions = array_diff($this->permissions, $roles);
   }
 
   public function hasPermission($role)
