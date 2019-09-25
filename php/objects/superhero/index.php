@@ -2,8 +2,14 @@
   // Import the Superhero class
   require_once('Superhero.php');
 
+  // Page title
   $title = "Superhero of the Day";
-  $hero = new Superhero("Peter", "Parker", "Spiderman", "Spidey-sense");
+
+  // Create new superhero object instance
+  $hero = new Superhero("Peter", "Parker", "Spiderman");
+  $hero->addAbility("spidey-sense");
+  $hero->addAbility("web shooters");
+  $hero->addAbility("super-human strength");
 ?>
 
 <html>
@@ -17,17 +23,21 @@
   </header>
   <main>
     <article>
-
       <!-- Call methods on our hero instance to generate the super hero of the day -->
       <section>
         <h2>Stats</h2>
         <dl>
           <dt>Name:</dt><dd><?= $hero->getFullName(); ?></dd>
           <dt>Alias:</dt><dd><?= $hero->getAlias(); ?></dd>
-          <dt>Abilities:</dt><dd><?= $hero->getAbilities(); ?></dd>
+          <dt>Abilities:</dt><dd>
+          <ul>
+          <?php foreach($hero->getAbilities() as $ability) { // print each ability as list item ?> 
+            <li><?= $ability; ?></li>
+          <?php } ?>
+          </ul>
         </dl>
         <p>
-          Our superhero is <?= $hero ?>. Abilities are <?= $hero->getAbilities(); ?>.
+          Our superhero is <?= $hero ?>. Abilities are <?= implode(", ", $hero->getAbilities()); ?>.
           Initials are <?= $hero->getInitials(); ?>
         </p>
       </section>
