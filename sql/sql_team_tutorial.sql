@@ -14,9 +14,6 @@
 
 -- You will turn in copies of both files at the end of class.
 
--- (put in create-tables.sql) Use your webdev database from this point on.
-USE webdev;
-
 -- (put in create-tables.sql) Drop table if it already exists so you can start fresh each time.
 DROP TABLE IF EXISTS users;
 
@@ -26,7 +23,7 @@ CREATE TABLE users (
 	email VARCHAR(100) NOT NULL UNIQUE,
 	password VARCHAR (256) NOT NULL,
 	name VARCHAR (50) NOT NULL,
-        age INT NOT NULL
+	age INT NOT NULL
 );
 
 -- Make sure that this worked. Show that the new blank table is empty

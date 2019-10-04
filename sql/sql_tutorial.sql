@@ -1,11 +1,5 @@
--- login to mysql before running these commands.
-mysql -u csstudent -p webdev 
-
 -- see existing databases for your username
 SHOW DATABASES;
-
--- user your database from this point on.
-USE webdev;
 
 -- display all tables in database (probably empty)
 SHOW TABLES;
@@ -19,7 +13,6 @@ CREATE TABLE users (
 	last_name VARCHAR(50) NOT NULL,
 	email VARCHAR(100) NOT NULL,
 	species VARCHAR (100) NOT NULL DEFAULT 'human',
-	gender CHAR(1) NOT NULL,
 	age INT NOT NULL
 );
 
@@ -35,32 +28,32 @@ SELECT * FROM users;
 -- Can show warnings with \W
 
 -- use insert to insert a row with specific id.
-INSERT INTO users VALUES(1, 'gummybear', 'gummypass', 'Gummy', 'Bear', 'gummybear@example.com', 'bear', 'F', 1);
+INSERT INTO users VALUES(1, 'gummybear', 'gummypass', 'Gummy', 'Bear', 'gummybear@example.com', 'bear', 1);
 
 -- use the select statements to show table contents
 SELECT * FROM users;
 
 -- use insert to populate the users table (faster to do this from a file or copy/paste!!!)
-INSERT INTO users  (username, password, first_name, last_name, email, species, gender, age)
-	VALUES( 'gummybear', 'gummypass', 'Gummy', 'Bear', 'gummybear@example.com', 'bear', 'F', 1);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('snoopy', 'snoopypass', 'Snoopy', 'Brown', 'snoopy@example.com', 'dog', 'M', 7 );
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('blackwidow', 'nataliapass', 'Natalia', 'Romanova', 'natalia@example.com', 'human', 'F', 30);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('mulan', 'huapass', 'Mulan', 'Hua', 'mulan@example.com', 'human', 'F', 18);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('fredflintstone', 'fredpass', 'Fred', 'Flintstone', 'fred@example.com', 'human', 'M', 40);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('bugsbunny', 'bugspass', 'Bugs', 'Bunny', 'bugs@example.com', 'rabbit', 'M', 6);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('thehulk', 'brucepass', 'Bruce', 'Banner', 'brucebanner@example.com', 'human', 'M', 47);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('charliebrown', 'charliepass', 'Charlie', 'Brown','charliebrown@example.com', 'human', 'M', 8);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('princesspocahontas', 'pocahontaspass', 'Pocahontas', 'Rolfe', 'princesspocahontas@example.com', 'human', 'F', 23);
-INSERT INTO users (username, password, first_name, last_name, email, species, gender, age)
-	VALUES ('batman', 'brucepass', 'Bruce', 'Wayne', 'brucewayne@example.com', 'bat', 'M', 38);
+INSERT INTO users  (username, password, first_name, last_name, email, species, age)
+	VALUES( 'gummybear', 'gummypass', 'Gummy', 'Bear', 'gummybear@example.com', 'bear', 1);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('snoopy', 'snoopypass', 'Snoopy', 'Brown', 'snoopy@example.com', 'dog', 7 );
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('blackwidow', 'nataliapass', 'Natalia', 'Romanova', 'natalia@example.com', 'human', 30);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('mulan', 'huapass', 'Mulan', 'Hua', 'mulan@example.com', 'human', 18);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('fredflintstone', 'fredpass', 'Fred', 'Flintstone', 'fred@example.com', 'human', 40);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('bugsbunny', 'bugspass', 'Bugs', 'Bunny', 'bugs@example.com', 'rabbit', 6);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('thehulk', 'brucepass', 'Bruce', 'Banner', 'brucebanner@example.com', 'human', 47);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('charliebrown', 'charliepass', 'Charlie', 'Brown','charliebrown@example.com', 'human', 8);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('princesspocahontas', 'pocahontaspass', 'Pocahontas', 'Rolfe', 'princesspocahontas@example.com', 'human', 23);
+INSERT INTO users (username, password, first_name, last_name, email, species, age)
+	VALUES ('batman', 'brucepass', 'Bruce', 'Wayne', 'brucewayne@example.com', 'bat', 38);
 
 
 -- use the select statement to show table contents
@@ -70,12 +63,12 @@ SELECT * FROM users;
 SELECT username FROM users;
 
 -- show multiple columns in the table
-SELECT first_name, last_name, gender, species FROM users;
+SELECT first_name, last_name, species FROM users;
 
 
 
 -- filter with the WHERE clause with one condition
-SELECT * FROM users WHERE gender = 'F';
+SELECT * FROM users WHERE species = 'human';
 
 -- filter with one condition to show equal
 SELECT * FROM users WHERE age = 6;
@@ -86,8 +79,8 @@ SELECT * FROM users WHERE age <= 33;
 -- filter with one condition for a specific age range (with a min and max)
 SELECT * FROM users WHERE age between 7 AND 33;
 
--- filter with multiple conditions for a specific age range and gender
-SELECT * FROM users WHERE age between 7 AND 33 AND gender = 'F';
+-- filter with multiple conditions for a specific age range and species 
+SELECT * FROM users WHERE age between 7 AND 33 AND species = 'dog';
 
 
 
@@ -156,14 +149,14 @@ SELECT * FROM users ORDER BY username, species DESC LIMIT 3;
 -- aggregate data by computing the average age
 SELECT AVG(age) FROM users;
 
--- aggregate data by computing the average age for females
-SELECT AVG(age) FROM users WHERE gender = 'F';
+-- aggregate data by computing the average age for humans 
+SELECT AVG(age) FROM users WHERE species = 'human';
 
--- aggregate data by computing the average age for males
-SELECT AVG(age) FROM users WHERE gender = 'M';
+-- aggregate data by computing the average age for dogs 
+SELECT AVG(age) FROM users WHERE species = 'dog';
 
--- aggregate data by computing the average age for females and males by group
-SELECT gender, AVG(age) FROM users GROUP BY gender;
+-- aggregate data by computing the average age for humans and dogs by group
+SELECT species, AVG(age) FROM users GROUP BY species;
 
 -- aggregate data to count the number of users with age greater than 30
 SELECT COUNT(*) FROM users WHERE age > 30;
@@ -192,10 +185,12 @@ DELETE FROM users WHERE username = 'fredflintstone';
 SELECT * FROM users;
 
 -- Be careful!!
-DELETE FROM users;
+-- DELETE FROM users;
 
 -- Get rid of table and start over
-DROP TABLE users;
+-- DROP TABLE users;
+
+
 
 -- create a second table with posts
 CREATE TABLE posts (
