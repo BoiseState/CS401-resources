@@ -6,7 +6,7 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-#header {
+header {
   /* width: 95%; */
   margin-left: 10px;
   margin-right: 10px;
@@ -14,15 +14,15 @@ body {
   /* background-color: #6C91B5; */
 }
 
-#header > div.logo {
+header > div.logo {
   float: left;
 }
 
-#header > div.text {
+header > div.text {
   float: right;
 }
 
-#header > div.text > span {
+header > div.text > span {
   display: inline-block;
   vertical-align: bottom;
   line-height: normal;
@@ -33,7 +33,7 @@ div.login > button {
   margin: 10px;
 }
 
-div#navigation {
+nav {
 	clear: left;
   width: 95%;
   margin-left: auto;
@@ -41,14 +41,13 @@ div#navigation {
   margin-top: -30px;
 }
 
-#navigation ul {
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  /* float: right; */
 }
 
-#navigation li {
+nav li {
   background: #ccc;
   border-left: 1px solid #999;
   border-right: 1px solid #999;
@@ -59,25 +58,25 @@ div#navigation {
   border-radius: 10px 10px 0px 0px;
 }
 
-#navigation a {
+nav a {
   color: #666;
   font-weight: bold;
   padding: 10px 20px;
   text-decoration: none;
 }
 
-#navigation a:hover {
+nav a:hover {
   color: #333;
 }
 
-#navigation #currentpage > a {
+nav #currentpage > a {
   background: #fefefe;
   border-bottom: 2px solid #fefefe;
   color: #333;
   border-radius: 10px 10px 0px 0px;
 }
 
-div.content {
+main {
   clear: both;
   background-color: #fefefe;
   border: 1px solid #999;
@@ -97,7 +96,7 @@ form .submit {
 }
 
 
-#footer {
+footer {
   clear: both;
 	text-align: center;
 }

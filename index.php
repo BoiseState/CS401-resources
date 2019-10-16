@@ -8,7 +8,7 @@
 <div class="flex-container">
 <?php
   // $dirs = glob("*", GLOB_ONLYDIR);
-  $dirs = array("html-css", "javascript", "php", "templating", "forms-post-get", "sql", "apis", "static-website", "sample-website");
+  $dirs = array("html-css", "php", "sql", "javascript", "apis");
   foreach($dirs as $dir) {
 ?>
 	<a class="flex-item" href="<?= $dir ?>"><?= $dir ?></a> 
