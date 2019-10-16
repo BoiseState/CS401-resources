@@ -1,7 +1,7 @@
 <?php
 // Since we are using a sub-directory, specify the config include relative to 
 // this directory (__DIR__).
-require_once(__DIR__ . '/../db_config.php');
+require_once(__DIR__ . '/../db-config.php');
 class Dao
 {
 	/**

@@ -1,3 +1,5 @@
+USE webdev;
+
 -- Drop table first.
 DROP TABLE IF EXISTS users;
 

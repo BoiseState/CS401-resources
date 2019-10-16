@@ -1,9 +1,11 @@
 <?php
-require_once('../db_config.php');
+require_once('../db-config.php');
 class Dao
 {
 	/**
 	 * Creates a new PDO connection and returns the handle.
+   *
+   * @return PDO connection 
 	 */
 	private function getConnection()
 	{
@@ -22,7 +24,12 @@ class Dao
 
 		return $conn;
 	}
-	
+
+	/**
+   * Returns list of all usernames in the users table.
+   *
+   * @return Array of rows in the result set.
+   */
 	public function getUsernameList()
 	{
 		$conn = $this->getConnection();
@@ -30,6 +37,11 @@ class Dao
 		return $stmt->fetchAll();
 	}
 
+  /**
+   * Checks if the specified username exists in the users table. 
+   *
+   * @return bool True if exists, false otherwise.
+   */
 	public function userExists($username)
 	{
 		if($this->getUser($username)) {
@@ -39,6 +51,13 @@ class Dao
 		}
 	}
 
+  /**
+   * Returns the row in the users table for the specified username.
+   *
+   * @param String The target username.
+   *
+   * @return The row from the result set or false if user not found.
+   */
 	public function getUser($username)
 	{
 		$conn = $this->getConnection();
@@ -48,6 +67,15 @@ class Dao
 		return $stmt->fetch();
 	}
 
+  /**
+   * Returns the set of rows in the posts join users table where the
+   * specified key equals the given value.
+   *
+   * @param String The name of the column to search on.
+   * @param String The value to search for.
+   *
+   * @return Array of rows in the result set.
+   */
 	public function filterPostsByKey($key, $value)
 	{
 		$conn = $this->getConnection();
@@ -56,21 +84,44 @@ class Dao
 							WHERE $key = :value");
 		$stmt->bindParam(":value", $value);
 		$stmt->execute();
-		return $stmt;
+		return $stmt->fetchAll();
 	}
 
+  /**
+   * Returns the set of rows in the posts users table
+   *
+   * @param String The name of the column to search on.
+   * @param String The value to search for.
+   *
+   * @return Array of rows in the result set.
+   */
 	public function getPostsJoinUserName() {
 		$conn = $this->getConnection();
-		return $conn->query("SELECT u.first_name, u.last_name, u.username, p.id, p.message, p.posted
-						 FROM posts AS p JOIN users AS u ON p.user_id = u.id");
+    $query = "SELECT u.first_name, u.last_name, u.username, p.id, p.message, p.posted
+              FROM posts AS p JOIN users AS u 
+              ON p.user_id = u.id";
+    $stmt = $conn->query($query);
+		return $stmt->fetchAll();
 	}
 
+  /**
+   * Returns the set of rows in the posts table.
+   *
+   * @return Array of rows in the result set.
+   */
 	public function getPosts()
 	{
 		$conn = $this->getConnection();
-		return $conn->query("SELECT * FROM posts");
+    $stmt = $conn->query("SELECT * FROM posts");
+		return $stmt->fetchAll();
 	}
-
+  
+  /**
+   * Inserts a post into the posts table for the specified user. 
+   *
+   * @param String The username of the poster.
+   * @param String The message of the post.
+   */
 	public function addPost($username, $message)
 	{
 		$user = $this->getUser($username); 	
@@ -89,9 +140,9 @@ class Dao
 
 	/**
 	 * Deletes the specified post.
-	 *
+   *
 	 * @param int The id of the post to be deleted.
-	 *
+   *
 	 * @return bool True if post was deleted, false otherwise. 
 	 */
 	public function deletePostById($id)
@@ -108,7 +159,7 @@ class Dao
 	 *
 	 * @param int The id of the user who owns the post to be deleted.
 	 * @param int The id of the post to be deleted.
-	 *
+   *
 	 * @return bool True if post was deleted, false otherwise. 
 	 */
 	public function deleteUserPostById($userId, $id)

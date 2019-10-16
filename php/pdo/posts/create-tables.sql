@@ -51,8 +51,15 @@ CREATE TABLE posts (
 	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 -- use insert to populate the posts table (faster to do this from a file or copy/paste!!!)
+
+
+
 INSERT INTO posts (user_id, message, posted) VALUES(
 	(SELECT id FROM users WHERE username = 'charliebrown'), 'That''s the secret to life... replace one worry with another...', '2015-09-13 12:30:10');
+
+
+
+
 INSERT INTO posts (user_id, message, posted) VALUES (
 	(SELECT id FROM users WHERE username = 'princesspocahontas'), 'Good grief Charlie Brown!', '2015-09-14 8:32:10');
 INSERT INTO posts (user_id, message, posted) VALUES (
