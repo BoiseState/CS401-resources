@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JavaScript Example: The Amazing Number Calculator</title>
-	<link href="style.css" rel="stylesheet" type="style/css" />
+  <title>JavaScript Example: The Amazing Number Calculator</title>
+  <link href="style.css" rel="stylesheet" type="style/css" />
+  <script src="the-amazing-calculator.js" defer></script>
 </head>
 <body>
-<h1 id="calculator">The Amazing Number Calculator </h1>
-<div>
-	<input id="var_x" type="text" size="6" />
-	<select id="operation">
-		<option value="add">+</option>
-		<option value="sub">-</option>
-		<option value="mul">*</option>
-		<option value="div">/</option>
-		<option value="mod">%</option>
-		<option value="exp">^</option>
-	</select>
-	<input id="var_y" type="text" size="6" /> =
-	<span id="answer"></span>
-	<p><button id="computeButton">Compute!</button></p>
-</div>
-
-
-	<script src="the-amazing-calculator.js" type="text/javascript"></script>
-	<!-- If the user's web browser is not JavaScript-enabled, then print a warning -->
-	<noscript>
-	<p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
-	</noscript>
+  <main>
+  <h1>The Amazing Number Calculator</h1>
+  <form>
+    <input id="var_x" type="text" size="6" />
+    <select id="operation">
+      <option value="add">+</option>
+      <option value="sub">-</option>
+      <option value="mul">*</option>
+      <option value="div">/</option>
+      <option value="mod">%</option>
+      <option value="exp">^</option>
+    </select>
+    <input id="var_y" type="text" size="6" /> =
+    <span id="answer"></span>
+    <p><button id="computeButton">Compute!</button></p>
+  </form>
+  <!-- Print warning if user web browser is not JavaScript-enabled -->
+  <noscript>
+  <p class="error">Warning: This page requires JavaScript! Please visit this page with a JavaScript-enabled web browser. </p>
+  </noscript>
+  </main>
 </body>
 </html>
