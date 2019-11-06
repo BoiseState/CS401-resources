@@ -4,14 +4,14 @@
 //**************************************************************
 
 /**
- * update initial time stamp and add action listeners.
+ * Update initial time stamp and add action listeners.
  */
 window.onload = function(e) {
 
-	// Makes sure that the timestamp is updated when the page is initially loaded.
-	updateTimestamp(e);
+	// Updates the timestamp when the page is initially loaded.
+	updateTimestamp();
 
-	// Add event listener handler (change_mugshot function) to mugshot button.
+	// Adds event listener handler (change_mugshot function) to mugshot button.
 	document.getElementById("updateButton").onclick = changeMugshot;
 }
 
@@ -21,15 +21,15 @@ window.onload = function(e) {
  * of the image node with the "mugshot" identifier.
  */
 function changeMugshot() {
-	var mugshot = document.getElementById("mugshot");
-	var yeti = { alt: "yeti", src: "images/yeti.jpg"};
-	var puppy = { alt: "puppy", src: "images/puppy.jpg"};
+	let mugshot = document.getElementById("mugshot");
+	let yeti = { alt: "yeti", src: "images/yeti.jpg"};
+	let puppy = { alt: "puppy", src: "images/puppy.jpg"};
 
 	/* Switch between the two mugshots, depending on the value of "mugshot.alt".
 	 * Note: we could use the path of mugshot.src, but it uses the absolute path
 	 * (instead of the relative path) so it could change depending on the system
 	 */
-	var img = (mugshot.alt === yeti.alt) ? puppy: yeti;
+	let img = (mugshot.alt === yeti.alt) ? puppy: yeti;
 	mugshot.setAttribute("src", img.src);
 	mugshot.setAttribute("alt", img.alt);
 

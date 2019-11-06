@@ -17,7 +17,7 @@ if($_POST && isset($_POST['currentImage'])) {
 <html>
 <head>
 	<title>PHP Example: Change Mugshot</title>
-	<link href="style.css" rel="stylesheet" type="style/css" />
+	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div>
