@@ -6,19 +6,22 @@
 	$CLIENT_SECRET = $clientJson['client_secret']; 
 	$REDIRECT_URI = $_SERVER['HTTP_REFERER'] . "authorize.php";
 	
-	$params = array(
+	$requestBody = array(
 		 "client_id" => $CLIENT_ID,
 		 "client_secret" => $CLIENT_SECRET,
 		 "grant_type" => "authorization_code",
 		 "redirect_uri" => "$REDIRECT_URI", 
-		 "code" => $_GET['code']);
+		 "code" => htmlspecialchars($_GET['code']));
+	$requestUrl = "https://api.instagram.com/oauth/access_token";
 
-	$pageurl = "https://api.instagram.com/oauth/access_token";
-	$ch = curl_init($pageurl);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$response = curl_exec($ch);
+	$curl = curl_init($requestUrl);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $requestBody);
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+	$response = curl_exec($curl);
 	$json = json_decode($response, true);
+
 	$_SESSION['access_token'] = $json['access_token'];
+
 	header("Location: geoimage.php");	
 ?>
