@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JQuery Example: Enter the Matrix!</title>
-	<link href="css/matrix.css" type="text/css" rel="stylesheet" />
+  <title>JQuery Example: Enter the Matrix!</title>
+  <link href="css/matrix.css" type="text/css" rel="stylesheet" />
+  <!-- Include jQuery core from jQuery CDN (Content Delivery Network) -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"
+          defer></script>
+  <!-- Include jQuery UI from jQuery CDN (Content Delivery Network) -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+          integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+          crossorigin="anonymous"
+          defer></script>
+  <!-- This is our script file. Must include after since it depends on jQuery and jQuery UI. -->
+  <script src="js/matrix.js" defer></script>
 </head>
 <body>
-	<h1 id="title" class="ui-widget-content">Enter the Matrix!</h1>
-	<table id="matrix" class="ui-widget-content">
-		<tr><td>00</td><td>01</td><td>02</td></tr>
-		<tr><td>10</td><td>11</td><td>12</td></tr>
-		<tr><td>20</td><td>21</td><td>22</td></tr>
-	</table>
-	<ul id="matrix-list">
-		<li>00</li>
-		<li>01</li>
-		<li>02</li>
-		<li>03</li>
-		<li>04</li>
-		<li>05</li>
-		<li>06</li>
-		<li>07</li>
-	</ul>
-	<!-- To use JQuery, one option is to include it from Google's content delivery network (CND). -->
-	<!-- There are other CND possibilities. Another option is to download and install it manually. -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<!-- This is our script file. Must include after since it depends on jquery. -->
-	<script src="js/matrix.js"></script>
+  <main>
+    <h1 id="title">Enter the Matrix!</h1>
+    <table id="matrix">
+      <tr><td>00</td><td>01</td><td>02</td></tr>
+      <tr><td>10</td><td>11</td><td>12</td></tr>
+      <tr><td>20</td><td>21</td><td>22</td></tr>
+      <caption>You have not entered the matrix.</caption>
+    </table>
+    <ul id="matrix-list">
+      <li>00</li>
+      <li>01</li>
+      <li>02</li>
+      <li>03</li>
+      <li>04</li>
+      <li>05</li>
+      <li>06</li>
+      <li>07</li>
+    </ul>
+  </main>
 </body>
 </html>

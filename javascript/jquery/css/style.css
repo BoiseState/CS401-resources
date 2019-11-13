@@ -5,31 +5,31 @@ body {
 }
 
 /* Styles used in menu.html */
-ul.menu {
+ul#menu {
   font-family: 'Shadows Into Light', cursive;
   font-size: 12pt;
   list-style: none;
   padding-left: 0;
 }
 
-ul.menu > li {
+ul#menu > li {
   background-color: #ff9900;
   padding: 10px;
   margin: 10px 0px;
 }
 
-.menu a:visited {
+#menu a:visited {
   color: white;
 }
 
-.menu a {
+#menu a {
   text-decoration: none;
   color: white;
   font-size: 20pt;
   text-shadow: 1px 1px 1px #444;
 }
 
-.menu a.selected {
+#menu a.selected {
   font-size: 30pt;
   color:#3366FF;
 }

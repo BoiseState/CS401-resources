@@ -1,14 +1,39 @@
 body {
   font-family: 'consolas', monospace;
 }
-table, td, li {
-  border: 5px solid gray;
-  border-collapse: collapse;
+
+main {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
 }
 
-table, ul{
-  background-color: black;
+h1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+table, ul {
+  grid-row-start: 2; /* table and list in same row */
+}
+
+table {
+  grid-column-start: 1; /* table in left column */
+  border-collapse: collapse;
+  margin: auto;
+}
+
+ul {
+  grid-column-start: 2; /* list in right column */
+}
+
+td, li {
+  border: 3px solid gray;
   color: #0066FF;
+  background-color: black;
+}
+
+td {
   font-size: 50pt;
 }
 

@@ -1,12 +1,27 @@
+<!--
+This is a modified version of example found at http://jqueryvalidation.org/documentation/
+-->
 <!DOCTYPE html>
 <html>
 <head>
 	<title>JQuery Form Validation</title>
 	<link href='css/style.css' rel='stylesheet' type='text/css'>
+
+  <!-- Include jQuery core from jQuery CDN (Content Delivery Network) -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"
+          defer></script>
+
+	<!-- JQuery validation plugin (http://plugins.jquery.com/validation/) included from Microsoft CDN -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js" defer></script>
+
+	<!-- Include our JavaScript source -->
+	<script src="js/form-validate.js" defer></script>
 </head>
 <body>
-	<!-- This is a modified version of example found at http://jqueryvalidation.org/documentation/ -->
-	<form class="cmxform" id="commentForm" method="post" action="form-handler.php">
+  <!-- Note: HTML validation disabled so we can use our custom error handling -->
+	<form class="cmxform" id="commentForm" method="post" action="form-handler.php" novalidate>
 	<fieldset>
 		<legend>Please provide your name, email address (won't be published) and a comment</legend>
 		<p>
@@ -33,15 +48,4 @@
 		</p>
 	</fieldset>
 	</form>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- JQuery validation plugin (http://plugins.jquery.com/validation/) included from Microsoft CDN -->
-	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
-
-	<!-- This should really go in a separate js file -->
-	<script>
-	$(document).ready(function() {
-		$("#commentForm").validate();
-	});
-	</script>
 </body>
