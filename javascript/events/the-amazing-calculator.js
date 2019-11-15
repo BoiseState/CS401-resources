@@ -3,7 +3,8 @@
  * which contains the function for the event handler.
  */
 
-// Store references to input and output fields.
+// Store references to input and output fields so we don't have to 
+// retrive them every time thte compute function is called.
 const xField = document.getElementById("var_x");
 const yField = document.getElementById("var_y");
 const opSelector = document.getElementById("operation");
@@ -11,7 +12,6 @@ const answer = document.getElementById("answer");
 
 // Retrieve and add action listener to compute button.
 const computeButton = document.querySelector("#computeButton");
-
 computeButton.addEventListener('click', compute);
 
 /**

@@ -1,23 +1,22 @@
+<?php
+$cookieName = "username";
+$cookieValue = isset($_COOKIE[$cookieName]) ? htmlspecialchars($_COOKIE[$cookieName]) : "";
+?>
 <html>
 <head>
 	<title>Cookie Example: Simple Value Change With Form</title>
 </head>
 <body>
-<?php
-$cookieName = "username";
-$cookieValue = "";
-
-# Print current cookie status
-if(!isset($_COOKIE[$cookieName])) { ?>
+  <!-- Print cookie status -->
+<?php if(!isset($_COOKIE[$cookieName])) { ?>
 	<p>Cookie named '<?= $cookieName; ?>' is not set!
 	Set the value of the cookie with the form below!</p>
-<?php } else {
-	$cookieValue = $_COOKIE[$cookieName];
-?>
+<?php } else { ?>
 	<p>Cookie '<?= $cookieName; ?>' is set!</p>
 	<p>Value is: <?= $cookieValue; ?></p>
 <?php } ?>
 
+  <!-- Cookie form -->
 	<form action="cookie-form-handler.php" method="post">
 		<label for="cookieValue">Enter new value of cookie:</label>
 		<input type="text" id="cookieValue" name="cookieValue" value="<?= $cookieValue; ?>"/>
